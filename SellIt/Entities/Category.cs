@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,63 +9,80 @@ using System.Threading.Tasks;
 namespace SellIt.Entities
 {
     public class Category
-      {
+    {
         #region Attributs
-        private long categoryID;
+        private long categoryId;
         private string name;
         private Brand brand;
         private string description;
         private float tva;
-        private List<Car> cars;
         private float price;
         #endregion
 
         #region Properties
-        public long CategoryID
-        {
-            get { return categoryID; }
-            set { categoryID = value; }
-        }         
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public long CategoryId
+        {
+            get { return categoryId; }
+            set { categoryId = value; }
+        }
+
+        [Column("name")]
+        [MaxLength(200)]
+        [MinLength(1)]
+        [Required]
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        
+
+        [Column("description")]
+        [MaxLength(200)]
+        [MinLength(4)]
         public string Description
         {
             get { return description; }
             set { description = value; }
         }
-      
+
+        [Column("brand")]
+        [Required(ErrorMessage = "une marque est obligatoire")]
         public Brand Brand
         {
             get { return brand; }
             set { brand = value; }
-        }       
+        }
 
+        [Column("price")]
+        [Required(ErrorMessage = "un prix est obligatoire")]
         public float Price
         {
             get { return price; }
             set { price = value; }
         }
-        
 
+        [Column("tva")]
+        [Required(ErrorMessage = "une tva est obligatoire")]
         public float Tva
         {
             get { return tva; }
             set { tva = value; }
         }
-      
-        public List<Car> Cars
+
+        #endregion
+
+        #region Functions
+
+        public override string ToString()
         {
-            get { return cars; }
-            set { cars = value; }
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
+
         #endregion
 
     }
-
-
 }

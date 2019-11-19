@@ -10,15 +10,15 @@ namespace SellIt.Entities
     {
 
         #region attribut
-        private long clientID;
+        private long clientId;
         #endregion
 
 
         #region properties
-        public long ClientID
+        public long ClientId
         {
-            get { return clientID; }
-            set { clientID = value; }
+            get { return clientId; }
+            set { clientId = value; }
         }
         #endregion
     }

@@ -1,18 +1,21 @@
-﻿using System;
+﻿using SellIt.Entities.ValidationEntities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
-   public class Order
+    public class Order
     {
 
         #region attributs
-        private long orderID;
-        private long clientID;
-        private int sellerID;
+        private long orderId;
+        private long clientId;
+        private int sellerId;
         private List<Car> cars;
         private DateTime dateOrder;
         private DateTime dateDelivery;
@@ -20,24 +23,31 @@ namespace SellIt.Entities
 
 
         #region properties
+        [Column("orderId")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long OrderID
         {
-            get { return orderID; }
-            set { orderID = value; }
+            get { return orderId; }
+            set { orderId = value; }
         }
-      
-      
-        public long ClientID
+
+        [Column("clientId")]
+        [ForeignKey("Client")]
+        [Required(ErrorMessage = "Un client doit être associé.")]
+        public long ClientId
         {
-            get { return clientID; }
-            set { clientID = value; }
+            get { return clientId; }
+            set { clientId = value; }
         }
 
-
+        [Column("sellerId")]
+        [ForeignKey("Seller")]
+        [Required(ErrorMessage = "Un vendeur doit être associé.")]
         public int SellerID
         {
-            get { return sellerID; }
-            set { sellerID = value; }
+            get { return sellerId; }
+            set { sellerId = value; }
         }
 
 
@@ -47,14 +57,18 @@ namespace SellIt.Entities
             set { cars = value; }
         }
 
-
+        [Column("dateOrderId")]
+        [Required(ErrorMessage = "une date de commande doit être renseignée.")]
+        [DateValid]
         public DateTime DateOrder
         {
             get { return dateOrder; }
             set { dateOrder = value; }
         }
 
-
+        [Column("dateDelivery")]
+        [Required(ErrorMessage = "une date de livraison doit être renseignée.")]
+        [DateValid]
         public DateTime DateDelivery
         {
             get { return dateDelivery; }
