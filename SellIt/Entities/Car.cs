@@ -20,6 +20,7 @@ namespace SellIt.Entities
 
         #region Properties
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long CarID
         {
             get { return carID; }
