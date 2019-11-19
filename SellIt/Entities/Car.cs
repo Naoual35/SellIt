@@ -19,6 +19,7 @@ namespace SellIt.Entities
         #endregion
 
         #region Properties
+        [Key]
         public long CarID
         {
             get { return carID; }
