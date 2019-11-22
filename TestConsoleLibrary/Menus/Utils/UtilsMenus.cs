@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestConsoleLibrary.Menus.Utils
 {
-    class UtilsMenus
+   public class UtilsMenus
     {
         public static string MainMenuChoices()
         {
