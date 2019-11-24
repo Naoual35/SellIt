@@ -159,13 +159,13 @@ namespace SellIt.Database
                 this.dbCategory.Add(breRenault);
                 this.SaveChanges();
 
-                Category mon = new Category();
-                mon.Name = "Berline";
-                mon.Description = "Une berline classique";
-                mon.Tva = 0.2F;
-                mon.Price = 2000F;
-                mon.Brand = this.dbBrand.Find(volkswagen.BrandId);
-                this.dbCategory.Add(mon);
+                Category monRenault = new Category();
+                monRenault.Name = "Monospace";
+                monRenault.Description = "Un monospace";
+                monRenault.Tva = 0.2F;
+                monRenault.Price = 2000F;
+                monRenault.Brand = this.dbBrand.Find(renault.BrandId);
+                this.dbCategory.Add(monRenault);
                 this.SaveChanges();
 
                 Car voiture = new Car();
@@ -263,7 +263,7 @@ namespace SellIt.Database
                 voiture.Avalaible = true;
                 voiture.DelayExchange = 2;
                 voiture.Color = "Noire";
-                voiture.Category = this.dbCategory.Find(mon.CategoryId);
+                voiture.Category = this.dbCategory.Find(monRenault.CategoryId);
                 this.dbCar.Add(voiture);
                 this.SaveChanges();
 
