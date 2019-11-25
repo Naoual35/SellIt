@@ -9,7 +9,7 @@ using SellIt.Entities;
 using TestConsoleLibrary.Menus;
 using TestConsoleLibrary.Menus.Utils;
 
-namespace TestConsoleLibrary //commentaire
+namespace TestConsoleLibrary
 {
     public class Program
     {
