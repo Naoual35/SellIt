@@ -14,12 +14,21 @@ namespace SellIt.Entities
 
         #region attributs
         private long orderId;
-        private long clientId;
-        private int sellerId;
         private List<Car> cars;
         private DateTime dateOrder;
         private DateTime dateDelivery;
+        private long clientId;
+        private int sellerId;
+        private Seller seller;
+        private Client client;
         #endregion
+
+
+
+        
+
+
+        
 
 
         #region properties
@@ -50,6 +59,19 @@ namespace SellIt.Entities
             set { sellerId = value; }
         }
 
+        [Required]
+        public Seller Seller
+        {
+            get { return seller; }
+            set { seller = value; }
+        }
+
+        [Required]
+        public Client Client
+        {
+            get { return client; }
+            set { client = value; }
+        }
 
         public List<Car> Cars
         {
@@ -58,6 +80,7 @@ namespace SellIt.Entities
         }
 
         [Column("dateOrderId")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "une date de commande doit être renseignée.")]
         [DateValid]
         public DateTime DateOrder
@@ -67,6 +90,7 @@ namespace SellIt.Entities
         }
 
         [Column("dateDelivery")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage = "une date de livraison doit être renseignée.")]
         [DateValid]
         public DateTime DateDelivery
