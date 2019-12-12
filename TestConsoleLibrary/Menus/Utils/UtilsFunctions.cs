@@ -13,7 +13,7 @@ namespace TestConsoleLibrary.Menus.Utils
     {
         public static long CreateBrandByConsole()
         {
-            long id = -1;
+            long result = 0;
             Brand brand = new Brand();
 
             Console.WriteLine("Create Brand :\n");
@@ -29,7 +29,7 @@ namespace TestConsoleLibrary.Menus.Utils
                     int count = 0;
                     foreach (var item in db.DbBrand.ToList())
                     {
-                        if (choice == item.Name)
+                        if (choice.Equals(item.Name))
                         {
                             // choice est déjà pris, pas la peine de tester les autres
                             break;
@@ -48,39 +48,87 @@ namespace TestConsoleLibrary.Menus.Utils
                 } while (!tag);
 
                 brand.Name = choice;
-                brand.Description = GetString("\nEntrer une déscription de la marque :");
+                brand.Description = GetString("\nEnter a description :");
                 db.DbBrand.Add(brand);
                 db.SaveChanges();
 
-                foreach (var item in db.DbBrand)
+                foreach(var item in db.DbBrand.ToList())
                 {
-                    if (item.Name.Equals(brand.Name))
+                    if(item.Name.Equals(choice))
                     {
-                        id = item.BrandId;
+                        result = item.BrandId;
+                        break;
                     }
                 }
             }
-            return id;
-        }
-
-        public static Category CreateCategoryByConsole()
-        {
-            Category result = null;
-            /*private long categoryId;
-            private string name;
-            private Brand brand;
-            private string description;
-            private float tva;
-            private float price;*/
 
             return result;
         }
 
-        public static Car CreateCarByConsole()
+        public static long CreateCategoryByConsole(long brandId)
+        {
+            Category category = null;
+            long result = -1;
+            string schoice = null;
+            int count;
+            bool tag = false;
+            /*
+            private float tva;
+            private float price;*/
+            using(var db = new SellItContext())
+            {
+                do
+                {
+                    count = 0;
+                    schoice = GetString("Enter a name category");
+                    foreach(var item in db.DbCategory.ToList())
+                    {
+                        if(item.Name.Equals(schoice))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            count++;
+                        }
+                    }
+                    
+                    if(count.Equals(db.DbCategory.Count()))
+                    {
+                        tag = true;
+                    }
+                } while (!tag);
+
+                category.Name = schoice;
+
+                category.Description = GetString("Enter a description");
+
+                category.Tva = GetFloatLimitsIncluded("Enter a tva", 0F, 20F);
+
+                category.Price = GetFloatLimitsIncluded("Enter a tva", 0F, 20F);
+
+                category.Brand = db.DbBrand.Find(brandId);
+                db.DbCategory.Add(category);
+                db.SaveChanges();
+
+                foreach(var item in db.DbCategory.ToList())
+                {
+                    if(item.Name.Equals(schoice))
+                    {
+                        result = item.CategoryId;
+                    }
+                }
+            }
+            
+            return result;
+        }
+
+        public static long CreateCarByConsole()
         {
             Car car = new Car();
-            Category category = new Category();
-            Brand brand = new Brand();
+            long categoryId = -1;
+            long brandId = -1;
+            long carId = -1;
             int? choice = null;
             int? choice2 = null;
             bool tag = false;
@@ -149,39 +197,36 @@ namespace TestConsoleLibrary.Menus.Utils
 
                     if(choice2==-1)
                     {
-                        brand = db.DbBrand.Find(CreateBrandByConsole());
+                        brandId = CreateBrandByConsole();
                     }
                     else
                     {
-                        brand = db.DbBrand.Find(choice2);
+                        brandId = (long)choice2;
                     }
 
-                    Console.WriteLine("For Info, here are existing categories of car in the data base :");
-                    List<string> liste = getCarTypeList();
-                    foreach(var item in liste)
+                    Console.WriteLine("For Info, here are existing categories of car in the database :");
+                    foreach(var item in getCarTypeList())
                     {
                         Console.WriteLine(item);
                     }
 
-                    category.Name = GetString("Enter a name category");
+                    categoryId = CreateCategoryByConsole(brandId);
+                    car.Category = db.DbCategory.Find(categoryId);
+                    db.DbCar.Add(car);
 
-                    //category.Brand = 
+                    foreach(var item in db.DbCar.ToList())
+                    {
+                        if(item.Name.Equals(car.Name))
+                        {
+                            carId = item.CarId;
+                        }
+                    }
                 }
             }
-
-            return car;
+            return carId;
         }
 
-        public static List<Car> CarSortedByYear()
-        {
-            List<Car> result = null;
-            using (var db = new SellItContext())
-            {
-                result = db.DbCar.OrderBy(x=>x.Year).ToList();
-            }
 
-            return result;
-        }
 
         public static List<string> getCarTypeList()
         {
@@ -226,12 +271,29 @@ namespace TestConsoleLibrary.Menus.Utils
             return result;
         }
 
+        public static float GetFloatChoice(string question, float min, float max)
+        {
+            float result = 0F;
+            float outResult = 0F;
+            string userChoice;
+
+            do
+            {
+                Console.WriteLine(question);
+                userChoice = Console.ReadLine();
+
+            } while (!float.TryParse(userChoice, out outResult) || result < min || result > max);
+            result = outResult;
+            return result;
+        }
+
+
         public static int GetIntLimitsIncluded(string message,int lInf, int lSup)
         {
             int result = 0;
             int? choice = null;
 
-            do // Year choice
+            do
             {
                 choice = GetIntChoice(message, 0, int.MaxValue);
 
@@ -241,6 +303,23 @@ namespace TestConsoleLibrary.Menus.Utils
                 }
             } while (true);
             result = (int)choice;
+            return result;
+        }
+
+        public static float GetFloatLimitsIncluded(string message, float lInf, float lSup)
+        {
+            float result = 0;
+            int? choice = null;
+
+            do
+            {
+                result = GetFloatChoice(message, 0F, float.MaxValue);
+
+                if ((choice >= lInf) && (choice <= lSup))
+                {
+                    break;
+                }
+            } while (true);
             return result;
         }
     }
