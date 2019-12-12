@@ -41,7 +41,7 @@ namespace SellIt.Entities
 
         [Column("description")]
         [MaxLength(200)]
-        [MinLength(4)]
+        [MinLength(1)]
         public string Description
         {
             get { return description; }

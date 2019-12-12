@@ -32,6 +32,7 @@ namespace SellIt.Entities
 
         [Column("dateOfBirth")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DateValid]
         [Required(ErrorMessage = "La date de naissance est obligatoire.")]
         public DateTime DateOfBirth

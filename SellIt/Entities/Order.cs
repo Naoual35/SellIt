@@ -23,14 +23,6 @@ namespace SellIt.Entities
         private Client client;
         #endregion
 
-
-
-        
-
-
-        
-
-
         #region properties
         [Column("orderId")]
         [Key]
@@ -81,6 +73,7 @@ namespace SellIt.Entities
 
         [Column("dateOrderId")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "une date de commande doit être renseignée.")]
         [DateValid]
         public DateTime DateOrder
@@ -91,6 +84,7 @@ namespace SellIt.Entities
 
         [Column("dateDelivery")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "une date de livraison doit être renseignée.")]
         [DateValid]
         public DateTime DateDelivery
