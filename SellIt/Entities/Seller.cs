@@ -42,7 +42,7 @@ namespace SellIt.Entities
             get { return orders; }
             set { orders = value; }
         }
-        [Required(ErrorMessage = "Le mot de passe est obligatoire."))]
+        [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
         public string Password
         {
             get { return password; }
