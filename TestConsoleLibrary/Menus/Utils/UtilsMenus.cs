@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TestConsoleLibrary.Menus.Utils
 {
-   public class UtilsMenus //test push
+   public class UtilsMenus //12 dec
     {
         public static string MainMenuChoices()
         {
             StringBuilder builder = new StringBuilder();
 
-            builder.Append("        Main menu\n\n");
+            builder.Append("Main menu\n\n");
             builder.Append("1 : Brands Menu\n");
             builder.Append("2 : Categories Menu\n");
             builder.Append("3 : Cars Menu\n");
