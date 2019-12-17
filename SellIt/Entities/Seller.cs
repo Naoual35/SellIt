@@ -18,7 +18,7 @@ namespace SellIt.Entities
         private string password;  
 
         #endregion
-
+        //modification
 
         #region Properties
         [Column("sellerId")]
