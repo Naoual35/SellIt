@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Page-3-Voitures-stock</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></style>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+	<!-- Le header -->
+	<div class="container-fluid my-header green">
+		<div class="row">
+			<div class="col-sm-4 my-logo-sellit">
+				<img src="logo-sellIt.png" style="width: 90px;height: 90px">
+			</div>
+			<div class="col-sm-4 text-center my-titre">
+				Gestion des stocks
+			</div>
+			<div class="col-sm-4 deconnexion">
+				<p>Vendeur(se)</p>
+				<button type="submit" class="btn bouton">Deconnexion</button>
+			</div>
+		</div>
+	</div>
+	<!-- Partie centrale -->
+	<div class="container-fluid partie-centrale">
+		<div class="row">
+			<div class="col-sm-1 my-sidebar-left">
+				<button type="submit" class="btn bouton">Retour</button>
+			</div>
+			<div class="col-sm-4 pt-5 text-center">
+				<div class="container-fluid col-sm-4 border-1 border border-dark purple-light blanc">Critères de sélection</div><br><br>
+				<select class="browser-default custom-select" style="width:200px">
+					<option selected>Catégorie</option>
+					<option value="1">Citadine</option>
+					<option value="2">Break</option>
+					<option value="3">Sportive</option>
+				</select><br><br>
+				<select class="browser-default custom-select" style="width:200px">
+					<option selected>Marque</option>
+					<option value="1">Peugeot</option>
+					<option value="2">Citroen</option>
+					<option value="3">Opel</option>
+					<option value="4">Renault</option>
+					<option value="5">Porsche</option>
+				</select><br><br>
+				<select class="browser-default custom-select" style="width:200px">
+					<option selected>Année</option>
+					<option value="2019">2019</option>
+					<option value="2018">2018</option>
+					<option value="2017">2017</option>
+					<option value="2016">2016</option>
+					<option value="2015">2015</option>
+					<option value="2014">2014</option>
+					<option value="2013">2013</option>
+					<option value="2012">2012</option>
+					<option value="2011">2011</option>
+					<option value="2010">2010</option>
+					<option value="2009">2009</option>
+					<option value="2008">2008</option>
+					<option value="2007">2007</option>
+					<option value="2006">2006</option>
+					<option value="2005">2005</option>
+					<option value="2004">2004</option>
+					<option value="2003">2003</option>
+					<option value="2002">2002</option>
+					<option value="2001">2001</option>
+					<option value="2000">2000</option>  					
+				</select><br><br>
+				<select class="browser-default custom-select" style="width:200px">
+					<option selected>Couleur</option>
+					<option value="1">Noir</option>
+					<option value="2">Blanc</option>
+					<option value="3">Rouge</option>
+					<option value="4">Bleu</option>
+					<option value="5">Vert</option>
+				</select><br><br>
+				<select class="browser-default custom-select" style="width:200px">
+					<option selected>Garantie</option>
+					<option value="1">Avec</option>
+					<option value="2">Sans</option>
+				</select>
+			</div>
+			<div class="col-sm-7 pt-4">
+				<!-- style="height:500px;overflow: scroll;overflow-x: hidden; -->
+				<div class="container-fluid text-center modeles-disponibles">
+					<h3>Modèles disponibles</h3>	 
+				</div>
+				<div class="container-fluid text-center border-1 border border-dark"
+				style="max-height:500px;overflow: scroll;overflow-x: hidden;">
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="voitures\v1.jfif" alt=" voiture 1" style="width:200px;height:200px;">	<br>
+							<p>Voiture 1</p>
+							<img src="voitures\v2.jfif" alt="" style="width:200px;height:200px;">	<br>
+							<p>Voiture 2</p>
+							<img src="voitures\v3.jfif" alt="" style="width:200px;height:200px;">	<br>
+							<p>Voiture 3</p>
+							<img src="voitures\v4.jfif" alt="" style="width:200px;height:200px;">	<br>
+							<p>Voiture 4</p>
+						</div>
+						<div class="col-sm-4">
+							<img src="voitures\v5.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 5</p>
+							<img src="voitures\v6.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 6</p>
+							<img src="voitures\v7.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 7</p>
+							<img src="voitures\v8.jfif" alt="" style="width:200px;height:200px;">	
+							<p>Voiture 8</p>
+						</div>
+						<div class="col-sm-4">
+							<img src="voitures\v9.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 9</p>
+							<img src="voitures\v10.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 10</p>
+							<img src="voitures\v11.jfif" alt="" style="width:200px;height:200px;"> <br>
+							<p>Voiture 11</p>
+							<img src="voitures\v12.jfif" alt="" style="width:200px;height:200px;"> <br>		
+							<p>Voiture 12</p>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<!-- footer -->
+	<div class="container-fluid footer green">
+		<div class="row">
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4 my-footer-right">
+				<img src="logo-logisna.png" style="width: 100px;height: 50px">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

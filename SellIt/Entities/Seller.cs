@@ -15,6 +15,8 @@ namespace SellIt.Entities
         private long sellerId;
         private DateTime dateOfBirth;
         private List<Order> orders;
+        private string password;  
+
         #endregion
 
 
@@ -29,6 +31,8 @@ namespace SellIt.Entities
         }
 
         [Column("dateOfBirth")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [DateValid]
         [Required(ErrorMessage = "La date de naissance est obligatoire.")]
         public DateTime DateOfBirth
@@ -42,6 +46,14 @@ namespace SellIt.Entities
             get { return orders; }
             set { orders = value; }
         }
+
+        [Required]
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+
         #endregion
 
     }
