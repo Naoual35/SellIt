@@ -1,6 +1,7 @@
 ﻿using SellIt.Entities.ValidationEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,17 +10,18 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Car")]
     public class Car
     {
         #region Attributs
         private long carId;
-        private string nom;
-        private Category category;
+        private string name;
         private int year;
         private int timeAssurancy;
         private bool avalaible;
         private int delayExchange;
         private string color;
+        private Category category;
         #endregion
 
         #region Properties
@@ -34,26 +36,27 @@ namespace SellIt.Entities
         }
 
         [Column("name")]
-        [MaxLength(200)]
-        [MinLength(1)]
-        [Required(ErrorMessage = "le modèle de la voiture est obligatoire")]
+        [StringLength(100, ErrorMessage = "Le nom de la voiture ne peut pas contenir plus de 100 caractères", MinimumLength = 1)]
+        [DisplayName("Nom")]
+        [Required(ErrorMessage = "Le modèle de la voiture est obligatoire")]
         public string Name
         {
-            get { return nom; }
-            set { nom = value; }
+            get { return name; }
+            set { name = value; }
         }
 
         [Column("category")]
-        [Required(ErrorMessage = "la catégorie de la voiture est obligatoire")]
-        public Category Category
+        [DisplayName("Catégorie")]
+        public virtual Category Category
         {
             get { return category; }
             set { category = value; }
         }
 
         [Column("year")]
-        [YearCarValid]
-        [Required(ErrorMessage = "l'année de la voiture est obligatoire")]
+        [YearCarValid(1970)]
+        [DisplayName("Année")]
+        [Required(ErrorMessage = "l\'année de la voiture est obligatoire")]
         public int Year
         {
             get { return year; }
@@ -61,8 +64,8 @@ namespace SellIt.Entities
         }
 
         [Column("color")]
-        [MaxLength(200)]
-        [MinLength(2)]
+        [DisplayName("Couleur")]
+        [StringLength(50, ErrorMessage = "la couleur de la voiture ne peut pas contenir plus de 50 caractères", MinimumLength = 1)]
         [Required(ErrorMessage = "la couleur de la voiture est obligatoire")]
         public string Color
         {
@@ -71,6 +74,7 @@ namespace SellIt.Entities
         }
 
         [Column("avalaible")]
+        [DisplayName("Disponibilité")]
         [Required(ErrorMessage = "la disponibilité de la voiture est obligatoire")]
         public bool Avalaible
         {
@@ -79,8 +83,9 @@ namespace SellIt.Entities
         }
 
         [Column("timeAssurancy")]
+        [DisplayName("Garantie")]
         [TimeAssurancyValid]
-        [Required(ErrorMessage = "l'assurance de la voiture est obligatoire")]
+        [Required(ErrorMessage = "l\'assurance de la voiture est obligatoire")]
         public int TimeAssurancy
         {
             get { return timeAssurancy; }
@@ -88,8 +93,9 @@ namespace SellIt.Entities
         }
 
         [Column("delayExchange")]
+        [DisplayName("Délai d\'échange")]
         [DelayExchangeValid]
-        [Required(ErrorMessage = "le délai d'échange de la voiture est obligatoire")]
+        [Required(ErrorMessage = "le délai d\'échange de la voiture est obligatoire")]
         public int DelayExchange
         {
             get { return delayExchange; }

@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using SellIt_ASP.Models;
+using SellIt_ASP.Models.Security;
 
 namespace SellIt_ASP
 {
@@ -34,7 +35,7 @@ namespace SellIt_ASP
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });                     
+            });            
         }
     }
 }

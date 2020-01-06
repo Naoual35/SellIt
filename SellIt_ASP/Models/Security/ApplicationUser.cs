@@ -12,19 +12,11 @@ namespace SellIt_ASP.Models.Security
     public enum Civility
     {
         Mr,
-        Mme,
+        Ms,
     }
 
     public class ApplicationUser : IdentityUser
     {
-        private long userId;
-
-        public long UserId
-        {
-            get { return userId; }
-            set { userId = value; }
-        }
-
 
         private string lastname;
 
@@ -57,7 +49,6 @@ namespace SellIt_ASP.Models.Security
             get { return civility; }
             set { civility = value; }
         }
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType

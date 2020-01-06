@@ -8,9 +8,9 @@ using System.Web;
 
 namespace SellIt_ASP.Models.Security
 {
-    public class SecurityDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public SecurityDbContext()
+        public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
             if (this.Database.CreateIfNotExists())
@@ -19,14 +19,14 @@ namespace SellIt_ASP.Models.Security
                 IdentityRole adminRole = RoleUtils.CreateOrGetRole("Admin");
 
                 UserManager<ApplicationUser> userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(this));
-                ApplicationUser admin = new ApplicationUser(){ UserName = "admin"};
-                var result = userManager.Create(admin, "admin");
-                if(!result.Succeeded)
+                ApplicationUser admin = new ApplicationUser() { UserName = "admin", Email = "loic.simonetto@gmail.com", Login = "admin" };
+                var result = userManager.Create(admin, "Lolo!421");
+                if (!result.Succeeded)
                 {
                     this.Database.Delete();
                     throw new System.Exception("database insert fail");
                 }
-                RoleUtils.AssignRoleToUser(adminRole,admin);
+                RoleUtils.AssignRoleToUser(adminRole, admin);
             }
         }
 

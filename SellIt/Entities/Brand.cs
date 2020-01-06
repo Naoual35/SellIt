@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Brand")]
     public class Brand
     {
         #region attributs
@@ -26,9 +28,9 @@ namespace SellIt.Entities
         }
 
         [Column("name")]
-        [MaxLength(200)]
-        [MinLength(1)]
-        [Required(ErrorMessage = "un nom de taille comprise entre 2 et 200 caractères est requis")]
+        [DisplayName("Nom")]
+        [StringLength(50, ErrorMessage = "La marque de la voiture ne peut pas contenir plus de 50 caractères", MinimumLength = 1)]
+        [Required(ErrorMessage = "Un nom pour la marque est obligatoire")]
         //[Index(IsUnique = true)]
         public string Name
         {
@@ -37,8 +39,8 @@ namespace SellIt.Entities
         }
 
         [Column("description")]
-        [MaxLength(400)]
-        [MinLength(4)]
+        [DisplayName("Description")]
+        [StringLength(200, ErrorMessage = "La description de la marque ne peut pas contenir plus de 200 caractères", MinimumLength = 1)]
         public string Description
         {
             get { return description; }

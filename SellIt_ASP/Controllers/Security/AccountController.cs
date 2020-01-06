@@ -93,51 +93,9 @@ namespace SellIt_ASP.Controllers
         }
 
         //
-        // GET: /Account/VerifyCode
-        [AllowAnonymous]
-        public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
-        {
-            // Nécessiter que l'utilisateur soit déjà connecté via un nom d'utilisateur/mot de passe ou une connexte externe
-            if (!await SignInManager.HasBeenVerifiedAsync())
-            {
-                return View("Error");
-            }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
-        }
-
-        //
-        // POST: /Account/VerifyCode
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            // Le code suivant protège des attaques par force brute contre les codes à 2 facteurs. 
-            // Si un utilisateur entre des codes incorrects pendant un certain intervalle, le compte de cet utilisateur 
-            // est alors verrouillé pendant une durée spécifiée. 
-            // Vous pouvez configurer les paramètres de verrouillage du compte dans IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(model.ReturnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Code non valide.");
-                    return View(model);
-            }
-        }
-
-        //
         // GET: /Account/Register
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -146,7 +104,8 @@ namespace SellIt_ASP.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -173,11 +132,10 @@ namespace SellIt_ASP.Controllers
             return View(model);
         }
 
-        
-
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -187,6 +145,7 @@ namespace SellIt_ASP.Controllers
         // POST: /Account/ResetPassword
         [HttpPost]
         [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -212,12 +171,11 @@ namespace SellIt_ASP.Controllers
         //
         // GET: /Account/ResetPasswordConfirmation
         [AllowAnonymous]
+        //[Authorize(Roles = "Admin")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
         }
-
-        
 
         //
         // POST: /Account/LogOff
@@ -227,14 +185,6 @@ namespace SellIt_ASP.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
-        }
-
-        //
-        // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
-        public ActionResult ExternalLoginFailure()
-        {
-            return View();
         }
 
         protected override void Dispose(bool disposing)

@@ -1,6 +1,7 @@
 ﻿using SellIt.Entities.ValidationEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,18 +10,16 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Order")]
     public class Order
     {
-
         #region attributs
         private long orderId;
-        private List<Car> cars;
         private DateTime dateOrder;
         private DateTime dateDelivery;
-        private long clientId;
-        private int sellerId;
         private Seller seller;
         private Client client;
+        private ICollection<Car> cars;
         #endregion
 
         #region properties
@@ -33,49 +32,32 @@ namespace SellIt.Entities
             set { orderId = value; }
         }
 
-        [Column("clientId")]
-        [ForeignKey("Client")]
-        [Required(ErrorMessage = "Un client doit être associé.")]
-        public long ClientId
-        {
-            get { return clientId; }
-            set { clientId = value; }
-        }
-
-        [Column("sellerId")]
-        [ForeignKey("Seller")]
-        [Required(ErrorMessage = "Un vendeur doit être associé.")]
-        public int SellerID
-        {
-            get { return sellerId; }
-            set { sellerId = value; }
-        }
-
         [Required]
-        public Seller Seller
+        public virtual Seller Seller
         {
             get { return seller; }
             set { seller = value; }
         }
 
         [Required]
-        public Client Client
+        public virtual Client Client
         {
             get { return client; }
             set { client = value; }
         }
 
-        public List<Car> Cars
+        public virtual ICollection<Car> Cars
         {
             get { return cars; }
             set { cars = value; }
         }
 
-        [Column("dateOrderId")]
+        [Column("dateOrder")]
+        [DisplayName("Date de commande")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "une date de commande doit être renseignée.")]
-        [DateValid]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Required(ErrorMessage = "Une date de commande doit être renseignée.")]
+        [DateValid("now")]
         public DateTime DateOrder
         {
             get { return dateOrder; }
@@ -83,17 +65,25 @@ namespace SellIt.Entities
         }
 
         [Column("dateDelivery")]
+        [DisplayName("Date de livraison")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        [Required(ErrorMessage = "une date de livraison doit être renseignée.")]
-        [DateValid]
+        [Required(ErrorMessage = "Une date de livraison doit être renseignée.")]
+        [DateValid("delivery")]
         public DateTime DateDelivery
         {
             get { return dateDelivery; }
             set { dateDelivery = value; }
         }
-
         #endregion
+
+        #region Constructors
+        public Order()
+        {
+            this.cars = new List<Car>();
+        }
+        #endregion
+
 
     }
 }

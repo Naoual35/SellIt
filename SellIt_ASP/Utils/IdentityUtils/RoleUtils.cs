@@ -12,7 +12,7 @@ namespace SellIt_ASP.Utils.IdentityUtils
     {
         public static IdentityRole CreateOrGetRole(string roleName)
         {
-            using (var ctx = new SecurityDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));
                 IdentityRole result = null;
@@ -30,7 +30,7 @@ namespace SellIt_ASP.Utils.IdentityUtils
 
         public static List<IdentityRole> GetRoles()
         {
-            using (var ctx = new SecurityDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(ctx));
 
@@ -40,7 +40,7 @@ namespace SellIt_ASP.Utils.IdentityUtils
 
         public static void AssignRoleToUser(IdentityRole role, ApplicationUser user)
         {
-            using (var ctx = new SecurityDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(ctx));
 

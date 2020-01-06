@@ -15,15 +15,6 @@ using SellIt_ASP.Models.Security;
 
 namespace SellIt_ASP
 {
-    //public class EmailService : IIdentityMessageService
-    //{
-    //    public Task SendAsync(IdentityMessage message)
-    //    {
-    //        // Indiquez votre service de messagerie ici pour envoyer un e-mail.
-    //        return Task.FromResult(0);
-    //    }
-    //}
-
     // Configurer l'application que le gestionnaire des utilisateurs a utilisée dans cette application. UserManager est défini dans ASP.NET Identity et est utilisé par l'application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
     {
@@ -56,9 +47,7 @@ namespace SellIt_ASP
             manager.UserLockoutEnabledByDefault = true;
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
-
-            //manager.EmailService = new EmailService();
-
+           
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

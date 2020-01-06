@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Person")]
     public abstract class Person
     {
         #region Attributs
@@ -21,7 +22,6 @@ namespace SellIt.Entities
         #endregion
 
         #region Properties
-
         [Column("lastname")]
         [MaxLength(200)]
         [MinLength(4)]
