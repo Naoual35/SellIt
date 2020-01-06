@@ -114,6 +114,15 @@ namespace SellIt.Database
                 this.dbCategory.Add(berPeugeot);
                 this.SaveChanges();
 
+                Category monPeugeot = new Category();
+                monPeugeot.Name = "Monospace";
+                monPeugeot.Description = "Un monospace classique";
+                monPeugeot.Tva = 0.2F;
+                monPeugeot.Price = 3500F;
+                monPeugeot.Brand = this.dbBrand.Find(peugeot.BrandId);
+                this.dbCategory.Add(monPeugeot);
+                this.SaveChanges();
+
                 Category berRenault = new Category();
                 berRenault.Name = "Berline";
                 berRenault.Description = "Une berline classique";
@@ -150,6 +159,15 @@ namespace SellIt.Database
                 this.dbCategory.Add(breVolkswagen);
                 this.SaveChanges();
 
+                Category monVolkswagen = new Category();
+                monVolkswagen.Name = "Break";
+                monVolkswagen.Description = "un break";
+                monVolkswagen.Tva = 0.2F;
+                monVolkswagen.Price = 2000F;
+                monVolkswagen.Brand = this.dbBrand.Find(volkswagen.BrandId);
+                this.dbCategory.Add(monVolkswagen);
+                this.SaveChanges();
+
                 Category breRenault = new Category();
                 breRenault.Name = "Break";
                 breRenault.Description = "un break";
@@ -159,13 +177,13 @@ namespace SellIt.Database
                 this.dbCategory.Add(breRenault);
                 this.SaveChanges();
 
-                Category mon = new Category();
-                mon.Name = "Berline";
-                mon.Description = "Une berline classique";
-                mon.Tva = 0.2F;
-                mon.Price = 2000F;
-                mon.Brand = this.dbBrand.Find(volkswagen.BrandId);
-                this.dbCategory.Add(mon);
+                Category monRenault = new Category();
+                monRenault.Name = "Monospace";
+                monRenault.Description = "Un monospace";
+                monRenault.Tva = 0.2F;
+                monRenault.Price = 2000F;
+                monRenault.Brand = this.dbBrand.Find(renault.BrandId);
+                this.dbCategory.Add(monRenault);
                 this.SaveChanges();
 
                 Car voiture = new Car();
@@ -263,7 +281,7 @@ namespace SellIt.Database
                 voiture.Avalaible = true;
                 voiture.DelayExchange = 2;
                 voiture.Color = "Noire";
-                voiture.Category = this.dbCategory.Find(mon.CategoryId);
+                voiture.Category = this.dbCategory.Find(monRenault.CategoryId);
                 this.dbCar.Add(voiture);
                 this.SaveChanges();
 
@@ -346,12 +364,45 @@ namespace SellIt.Database
 
                 voiture = new Car();
                 voiture.Name = "Golf";
-                voiture.Year = 2012;
+                voiture.Year = 2015;
                 voiture.TimeAssurancy = 3;
                 voiture.Avalaible = false;
                 voiture.DelayExchange = 2;
                 voiture.Color = "Noire";
                 voiture.Category = this.dbCategory.Find(citVolkswagen.CategoryId);
+                this.dbCar.Add(voiture);
+                this.SaveChanges();
+
+                voiture = new Car();
+                voiture.Name = "806";
+                voiture.Year = 2012;
+                voiture.TimeAssurancy = 3;
+                voiture.Avalaible = false;
+                voiture.DelayExchange = 2;
+                voiture.Color = "Rouge et noire";
+                voiture.Category = this.dbCategory.Find(monPeugeot.CategoryId);
+                this.dbCar.Add(voiture);
+                this.SaveChanges();
+
+                voiture = new Car();
+                voiture.Name = "Touran";
+                voiture.Year = 2016;
+                voiture.TimeAssurancy = 3;
+                voiture.Avalaible = false;
+                voiture.DelayExchange = 2;
+                voiture.Color = "Grise";
+                voiture.Category = this.dbCategory.Find(monVolkswagen.CategoryId);
+                this.dbCar.Add(voiture);
+                this.SaveChanges();
+
+                voiture = new Car();
+                voiture.Name = "Touran";
+                voiture.Year = 2013;
+                voiture.TimeAssurancy = 3;
+                voiture.Avalaible = false;
+                voiture.DelayExchange = 2;
+                voiture.Color = "Noire";
+                voiture.Category = this.dbCategory.Find(monVolkswagen.CategoryId);
                 this.dbCar.Add(voiture);
                 this.SaveChanges();
 

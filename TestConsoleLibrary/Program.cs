@@ -9,15 +9,18 @@ using SellIt.Entities;
 using TestConsoleLibrary.Menus;
 using TestConsoleLibrary.Menus.Utils;
 
-namespace TestConsoleLibrary // ma modification à loic
+namespace TestConsoleLibrary
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-       
-                Menus.Menus.MainMenu();
-
+            //List<string> liste = UtilsFunctions.getCarTypeList();
+            //foreach(var item in liste)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Menus.Menus.MainMenu();
             Console.ReadLine();
         }
     }

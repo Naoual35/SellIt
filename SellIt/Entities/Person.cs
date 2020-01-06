@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Person")]
     public abstract class Person
     {
         #region Attributs
-        //private long personId;
         private string lastname;
         private string firstname;
         private string address;
@@ -22,16 +22,6 @@ namespace SellIt.Entities
         #endregion
 
         #region Properties
-
-        //[Column("clientId")]
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public long PersonId
-        //{
-        //    get { return personId; }
-        //    set { personId = value; }
-        //}
-
         [Column("lastname")]
         [MaxLength(200)]
         [MinLength(4)]

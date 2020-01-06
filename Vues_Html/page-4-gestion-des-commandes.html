@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gestion des commandes</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"></style>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<script src="page-4-gestion-des-commandes.js"></script>
+</head>
+<body>
+	<!-- Le header -->
+	<div class="container-fluid my-header green">
+		<div class="row">
+			<div class="col-sm-4 my-logo-sellit">
+				<img src="logo-sellIt.png" style="width: 90px;height: 90px">
+			</div>
+			<div class="col-sm-4 text-center my-titre">
+				Gestion des commandes
+			</div>
+			<div class="col-sm-4 deconnexion">
+				<p>Vendeur(se)</p>
+				<button type="submit" class="btn bouton">Deconnexion</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Partie centrale -->
+	<div class="container-fluid partie-centrale">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="pt-2">
+					<div class="container-fluid col-sm-4 border-1 border border-dark purple-light blanc text-center">Informations client</div>
+					<div class="mt-2">
+						<table id="tab-client" class="table table-striped">
+							<tbody>
+								<tr>
+									<th scope="row">Nom</th>
+									<td id="nom"></td>
+								</tr><tr>
+									<th scope="row">Prénom</th>
+									<td id="prenom"></td>
+								</tr><tr>
+									<th scope="row">Date de naissance</th>
+									<td id="ddn"></td>
+								</tr><tr>
+									<th scope="row">Adresse</th>
+									<td id="adresse"></td>
+								</tr><tr>
+									<th scope="row">Code postal</th>
+									<td id="cp"></td>
+								</tr><tr>
+									<th scope="row">Ville</th>
+									<td id="ville"></td>
+								</tr><tr>
+									<th scope="row">Téléphone</th>
+									<td id="tel"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>				
+				<button type="submit" class="btn bouton">quitter</button>				
+			</div>
+
+			<div class="col-sm-3">
+				<div class="form-group pt-2">
+					<label for="select-vendeur">Sélectionner un vendeur</label>
+					<select class="form-control" id="select-vendeur" onchange="changerVendeur()">
+						<option class="option-vendeur"></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="select-client">Sélectionner un client</label>
+					<select class="form-control" id="select-client" onchange="changerClient()">
+						<option class="option-client"></option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="select-commande">Sélectionner une commande</label>
+					<select class="form-control" id="select-commande" onchange="changerCommande()">
+						<option class="option-commande"></option>
+					</select>
+				</div>
+			</div>
+
+			<div class="col-sm-5 pt-2">
+				<div class="container-fluid col-sm-4 border-1 border border-dark purple-light blanc text-center">Informations commande</div>
+				<div class="pt-2">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th scope="row">Référence</th>
+								<td id="commande-ref"></td>
+							</tr><tr>
+								<th scope="row">Date de la commande</th>
+								<td id="date-commande"></td>
+							</tr><tr>
+								<th scope="row">Date de livraison</th>
+								<td id="date-livraison"></td>
+							</tr><tr>
+								<th scope="row">Vendeur</th>
+								<td id="commande-vendeur"></td>
+							</tr><tr>
+								<th scope="row">Client</th>
+								<td id="commande-client"></td>
+							</tr>
+						</tbody>
+					</table>
+					<table class="table green-dark blanc">
+						<thead>
+						    <tr>
+						      <th scope="col">Voiture</th>
+						      <th scope="col">Prix hors taxes</th>
+						      <th scope="col">Prix TTC</th>
+						    </tr>
+						  </thead>
+					</table>
+					<div class="overflow-auto" style="max-height:200px;overflow: scroll;overflow-x: hidden;">
+						<table class="table table-striped id="table-commande">
+						<tbody id="table-tbody">
+						  <!-- <tr>
+						  	<td>Voiture 1</td><td>1000</td><td>1100</td>
+						  </tr><tr>
+						  	<td>Voiture 2</td><td>2000</td><td>2200</td>
+						  </tr><tr>
+						  	<td>Voiture 3</td><td>3000</td><td>3200</td>
+						  </tr><tr>
+						  	<td>Voiture 4</td><td>4000</td><td>4300</td>
+						  </tr><tr>
+						  	<td>Voiture 5</td><td>5000</td><td>5400</td>
+						  </tr><tr>
+						  	<td>Voiture 6</td><td>6000</td><td>6600</td>
+						  </tr><tr style="font-weight: bold">	
+								<td>Total</td><td>21000</td><td>22800</td>
+						  </tr> -->
+						</tbody>
+					</table>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- footer -->
+	<div class="container-fluid my-header green">
+		<div class="row">
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4">
+			</div>
+			<div class="col-sm-4 my-footer-right">
+				<img src="logo-logisna.png" style="width: 100px;height: 80px">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

@@ -9,32 +9,35 @@ namespace SellIt.Entities.ValidationEntities
 {
     class PriceValid : ValidationAttribute
     {
-        #region Properties
+        #region Attributes
+        public float Max { get; set; }
         #endregion
 
         #region Constructors
-        public PriceValid() : base("le prix doit être positif")
+        public PriceValid(float max) : base("Le prix doit être compris entre 1 et " + max + " euros")
         {
+            this.Max = max;
         }
 
-        public override bool IsValid(Object value)
+        protected override ValidationResult IsValid(Object value, ValidationContext validationContext)
         {
-            if (float.TryParse(value.ToString(), out float result))
+            float result;
+
+            if (float.TryParse(value.ToString(), out result))
             {
-                if (result >= 0D)
+                if ((result >= 1F) && (result <= this.Max))
                 {
-                    return true;
+                    return ValidationResult.Success;
                 }
                 else
                 {
-                    return false;
+                    return new ValidationResult("Le prix indiqué n\'est pas compris entre 1 et " + this.Max + "euros");
                 }
             }
             else
             {
-                throw new Exception("value n'est pas un float");
+                return new ValidationResult("value n\'est pas un float");
             }
-
         }
 
         #endregion

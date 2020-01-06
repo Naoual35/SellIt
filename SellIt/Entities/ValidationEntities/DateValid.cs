@@ -10,31 +10,63 @@ namespace SellIt.Entities.ValidationEntities
     class DateValid : ValidationAttribute
     {
         #region Properties
+        public string Mode { get; set; }
         #endregion
 
         #region Constructors
-        public DateValid() : base("la date doit doit être valide.")
+        public DateValid(string mode) : base("la date doit doit être valide.")
         {
+            this.Mode = mode;
         }
         #endregion
 
-        public override bool IsValid(Object value)
+        protected override ValidationResult IsValid(Object value, ValidationContext validationContext)
         {
-            DateTime dtmin = new DateTime(1900, 1, 1);
-            if (DateTime.TryParse(value.ToString(), out DateTime result))
+            DateTime minDate;
+            DateTime result;
+
+            if (Mode.Equals("order"))
             {
-                if ((DateTime.Compare(result, dtmin) > 0) && (DateTime.Compare(result, DateTime.Now) < 0))
+                minDate = DateTime.Now;
+            }
+            else if (Mode.Equals("birth"))
+            {
+                minDate = new DateTime(1930, 1, 1);
+            }
+            else
+            {
+                Object instance = validationContext.ObjectInstance;
+                Type type = instance.GetType();
+                Object data = type.GetProperty("DateOrder").GetValue(instance, null);
+                minDate = (DateTime)data;
+            }
+
+            if (DateTime.TryParse(value.ToString(), out result))
+            {
+                if (DateTime.Compare(result, minDate) >= 0)
                 {
-                    return true;
+                    return ValidationResult.Success;
                 }
                 else
                 {
-                    return false;
+                    if (this.Mode == "order")
+                    {
+                        return new ValidationResult("La date de commande est inférieure à la date du jour");
+                    }
+                    else if (this.Mode == "birth")
+                    {
+                        return new ValidationResult("La date de naissance est inférieure à 1930");
+                    }
+                    else
+                    {
+                        return new ValidationResult("La date de livraison est inférieure à la date de commande");
+                    }
+
                 }
             }
             else
             {
-                throw new Exception("value n'est pas une DateTime.");
+                return new ValidationResult("Value n\'a pas le bon format de date (dd/MM/yyyy)");
             }
 
         }
