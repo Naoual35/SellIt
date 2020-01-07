@@ -49,8 +49,7 @@ namespace SellIt_ASP.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Courrier électronique")]
-        [EmailAddress]
+        [Display(Name = "Login")]
         public string Email { get; set; }
 
         [Required]
