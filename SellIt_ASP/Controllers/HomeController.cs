@@ -26,5 +26,12 @@ namespace SellIt_ASP.Controllers
 
             return View();
         }
+
+        public ActionResult Claims()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
     }
 }
