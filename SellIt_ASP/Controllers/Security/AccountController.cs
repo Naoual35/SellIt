@@ -233,7 +233,8 @@ namespace SellIt_ASP.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            //return RedirectToAction("Index", "Home");
+            return View("MainMenu");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult
