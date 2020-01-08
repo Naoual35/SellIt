@@ -7,17 +7,8 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
-    public class Seller : Person, INotifyPropertyChanged
+    public class Seller : Person
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
 
         #region Attributs
         private long sellerId;
@@ -66,7 +57,36 @@ namespace SellIt_UWP.Entities
                 OnPropertyChanged("Password");
             }
         }
+        #endregion
 
+        #region Methods
+        public Seller Copy()
+        {
+            Seller seller = new Seller();
+            seller.Lastname = this.Lastname;
+            seller.Firstname = this.Firstname;
+            seller.Address = this.Address;
+            seller.Postcode = this.Postcode;
+            seller.PhoneNumber = this.PhoneNumber;
+            seller.City = this.City;
+            seller.SellerId = this.SellerId;
+            seller.DateOfBirth = this.DateOfBirth;
+            seller.Password = this.Password;
+            return seller;
+        }
+
+        public void CopyFrom(Seller seller)
+        {
+            this.Lastname = seller.Lastname;
+            this.Firstname = seller.Firstname;
+            this.Address = seller.Address;
+            this.Postcode = seller.Postcode;
+            this.PhoneNumber = seller.PhoneNumber;
+            this.City = seller.City;
+            this.SellerId = seller.SellerId;
+            this.DateOfBirth = seller.DateOfBirth;
+            this.Password = seller.Password;
+        }
         #endregion
     }
 }

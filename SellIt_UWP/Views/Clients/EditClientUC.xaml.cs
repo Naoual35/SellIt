@@ -16,20 +16,22 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SellIt_UWP.Views
+namespace SellIt_UWP.Views.Clients
 {
-    public sealed partial class EditSellerUC : UserControl
+    public sealed partial class EditClientUC : UserControl
     {
-        public Seller Seller { get; set; }
+        private Client client;
+        public Client Client
+        {
+            get { return client; }
+            set { client = value; }
+        }
 
-        public EditSellerUC()
+        public EditClientUC()
         {
             this.InitializeComponent();
-
-            this.Seller = new Seller();
-            this.DataContext = this;
-
-
+            Client client = new Client();
+            this.DataContext = Client;
         }
     }
 }
