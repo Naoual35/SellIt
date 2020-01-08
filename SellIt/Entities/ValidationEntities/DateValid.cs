@@ -33,7 +33,7 @@ namespace SellIt.Entities.ValidationEntities
             {
                 minDate = new DateTime(1930, 1, 1);
             }
-            else
+            else // delivery
             {
                 Object instance = validationContext.ObjectInstance;
                 Type type = instance.GetType();
