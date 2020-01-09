@@ -159,6 +159,9 @@
     <Compile Include="Views\Clients\ShowClientUC.xaml.cs">
       <DependentUpon>ShowClientUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FollowingCommands.xaml.cs">
+      <DependentUpon>FollowingCommands.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Clients\ShowClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FollowingCommands.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
