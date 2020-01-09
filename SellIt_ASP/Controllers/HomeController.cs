@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace SellIt_ASP.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -21,6 +22,13 @@ namespace SellIt_ASP.Controllers
         }
 
         public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Claims()
         {
             ViewBag.Message = "Your contact page.";
 

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+   
 namespace SellIt_ASP.Models.Security
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
