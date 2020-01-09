@@ -24,8 +24,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*" MaxHeight="20"/>
-            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock x:Name="txtSeller" Text="Vendeur" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock x:Name="txtLastname" Text="Nom" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
@@ -42,7 +40,7 @@
         <TextBlock x:Name="outCity" Text="{Binding City, Mode=TwoWay}"  Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
         <TextBlock x:Name="txtDateOfBirth" Text="Date de naissance" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock x:Name="outDateOfBirth" Text="{Binding DateOfBirth, Mode=TwoWay}"  Grid.Column="2" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <Button x:Name="btnValider" Content="Valider" x:FieldModifier="public" Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
     </Grid>
    
 </UserControl>
