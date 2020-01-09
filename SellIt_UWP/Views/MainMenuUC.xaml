@@ -36,7 +36,7 @@
         <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBTitle" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="101,0,0,0">Menu</TextBlock>
         <Button  Style="{StaticResource LoginUCButton}" x:Name="btnMise_A_Jour_Commande" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="265" HorizontalAlignment="Stretch" Margin="76,0,44,0">Mise à Jour Clients</Button>
         <Button  Style="{StaticResource LoginUCButton}" x:Name="btnSuivre_Commande" Grid.Row="2" Grid.ColumnSpan="4" MaxWidth="265" HorizontalAlignment="Stretch" Margin="76,0,44,0" Content="Suivre une Commande"/>
-        <Button  Style="{StaticResource LoginUCButton}" x:Name="btnRechercher_Commande" Grid.Row="1" Grid.ColumnSpan="4" MaxWidth="265" HorizontalAlignment="Stretch" Margin="26,0,-4,0" Content="Rechercher une Commande" Height="41"></Button>
+        <Button  Style="{StaticResource LoginUCButton}" x:Name="btnRechercher_Voiture" Grid.Row="1" Grid.ColumnSpan="4" MaxWidth="265" HorizontalAlignment="Stretch" Margin="26,0,-4,0" Content="Rechercher une Voiture" Height="41"></Button>
         <Button  Style="{StaticResource LoginUCButton}" x:Name="btnRetour" Grid.Row="4" MaxWidth="200" HorizontalAlignment="Stretch" Margin="-5,0,0,0" Content="Retour"/>
     </Grid>
 </UserControl>
