@@ -23,26 +23,22 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                navigationService.Configure("MainMenu", typeof(SellIt_UWP.Views.MainMenu));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
+                navigationService.Configure("BasePage", typeof(BasePage));
+                navigationService.Configure("MainMenu", typeof(MainMenu));
                 return navigationService;
             });
-            SimpleIoc.Default.Register<MainMenu>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            SimpleIoc.Default.Register<LoginVM>();
         }
+
+        public LoginVM BasePageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<LoginVM>(); }
+        }
+
         public MainMenu MainMenuInstance
         {
             get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
         }
-        //public OtherPageViewModel MyProperty
-        //{
-        //    get { return ServiceLocator.Current.GetInstance<OtherPageViewModel>(); }
-        //}
+
     }
 }
