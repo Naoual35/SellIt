@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using SellIt_UWP.Views.ViewModels;
+using SellIt_UWP.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace SellIt_UWP.Views.MVVMLight
             {
                 var navigationService = new NavigationService();
                 navigationService.Configure("BasePage", typeof(BasePage));
-                navigationService.Configure("MainPage", typeof(MainPage));
+                navigationService.Configure("MainMenu", typeof(MainMenu));
                 return navigationService;
             });
             SimpleIoc.Default.Register<LoginVM>();
@@ -34,14 +35,10 @@ namespace SellIt_UWP.Views.MVVMLight
             get { return ServiceLocator.Current.GetInstance<LoginVM>(); }
         }
 
+        public MainMenu MainMenuInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
+        }
 
-        //public BlankPageViewModel BlankPageInstance
-        //{
-        //    get { return ServiceLocator.Current.GetInstance<BlankPageViewModel>(); }
-        //}
-        //public OtherPageViewModel MyProperty
-        //{
-        //    get { return ServiceLocator.Current.GetInstance<OtherPageViewModel>(); }
-        //}
     }
 }

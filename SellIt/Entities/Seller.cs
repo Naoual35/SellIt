@@ -48,7 +48,6 @@ namespace SellIt.Entities
             get { return orders; }
             set { orders = value; }
         }
-
         #endregion
 
         #region Constructeurs

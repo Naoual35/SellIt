@@ -37,6 +37,6 @@
         <TextBox x:Name="inputLogin" Text="{Binding Seller.Lastname, Mode=TwoWay}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBox>
         <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBPassword" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Password</TextBlock>
         <PasswordBox x:Name="inputPassword" Password="{Binding Seller.Password, Mode=TwoWay}" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"></PasswordBox>
-        <Button  Style="{StaticResource LoginUCButton}" Command="{Binding BtnConnexionCommand, Mode=TwoWay}" x:Name="btnConnexion" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" MaxWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Center">Connexion</Button>
+        <Button  Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnConnexionCommand, Mode=TwoWay}" x:Name="btnConnexion" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" MaxWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Center">Connexion</Button>
     </Grid>
 </UserControl>

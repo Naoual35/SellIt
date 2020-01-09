@@ -30,7 +30,7 @@ namespace SellIt_UWP.Views.ViewModels
                 {
                     if ((this.Seller.Lastname==this.login) && (this.Seller.Password==this.password))
                     {
-                        this.navigationService.NavigateTo("MainPage");
+                        this.navigationService.NavigateTo("MainMenu");
                     }
                     
                 });
