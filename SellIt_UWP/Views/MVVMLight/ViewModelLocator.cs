@@ -25,9 +25,11 @@ namespace SellIt_UWP.Views.MVVMLight
                 var navigationService = new NavigationService();
                 navigationService.Configure("BasePage", typeof(BasePage));
                 navigationService.Configure("MainMenu", typeof(MainMenu));
+                navigationService.Configure("FollowingCommands", typeof(FollowingCommands));
                 return navigationService;
             });
             SimpleIoc.Default.Register<LoginVM>();
+            SimpleIoc.Default.Register<FollowingOrdersVM>();
         }
 
         public LoginVM BasePageInstance
@@ -38,6 +40,11 @@ namespace SellIt_UWP.Views.MVVMLight
         public MainMenu MainMenuInstance
         {
             get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
+        }
+
+        public FollowingOrdersVM FollowingCommandsInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<FollowingOrdersVM>(); }
         }
 
     }
