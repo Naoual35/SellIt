@@ -119,11 +119,19 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditBrandUC.xaml.cs">
+      <DependentUpon>EditBrandUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListBrandUC.xaml.cs">
+      <DependentUpon>ListBrandUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowBrandUC.xaml.cs">
+      <DependentUpon>ShowBrandUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\Category.cs" />
     <Compile Include="Views\BasePage.xaml.cs">
       <DependentUpon>BasePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Connexion1.xaml.cs">
-      <DependentUpon>Connexion1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
@@ -157,15 +165,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\EditBrandUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ListBrandUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowBrandUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Styles\LoginUCStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BasePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Connexion1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,6 +197,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
