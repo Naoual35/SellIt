@@ -119,11 +119,25 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Car.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Seller.cs" />
     <Compile Include="Views\BasePage.xaml.cs">
       <DependentUpon>BasePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Connexion1.xaml.cs">
       <DependentUpon>Connexion1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clients\EditClientUC.xaml.cs">
+      <DependentUpon>EditClientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clients\ListClientUC.xaml.cs">
+      <DependentUpon>ListClientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clients\ShowClientUC.xaml.cs">
+      <DependentUpon>ShowClientUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
@@ -132,6 +146,16 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\MVVMLight\ViewModelLocator.cs" />
+    <Compile Include="Views\Sellers\EditSellerUC.xaml.cs">
+      <DependentUpon>EditSellerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sellers\ListSellerUC.xaml.cs">
+      <DependentUpon>ListSellerUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
+      <DependentUpon>ShowSellerUC.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -157,6 +181,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Clients\EditClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Clients\ListClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Clients\ShowClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sellers\EditSellerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sellers\ListSellerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sellers\ShowSellerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Styles\LoginUCStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -186,6 +234,12 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Orders\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

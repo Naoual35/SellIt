@@ -18,17 +18,17 @@ namespace SellIt.Entities.ValidationEntities
         }
         #endregion
 
-        public override bool IsValid(Object value)
+        protected override ValidationResult IsValid(Object value,ValidationContext validationContext)
         {
             if (int.TryParse(value.ToString(), out int result))
             {
-                if ((result >= 0) && (result <= 98000))
+                if ((result >= 1) && (result <= 98000))
                 {
-                    return true;
+                    return ValidationResult.Success;
                 }
                 else
                 {
-                    return false;
+                    return new ValidationResult("Le code postal n\'est pas valide");
                 }
             }
             else
