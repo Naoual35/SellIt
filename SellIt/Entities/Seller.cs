@@ -48,17 +48,10 @@ namespace SellIt.Entities
             get { return orders; }
             set { orders = value; }
         }
-
-<<<<<<< HEAD
-        [Required(ErrorMessage = "Le mot de passe est obligatoire.")]
-
-        public string Password
-=======
         #endregion
 
         #region Constructeurs
         public Seller()
->>>>>>> f9ff94cd1c74269838787e530ce50f954b8c12c7
         {
             orders = new List<Order>();
         }

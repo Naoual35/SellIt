@@ -1,6 +1,8 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using SellIt_UWP.Views.ViewModels;
+using SellIt_UWP.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,17 +23,23 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                //navigationService.Configure("BlankPage", typeof(BlankPage));
+                navigationService.Configure("MainMenu", typeof(SellIt_UWP.Views.MainMenu));
+                //navigationService.Configure("OtherPage", typeof(OtherPage));
+                //navigationService.Configure("OtherPage", typeof(OtherPage));
+                //navigationService.Configure("OtherPage", typeof(OtherPage));
                 //navigationService.Configure("OtherPage", typeof(OtherPage));
                 return navigationService;
             });
-            //SimpleIoc.Default.Register<BlankPageViewModel>();
+            SimpleIoc.Default.Register<MainMenu>();
+            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            //SimpleIoc.Default.Register<OtherPageViewModel>();
             //SimpleIoc.Default.Register<OtherPageViewModel>();
         }
-        //public BlankPageViewModel BlankPageInstance
-        //{
-        //    get { return ServiceLocator.Current.GetInstance<BlankPageViewModel>(); }
-        //}
+        public MainMenu MainMenuInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
+        }
         //public OtherPageViewModel MyProperty
         //{
         //    get { return ServiceLocator.Current.GetInstance<OtherPageViewModel>(); }
