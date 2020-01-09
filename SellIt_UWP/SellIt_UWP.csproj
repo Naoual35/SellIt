@@ -156,6 +156,8 @@
     <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\LoginVM.cs" />
+    <Compile Include="Views\ViewModels\MainPageVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

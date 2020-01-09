@@ -1,6 +1,7 @@
 ﻿using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
+using SellIt_UWP.Views.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,13 +22,19 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                //navigationService.Configure("BlankPage", typeof(BlankPage));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
+                navigationService.Configure("BasePage", typeof(BasePage));
+                navigationService.Configure("MainPage", typeof(MainPage));
                 return navigationService;
             });
-            //SimpleIoc.Default.Register<BlankPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            SimpleIoc.Default.Register<LoginVM>();
         }
+
+        public LoginVM BasePageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<LoginVM>(); }
+        }
+
+
         //public BlankPageViewModel BlankPageInstance
         //{
         //    get { return ServiceLocator.Current.GetInstance<BlankPageViewModel>(); }

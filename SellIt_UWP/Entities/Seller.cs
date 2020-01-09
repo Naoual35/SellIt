@@ -41,7 +41,7 @@ namespace SellIt_UWP.Entities
         public List<Order> Orders
         {
             get { return orders; }
-            set 
+            set
             {
                 orders = value;
                 OnPropertyChanged("Orders");
