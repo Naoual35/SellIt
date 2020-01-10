@@ -28,7 +28,6 @@ namespace SellIt_UWP.Entities
             set { brandId = value; }
         }
 
-        //[Index(IsUnique = true)]
         public string Name
         {
             get { return name; }

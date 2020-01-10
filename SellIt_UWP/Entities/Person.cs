@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace SellIt_UWP.Entities
         #endregion
 
         #region Properties
+        [Column("lastname")]
+        [NotNull]
         public string Lastname
         {
             get { return lastname; }
@@ -39,6 +42,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("firstname")]
+        [NotNull]
         public string Firstname
         {
             get { return firstname; }
@@ -49,6 +54,7 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("address")]
         public string Address
         {
             get { return address; }
@@ -59,6 +65,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("poscode")]
+        [NotNull]
         public int Postcode
         {
             get { return postcode; }
@@ -69,6 +77,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("city")]
+        [NotNull]
         public string City
         {
             get { return city; }
@@ -79,6 +89,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("phoneNumber")]
+        [NotNull]
         public string PhoneNumber
         {
             get { return phoneNumber; }

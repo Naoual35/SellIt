@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("")]
     public class Seller : Person
     {
 
@@ -18,6 +21,7 @@ namespace SellIt_UWP.Entities
         #endregion
 
         #region Properties
+        [PrimaryKey, AutoIncrement]
         public long SellerId
         {
             get { return sellerId; }
@@ -28,6 +32,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("dateOfBirth")]
+        [NotNull]
         public DateTime DateOfBirth
         {
             get { return dateOfBirth; }
@@ -38,6 +44,7 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [OneToMany]
         public List<Order> Orders
         {
             get { return orders; }
@@ -48,6 +55,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("password")]
+        [NotNull]
         public string Password
         {
             get { return password; }

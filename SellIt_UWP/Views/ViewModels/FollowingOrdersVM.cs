@@ -12,7 +12,8 @@ namespace SellIt_UWP.Views.ViewModels
 {
     public class FollowingOrdersVM : ViewModelBase
     {
-        public Client Client { get; set; }
+        public Client ClientShow { get; set; }
+        public Client ClientEdit { get; set; }
 
         public ObservableCollection<Client> ClientList { get; set; }
         
@@ -23,9 +24,9 @@ namespace SellIt_UWP.Views.ViewModels
             this.navigationService = navigationService;
 
             ClientList = new ObservableCollection<Client>();
-            ClientList.Add(new Client {Firstname = "Lolo" });
-            ClientList.Add(new Client { Firstname = "Lala" });
-            ClientList.Add(new Client { Firstname = "Lulu" });
+            ClientList.Add(new Client {Firstname = "Lolo", Lastname = "popo" });
+            ClientList.Add(new Client { Firstname = "Lala", Lastname = "popo" });
+            ClientList.Add(new Client { Firstname = "Lulu", Lastname = "popo" });
 
         }
     }
