@@ -19,7 +19,7 @@ namespace SellIt.Entities
         private ICollection<Order> orders; 
 
         #endregion
-
+        //modification 2
 
         #region Properties
         [Column("sellerId")]
