@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SellIt_UWP.Views"
     xmlns:local2="using:SellIt_UWP.Views.Clients"
+    xmlns:local3="using:SellIt_UWP.Views.Clients"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -50,11 +51,15 @@
             <TextBlock Text="Gestion des commandes" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" FontSize="20" HorizontalAlignment="center" VerticalAlignment="Center"/>
 
             <ScrollViewer x:Name="leftScrollViewer" Grid.Column="0" Grid.Row="1">
-                <local2:ShowClientUC x:Name="contentClientUC"  DataContext="{Binding}"/>
+                <local2:ShowClientUC x:Name="contentLeftC"  DataContext="{Binding}"/>
             </ScrollViewer>
 
             <local:FollowingCommandsUC x:Name="contentMiddleUC" Grid.Column="1" Grid.Row="1" DataContext="{Binding}"/>
 
+            <ScrollViewer Grid.Column="2" Grid.Row="1">
+                <local3:EditClientUC x:Name="contentRightUC" DataContext="{Binding}"/>
+            </ScrollViewer>
+            
         </Grid>
 
         <Grid x:Name="footerGrid" Grid.Column="0" Grid.Row="2">

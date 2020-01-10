@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("Order")]
     public class Order : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,11 +27,15 @@ namespace SellIt_UWP.Entities
         private DateTime dateOrder;
         private DateTime dateDelivery;
         private Seller seller;
+        private long sellerId;
         private Client client;
-        //private ICollection<Car> cars;
+        private long clientId;   
+
+        private ICollection<Car> cars;
         #endregion
 
         #region properties
+        [PrimaryKey, AutoIncrement]
         public long OrderId
         {
             get { return orderId; }
@@ -39,6 +46,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("seller")]
+        [ManyToOne("SellerId")]
         public virtual Seller Seller
         {
             get { return seller; }
@@ -49,6 +58,16 @@ namespace SellIt_UWP.Entities
             }
         }
 
+
+        [ForeignKey(typeof(Seller))]
+        public long SellerId
+        {
+            get { return sellerId; }
+            set { sellerId = value; }
+        }
+
+
+        [ManyToOne("ClientId")]
         public virtual Client Client
         {
             get { return client; }
@@ -59,12 +78,21 @@ namespace SellIt_UWP.Entities
             }
         }
 
-        //public virtual ICollection<Car> Cars
-        //{
-        //    get { return cars; }
-        //    set { cars = value; }
-        //}
+        [ForeignKey(typeof(Client))]
+        public long ClientId
+        {
+            get { return clientId; }
+            set { clientId = value; }
+        }
 
+        [OneToMany]
+        public virtual ICollection<Car> Cars
+        {
+            get { return cars; }
+            set { cars = value; }
+        }
+
+        [Column]
         public DateTime DateOrder
         {
             get { return dateOrder; }
@@ -86,12 +114,12 @@ namespace SellIt_UWP.Entities
         }
         #endregion
 
-        //#region Constructors
-        //public Order()
-        //{
-        //    this.cars = new List<Car>();
-        //}
-        //#endregion
+        #region Constructors
+        public Order()
+        {
+            this.cars = new List<Car>();
+        }
+        #endregion
 
         #region Methods
         public Order Copy()
