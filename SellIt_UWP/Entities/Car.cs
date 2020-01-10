@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("Car")]
     public class Car
     {
         #region Attributs
@@ -21,6 +23,8 @@ namespace SellIt_UWP.Entities
 
         #region Properties
 
+
+        [PrimaryKey]
         public long CarId
         {
             get { return carId; }
