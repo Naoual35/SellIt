@@ -15,9 +15,7 @@ namespace SellIt_UWP.Views.ViewModels
         public Client Client { get; set; }
 
         public ObservableCollection<Client> ClientList { get; set; }
-
         
-
         private INavigationService navigationService;
 
         public FollowingOrdersVM(INavigationService navigationService)
