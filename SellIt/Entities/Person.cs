@@ -1,6 +1,7 @@
 ﻿using SellIt.Entities.ValidationEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Person")]
     public abstract class Person
     {
         #region Attributs
-        //private long personId;
         private string lastname;
         private string firstname;
         private string address;
@@ -22,20 +23,10 @@ namespace SellIt.Entities
         #endregion
 
         #region Properties
-
-        //[Column("clientId")]
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public long PersonId
-        //{
-        //    get { return personId; }
-        //    set { personId = value; }
-        //}
-
         [Column("lastname")]
-        [MaxLength(200)]
-        [MinLength(4)]
-        [Required(ErrorMessage = "le nom de la personne est obligatoire")]
+        [DisplayName("Nom")]
+        [StringLength(50,ErrorMessage ="La taille du nom doit être comprise entre 1 et 50 caractères",MinimumLength = 1)]
+        [Required(ErrorMessage = "Le nom de la personne est obligatoire")]
         public string Lastname
         {
             get { return lastname; }
@@ -43,9 +34,9 @@ namespace SellIt.Entities
         }
 
         [Column("firstname")]
-        [MaxLength(200)]
-        [MinLength(4)]
-        [Required(ErrorMessage = "le prénom de la personne est obligatoire")]
+        [DisplayName("Prénom")]
+        [StringLength(50, ErrorMessage = "La taille du prénom doit être comprise entre 1 et 50 caractères", MinimumLength = 1)]
+        [Required(ErrorMessage = "Le prénom de la personne est obligatoire")]
         public string Firstname
         {
             get { return firstname; }
@@ -53,9 +44,9 @@ namespace SellIt.Entities
         }
 
         [Column("address")]
-        [MaxLength(200)]
-        [MinLength(4)]
-        [Required(ErrorMessage = "l'adresse de la personne est obligatoire")]
+        [DisplayName("Adresse")]
+        [StringLength(50, ErrorMessage = "La taille du prénom doit être comprise entre 1 et 50 caractères", MinimumLength = 1)]
+        [Required(ErrorMessage = "L\'adresse de la personne est obligatoire")]
         public string Address
         {
             get { return address; }
@@ -63,8 +54,9 @@ namespace SellIt.Entities
         }
 
         [Column("postcode")]
-        [Required(ErrorMessage = "le code postal de la personne est obligatoire")]
-        [PostCodeValid]
+        [DisplayName("Code postal")]
+        [RegularExpression("^((0[1-9])|([1-8][0-9])|(9[0-8])|(2A)|(2B))[0-9]{3}$")]
+        [Required(ErrorMessage = "Le code postal de la personne est obligatoire")]
         public int Postcode
         {
             get { return postcode; }
@@ -72,9 +64,9 @@ namespace SellIt.Entities
         }
 
         [Column("city")]
-        [MaxLength(200)]
-        [MinLength(2)]
-        [Required(ErrorMessage = "la ville de résidence de la personne est obligatoire")]
+        [DisplayName("Ville")]
+        [StringLength(100,ErrorMessage = "Le taille du nom du proget doit être comprise entre 1 et 100 caractères",MinimumLength = 1)]
+        [Required(ErrorMessage = "la ville obligatoire")]
         public string City
         {
             get { return city; }
@@ -82,10 +74,10 @@ namespace SellIt.Entities
         }
 
         [Column("phonenumber")]
-        [MaxLength(12)]
-        [MinLength(12)]
+        [DisplayName("Numéro de téléphone")]
+        [RegularExpression("^[0-9]{10,10}$")]
         [Required(ErrorMessage = "le numéro de téléphone de la personne est obligatoire")]
-        [PhoneNumberValid]
+        //[PhoneNumberValid]
         public string PhoneNumber
         {
             get { return phoneNumber; }

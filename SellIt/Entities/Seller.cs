@@ -1,6 +1,7 @@
 ﻿using SellIt.Entities.ValidationEntities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -9,12 +10,14 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Seller")]
     public class Seller : Person
     {
         #region Attributs
         private long sellerId;
         private DateTime dateOfBirth;
-        private List<Order> orders;
+        private ICollection<Order> orders; 
+
         #endregion
 
 
@@ -29,7 +32,10 @@ namespace SellIt.Entities
         }
 
         [Column("dateOfBirth")]
-        [DateValid]
+        [DisplayName("Date de naissance")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [DateValid("birth")]
         [Required(ErrorMessage = "La date de naissance est obligatoire.")]
         public DateTime DateOfBirth
         {
@@ -37,10 +43,17 @@ namespace SellIt.Entities
             set { dateOfBirth = value; }
         }
 
-        public List<Order> Orders
+        public virtual ICollection<Order> Orders
         {
             get { return orders; }
             set { orders = value; }
+        }
+        #endregion
+
+        #region Constructeurs
+        public Seller()
+        {
+            orders = new List<Order>();
         }
         #endregion
 

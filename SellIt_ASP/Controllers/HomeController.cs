@@ -6,11 +6,31 @@ using System.Web.Mvc;
 
 namespace SellIt_ASP.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Claims()
+        {
+            ViewBag.Message = "Your contact page.";
 
             return View();
         }

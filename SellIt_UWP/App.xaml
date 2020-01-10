@@ -1,0 +1,14 @@
+﻿<Application
+    x:Class="SellIt_UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="using:SellIt_UWP.Views.MVVMLight"
+    xmlns:local="using:SellIt_UWP">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator xmlns:vm="using:SellIt_UWP.Views.MVVMLight" x:Key="Locator" />
+        </ResourceDictionary>
+    </Application.Resources>
+
+</Application>

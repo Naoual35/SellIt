@@ -10,34 +10,41 @@ namespace SellIt.Entities.ValidationEntities
     public class YearCarValid : ValidationAttribute
     {
         #region Properties
+        public int Min { get; set; }
         #endregion
 
         #region Constructors
-        public YearCarValid() : base("L'année doit être comprise entre 1980 et 2019")
+        /// <summary>
+        /// initialise une nouvelle instance de YearCarValid
+        /// </summary>
+        /// <param name="min"> année minimal autorisé pour la date de cnstruction de la voiture</param>
+        public YearCarValid(int min) : base("L\'année doit être comprise entre " + min + " et " + DateTime.Now.Year)
         {
+            Min = min;
         }
 
-        public override bool IsValid(Object value)
+
+        protected override ValidationResult IsValid(Object value, ValidationContext validationContext)
         {
-            if (int.TryParse(value.ToString(), out int result))
+            int result;
+            if (int.TryParse(value.ToString(), out result))
             {
-                if ((result >= 1980) && (result <= 2019))
+                if ((result >= this.Min) && (result <= DateTime.Now.Year))
                 {
-                    return true;
+                    return ValidationResult.Success;
                 }
                 else
                 {
-                    return false;
+                    return new ValidationResult("L\'annnée doit être comprise entre " + this.Min + " et " + DateTime.Now.Year);
                 }
             }
             else
             {
-                throw new Exception("value n'est pas un entier");
+                return new ValidationResult("Value n'est pas un entier");
             }
 
         }
 
         #endregion
-
     }
 }

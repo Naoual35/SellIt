@@ -15,9 +15,12 @@ namespace TestConsoleLibrary
     {
         public static void Main(string[] args)
         {
-       
-                Menus.Menus.MainMenu();
-
+            //List<string> liste = UtilsFunctions.getCarTypeList();
+            //foreach(var item in liste)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            Menus.Menus.MainMenu();
             Console.ReadLine();
         }
     }

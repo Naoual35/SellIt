@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SellIt.Entities.ValidationEntities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace SellIt.Entities
 {
+    [Table("Category")]
     public class Category
     {
         #region Attributs
@@ -30,9 +33,9 @@ namespace SellIt.Entities
         }
 
         [Column("name")]
-        [MaxLength(200)]
-        [MinLength(1)]
-        [Required]
+        [DisplayName("Nom")]
+        [StringLength(50, ErrorMessage = "le nom de la catégorie ne peut pas contenir plus de 50 caractères", MinimumLength = 1)]
+        [Required(ErrorMessage = "Le nom de la marque est obligatoire")]
         public string Name
         {
             get { return name; }
@@ -40,8 +43,8 @@ namespace SellIt.Entities
         }
 
         [Column("description")]
-        [MaxLength(200)]
-        [MinLength(4)]
+        [DisplayName("Description")]
+        [StringLength(200, ErrorMessage = "la description de la catégorie ne peut pas contenir plus de 200 caractères", MinimumLength = 1)]
         public string Description
         {
             get { return description; }
@@ -49,14 +52,17 @@ namespace SellIt.Entities
         }
 
         [Column("brand")]
+        [DisplayName("Marque")]
         [Required(ErrorMessage = "une marque est obligatoire")]
-        public Brand Brand
+        public virtual Brand Brand
         {
             get { return brand; }
             set { brand = value; }
         }
 
         [Column("price")]
+        [DisplayName("Prix")]
+        [PriceValid(250000)]
         [Required(ErrorMessage = "un prix est obligatoire")]
         public float Price
         {
@@ -65,7 +71,9 @@ namespace SellIt.Entities
         }
 
         [Column("tva")]
+        [DisplayName("TVA")]
         [Required(ErrorMessage = "une tva est obligatoire")]
+        [TvaValid]
         public float Tva
         {
             get { return tva; }
