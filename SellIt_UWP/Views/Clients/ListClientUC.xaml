@@ -16,11 +16,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="listView" x:FieldModifier="public" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding}">
+        <ListView x:Name="listView" x:FieldModifier="public" Grid.Column="0" Grid.Row="0" ItemsSource="{Binding}">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock MinWidth="200" Text="Name"/>
+                        <TextBlock MinWidth="200" Text="Nom"/>
+                        <TextBlock MinWidth="200" Text="Prénom"/>
+                        <TextBlock MinWidth="200" Text="Adresse"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -34,7 +36,9 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock MinWidth="200" Text="{Binding Name}"/>
+                        <TextBlock MinWidth="200" Text="{Binding Lastname}"/>
+                        <TextBlock MinWidth="200" Text="{Binding Firstname}"/>
+                        <TextBlock MinWidth="200" Text="{Binding Address}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

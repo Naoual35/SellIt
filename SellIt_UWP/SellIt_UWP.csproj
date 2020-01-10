@@ -159,6 +159,12 @@
     <Compile Include="Views\Clients\ShowClientUC.xaml.cs">
       <DependentUpon>ShowClientUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FollowingCommands.xaml.cs">
+      <DependentUpon>FollowingCommands.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FollowingCommandsUC.xaml.cs">
+      <DependentUpon>FollowingCommandsUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
     </Compile>
@@ -182,6 +188,7 @@
     <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\FollowingOrdersVM.cs" />
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
@@ -250,6 +257,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FollowingCommands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FollowingCommandsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -295,7 +310,13 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
   </ItemGroup>
