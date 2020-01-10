@@ -316,12 +316,9 @@
     <PackageReference Include="MvvmLight">
       <Version>5.4.1.1</Version>
     </PackageReference>
-<<<<<<< HEAD
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
-=======
->>>>>>> 697618264d125b3211da109e4a988e8a7a9621d4
     <PackageReference Include="sqlite">
       <Version>3.13.0</Version>
     </PackageReference>
