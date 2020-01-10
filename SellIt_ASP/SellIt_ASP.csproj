@@ -170,6 +170,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\Security\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -178,9 +179,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Database\SellItContext.cs" />
     <Compile Include="Models\Security\ApplicationDbContext.cs" />
     <Compile Include="Models\Security\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Entities\Brand.cs" />
+    <Compile Include="Models\Entities\Car.cs" />
+    <Compile Include="Models\Entities\Category.cs" />
+    <Compile Include="Models\Entities\Client.cs" />
+    <Compile Include="Models\Entities\Order.cs" />
+    <Compile Include="Models\Entities\Person.cs" />
+    <Compile Include="Models\Entities\Seller.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\DateValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\DelayExchangeValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\PhoneNumberValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\PostCodeValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\PriceValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\TimeAssurancyValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\TvaValid.cs" />
+    <Compile Include="Models\Entities\ValidationEntities\YearCarValid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utils\IdentityUtils\RoleUtils.cs" />
@@ -236,6 +253,11 @@
     <Content Include="Views\Shared\LoginSellIt.cshtml" />
     <Content Include="Views\Shared\MainMenu.cshtml" />
     <Content Include="Views\Navigation\Claims.cshtml" />
+    <Content Include="Views\Cars\Create.cshtml" />
+    <Content Include="Views\Cars\Delete.cshtml" />
+    <Content Include="Views\Cars\Details.cshtml" />
+    <Content Include="Views\Cars\Edit.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
