@@ -8,16 +8,15 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
 {
-    public class ClientPageVM
+    public class SellerPageVM
     {
         private INavigationService navigationService;
-        public ClientPageAccessor Datas { get; set; }
+        public SellerPageAccessor Datas { get; set; }
 
-        public ClientPageVM(INavigationService navigationService)
+        public SellerPageVM(INavigationService navigationService)
         {
             this.navigationService = navigationService;
             SetupDatas();
@@ -25,49 +24,49 @@ namespace SellIt_UWP.Views.ViewModels
 
         private void SetupDatas()
         {
-            Datas = new ClientPageAccessor();
-            SetUpClientEdit();
-            SetupClientList();
-            SetupClientShow();
+            Datas = new SellerPageAccessor();
+            SetUpSellerEdit();
+            SetupSellerList();
+            SetupSellerShow();
         }
 
-        private void SetupClientShow()
+        private void SetupSellerShow()
         {
-            Datas.ClientShow.Client = new Client();
+            Datas.SellerShow.Seller = new Seller();
         }
 
-        private void SetupClientList()
+        private void SetupSellerList()
         {
-            Datas.ClientList.Clients = new ObservableCollection<Client>();
+            Datas.SellerList.Sellers = new ObservableCollection<Seller>();
             //foreach (var item in databaseService.Roles)
             //{
             //    Datas.RoleList.Roles.Add(item);
             //}
-            Datas.ClientList.ListView.SelectedItem = new Client();
-            Datas.ClientList.ListView.SelectionChanged = new RelayCommand(ClientListSelectionChanged);
+            Datas.SellerList.ListView.SelectedItem = new Seller();
+            Datas.SellerList.ListView.SelectionChanged = new RelayCommand(SellerListSelectionChanged);
         }
 
-        private void ClientListSelectionChanged()
+        private void SellerListSelectionChanged()
         {
-            Client client = Datas.ClientList.ListView.SelectedItem;
-            if (client != null)
+            Seller seller = Datas.SellerList.ListView.SelectedItem;
+            if (seller != null)
             {
-                Datas.ClientShow.Client.CopyFrom(client);
+                Datas.SellerShow.Seller.CopyFrom(seller);
             }
         }
 
-        private void SetUpClientEdit()
+        private void SetUpSellerEdit()
         {
-            Datas.ClientEdit.Button.Content = "Valider";
-            Datas.ClientEdit.Button.Action = new RelayCommand(ClientEditCommand);
-            Datas.ClientEdit.Client = new Client();
+            Datas.SellerEdit.Button.Content = "Valider";
+            Datas.SellerEdit.Button.Action = new RelayCommand(SellerEditCommand);
+            Datas.SellerEdit.Seller = new Seller();
         }
 
-        private void ClientEditCommand()
+        private void SellerEditCommand()
         {
-            Client client = new Client();
-            client.CopyFrom(Datas.ClientEdit.Client);
-            Datas.ClientList.Clients.Add(client);
+            Seller seller = new Seller();
+            seller.CopyFrom(Datas.SellerEdit.Seller);
+            Datas.SellerList.Sellers.Add(seller);
             //try
             //{
             //    databaseService.SqliteConnection.Insert(role);
@@ -83,5 +82,5 @@ namespace SellIt_UWP.Views.ViewModels
             //    contentDialog.ShowAsync();
             //}
         }
-    }   
+    }
 }

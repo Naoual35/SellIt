@@ -67,7 +67,7 @@ namespace SellIt_UWP.Entities
             }
         }
 
-        [Column("poscode")]
+        [Column("postcode")]
         [NotNull]
         public int Postcode
         {

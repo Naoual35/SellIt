@@ -153,6 +153,9 @@
     <Compile Include="Views\Categories\ShowCategoriyUC.xaml.cs">
       <DependentUpon>ShowCategoriyUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClientCheckPage.xaml.cs">
+      <DependentUpon>ClientCheckPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Clients\EditClientUC.xaml.cs">
       <DependentUpon>EditClientUC.xaml</DependentUpon>
     </Compile>
@@ -182,6 +185,9 @@
       <DependentUpon>MainMenuUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MVVMLight\ViewModelLocator.cs" />
+    <Compile Include="Views\SellerCheckPage.xaml.cs">
+      <DependentUpon>SellerCheckPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Sellers\EditSellerUC.xaml.cs">
       <DependentUpon>EditSellerUC.xaml</DependentUpon>
     </Compile>
@@ -196,6 +202,7 @@
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Views\ViewModels\SellerPageVM.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\ClientPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientListAccessor.cs" />
@@ -207,6 +214,10 @@
     <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\SelectClientOrderListsAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\SellerPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerShowAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -260,6 +271,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ClientCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Clients\EditClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,6 +300,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SellerCheckPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

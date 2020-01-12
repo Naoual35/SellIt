@@ -96,6 +96,7 @@ namespace SellIt_UWP.Entities
             this.DateOfBirth = seller.DateOfBirth;
             this.Password = seller.Password;
         }
+
         #endregion
     }
 }

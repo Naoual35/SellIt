@@ -10,6 +10,11 @@ namespace SellIt_UWP.Views.ViewModels.UCAccessors.Clients
 {
     public class ClientShowAccessor
     {
-        
+        public Client Client { get; set; }
+
+        public ClientShowAccessor()
+        {
+            this.Client = new Client();
+        }
     }
 }

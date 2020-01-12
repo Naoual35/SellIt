@@ -28,10 +28,10 @@ namespace SellIt_UWP.Services
             get { return this.sqliteConnection.Table<Seller>(); }
         }
 
-        public TableQuery<Order> Orders
-        {
-            get { return this.sqliteConnection.Table<Order>(); }
-        }
+        //public TableQuery<Order> Orders
+        //{
+        //    get { return this.sqliteConnection.Table<Order>(); }
+        //}
 
         public List<Client> ClientsEager
         {
@@ -43,10 +43,10 @@ namespace SellIt_UWP.Services
             get { return this.sqliteConnection.GetAllWithChildren<Seller>(); }
         }
 
-        public List<Order> OrdersEager
-        {
-            get { return this.sqliteConnection.GetAllWithChildren<Order>(); }
-        }
+        //public List<Order> OrdersEager
+        //{
+        //    get { return this.sqliteConnection.GetAllWithChildren<Order>(); }
+        //}
 
         public DatabaseService()
         {
@@ -58,7 +58,7 @@ namespace SellIt_UWP.Services
                 this.sqliteConnection = new SQLiteConnection(myDb.Path);
                 this.sqliteConnection.CreateTable<Seller>();
                 this.sqliteConnection.CreateTable<Client>();
-                this.sqliteConnection.CreateTable<Order>();
+                //this.sqliteConnection.CreateTable<Order>();
             });
         }
     }
