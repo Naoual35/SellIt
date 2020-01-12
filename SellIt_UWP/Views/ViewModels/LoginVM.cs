@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using SellIt_UWP.Entities;
+using SellIt_UWP.Views.ViewModels.UCAccessors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,37 +14,52 @@ namespace SellIt_UWP.Views.ViewModels
 {
     public class LoginVM : ViewModelBase
     {
-        public Seller Seller { get; set; }
+        public LoginPageAccessor Datas { get; set; }
 
         private string password = "password";
-        private string login = "admin";
+        private string login = "Simonetto";
 
         private INavigationService navigationService;
 
-        private String BtnConnexion { get { return "MainPage"; } }
-
-        public ICommand BtnConnexionCommand
-        {
-            get
-            {
-                return new RelayCommand(() =>
-                {
-                    if ((this.Seller.Lastname==this.login) && (this.Seller.Password==this.password))
-                    {
-                        this.navigationService.NavigateTo("MainMenu");
-                    }
+        //public ICommand BtnConnexionCommand
+        //{
+        //    get
+        //    {
+        //        return new RelayCommand(() =>
+        //        {
+        //            if ((this.Seller.Lastname==this.login) && (this.Seller.Password==this.password))
+        //            {
+        //                this.navigationService.NavigateTo("MainMenu");
+        //            }
                     
-                });
-            }
-        }
+        //        });
+        //    }
+        //}
 
         public LoginVM(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-
-            this.Seller = new Seller() { Lastname = "", Password = ""};
-
+            SetUpDatas();
         }
 
+        private void SetUpDatas()
+        {
+            Datas = new LoginPageAccessor();
+            SetUpLogin();
+        }
+
+        private void SetUpLogin()
+        {
+            Datas.Login.Seller = new Seller();
+            Datas.Login.Button.Content = "Connexion";
+            Datas.Login.Button.Action = new RelayCommand(() =>
+            {
+                if ((this.Datas.Login.Seller.Lastname == this.login) && (this.Datas.Login.Seller.Password == this.password))
+                {
+                    this.navigationService.NavigateTo("MainMenu");
+                }
+
+            });
+        }
     }
 }

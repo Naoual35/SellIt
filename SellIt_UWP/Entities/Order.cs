@@ -92,7 +92,7 @@ namespace SellIt_UWP.Entities
             set { cars = value; }
         }
 
-        [Column]
+        [Column("dateOrder")]
         public DateTime DateOrder
         {
             get { return dateOrder; }
