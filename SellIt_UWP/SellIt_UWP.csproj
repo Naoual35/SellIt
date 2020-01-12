@@ -192,6 +192,9 @@
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Commons\ButtonAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
