@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SellIt_UWP.Services;
 
 namespace SellIt_UWP.Views.MVVMLight
 {
@@ -34,6 +35,11 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<FollowingOrdersVM>();
             SimpleIoc.Default.Register<ClientPageVM>();
             SimpleIoc.Default.Register<SellerPageVM>();
+
+            SimpleIoc.Default.Register<DatabaseService>(() =>
+            {
+                return new DatabaseService();
+            }, true);
         }
 
         public LoginVM BasePageInstance
