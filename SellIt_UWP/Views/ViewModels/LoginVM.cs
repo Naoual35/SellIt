@@ -21,21 +21,6 @@ namespace SellIt_UWP.Views.ViewModels
 
         private INavigationService navigationService;
 
-        //public ICommand BtnConnexionCommand
-        //{
-        //    get
-        //    {
-        //        return new RelayCommand(() =>
-        //        {
-        //            if ((this.Seller.Lastname==this.login) && (this.Seller.Password==this.password))
-        //            {
-        //                this.navigationService.NavigateTo("MainMenu");
-        //            }
-                    
-        //        });
-        //    }
-        //}
-
         public LoginVM(INavigationService navigationService)
         {
             this.navigationService = navigationService;
@@ -56,7 +41,7 @@ namespace SellIt_UWP.Views.ViewModels
             {
                 if ((this.Datas.Login.Seller.Lastname == this.login) && (this.Datas.Login.Seller.Password == this.password))
                 {
-                    this.navigationService.NavigateTo("MainMenu");
+                    this.navigationService.NavigateTo("FollowingCommands");
                 }
 
             });

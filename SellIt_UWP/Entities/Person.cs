@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    
     public abstract class Person : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -55,6 +56,7 @@ namespace SellIt_UWP.Entities
         }
 
         [Column("address")]
+        [NotNull]
         public string Address
         {
             get { return address; }

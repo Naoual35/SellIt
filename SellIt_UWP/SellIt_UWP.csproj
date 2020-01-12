@@ -122,6 +122,9 @@
     <Compile Include="Connexion1.xaml.cs">
       <DependentUpon>Connexion1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\WebServiceManager.cs" />
     <Compile Include="Views\Brands\EditBrandUC.xaml.cs">
       <DependentUpon>EditBrandUC.xaml</DependentUpon>
     </Compile>
@@ -188,11 +191,20 @@
     <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\ClientPageVM.cs" />
     <Compile Include="Views\ViewModels\FollowingOrdersVM.cs" />
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\ClientPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientShowAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Commons\ButtonAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Commons\ListViewAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrdersPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\ClientShowAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\SelectClientOrderListsAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
   </ItemGroup>

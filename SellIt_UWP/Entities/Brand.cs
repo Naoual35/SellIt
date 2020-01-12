@@ -14,6 +14,7 @@ namespace SellIt_UWP.Entities
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
         #region attributs
         private long brandId;
         private string name;

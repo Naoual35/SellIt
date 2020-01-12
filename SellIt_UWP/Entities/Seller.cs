@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
-    [Table("")]
+    [Table("Seller")]
     public class Seller : Person
     {
 

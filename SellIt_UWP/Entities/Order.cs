@@ -58,7 +58,7 @@ namespace SellIt_UWP.Entities
             }
         }
 
-
+        [Column("sellerId")]
         [ForeignKey(typeof(Seller))]
         public long SellerId
         {
@@ -66,7 +66,7 @@ namespace SellIt_UWP.Entities
             set { sellerId = value; }
         }
 
-
+        [Column("client")]
         [ManyToOne("ClientId")]
         public virtual Client Client
         {
@@ -78,6 +78,7 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("clientId")]
         [ForeignKey(typeof(Client))]
         public long ClientId
         {
@@ -85,6 +86,7 @@ namespace SellIt_UWP.Entities
             set { clientId = value; }
         }
 
+        [Column("cars")]
         [OneToMany]
         public virtual ICollection<Car> Cars
         {
@@ -93,6 +95,7 @@ namespace SellIt_UWP.Entities
         }
 
         [Column("dateOrder")]
+        [NotNull]
         public DateTime DateOrder
         {
             get { return dateOrder; }
@@ -103,6 +106,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("dateDelivery")]
+        [NotNull]
         public DateTime DateDelivery
         {
             get { return dateDelivery; }

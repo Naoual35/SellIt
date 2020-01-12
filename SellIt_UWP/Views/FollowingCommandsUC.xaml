@@ -5,6 +5,8 @@
     xmlns:local="using:SellIt_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -25,14 +27,40 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
             <RowDefinition Height="8*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Text="Sélectionner un client" Grid.Row="0"/>
-        <ComboBox x:Name="comboBoxClient"  ItemsSource="{Binding ClientList.Firstname,Mode=OneTime}" Grid.Row="1">
-            <ComboBoxItem />
-        </ComboBox>
-        <TextBlock Text="Sélectionner une commande" Grid.Row="3"/>
-        <ComboBox x:Name="comboBoxOrder" Grid.Row="4">
-            <ComboBoxItem />
-        </ComboBox>
+        <ListView x:Name="ClientlistView" Grid.Column="1" Grid.Row="1" 
+                   ItemsSource="{Binding Clients}"
+                   SelectedItem="{Binding ListView.SelectedItem, Mode=TwoWay}">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="SelectionChanged">
+                    <Core:InvokeCommandAction Command="{Binding ListView.SelectionChanged}" />
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock MinWidth="200" Text="Name"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ContextFlyout>
+                <Flyout>
+                    <StackPanel>
+                        <MenuFlyoutItem Text="Supprimer"></MenuFlyoutItem>
+                    </StackPanel>
+                </Flyout>
+            </ListView.ContextFlyout>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock MinWidth="200" Text="{Binding Lastname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Content="{Binding Button.Content}" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding Button.Action}" x:Name="btnConnexion" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" MaxWidth="200" HorizontalAlignment="Stretch" VerticalAlignment="Center"></Button>
     </Grid>
 </UserControl>
