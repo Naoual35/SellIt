@@ -11,16 +11,7 @@ namespace SellIt_UWP.Entities
 {
     [Table("Order")]
     public class Order : INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string name)
-        {
-            PropertyChangedEventHandler handler = PropertyChanged;
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(name));
-            }
-        }
+    {       
 
         #region attributs
         private long orderId;
@@ -63,7 +54,11 @@ namespace SellIt_UWP.Entities
         public long SellerId
         {
             get { return sellerId; }
-            set { sellerId = value; }
+            set 
+            { 
+                sellerId = value;
+                OnPropertyChanged("SellerId");
+            }
         }
 
         [Column("client")]
@@ -83,7 +78,11 @@ namespace SellIt_UWP.Entities
         public long ClientId
         {
             get { return clientId; }
-            set { clientId = value; }
+            set 
+            { 
+                clientId = value;
+                OnPropertyChanged("ClientId");
+            }
         }
 
         [Column("cars")]
@@ -91,7 +90,11 @@ namespace SellIt_UWP.Entities
         public virtual ICollection<Car> Cars
         {
             get { return cars; }
-            set { cars = value; }
+            set 
+            { 
+                cars = value;
+                OnPropertyChanged("Cars");
+            }
         }
 
         [Column("dateOrder")]
@@ -143,8 +146,50 @@ namespace SellIt_UWP.Entities
                 order.Client = this.Client.Copy();
             }
 
+            if(this.Cars!=null)
+            {
+                foreach (var item in this.Cars)
+                {
+                    order.Cars.Add(item);
+                }
+            }
+
             return order;
         }
+
+
+        public void CopyFrom(Order order)
+        {
+            this.OrderId = order.OrderId;
+            this.DateOrder = order.DateOrder;
+            this.DateDelivery = order.DateDelivery;
+            if (order.Seller != null)
+            {
+                this.Seller = order.Seller.Copy();
+            }
+            if (order.Client != null)
+            {
+                this.Client = order.Client.Copy();
+            }
+
+            if(order.Cars!=null)
+            {
+                foreach (var item in order.Cars)
+                {
+                    order.Cars.Add(item);
+                }
+            }
+        }
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
     }
 }

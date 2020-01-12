@@ -19,6 +19,7 @@ namespace SellIt_UWP.Views.ViewModels
         private DatabaseService databaseService;
         public SellerPageAccessor Datas { get; set; }
 
+
         public SellerPageVM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;

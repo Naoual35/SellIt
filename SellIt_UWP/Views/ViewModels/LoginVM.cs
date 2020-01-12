@@ -41,7 +41,7 @@ namespace SellIt_UWP.Views.ViewModels
             {
                 if ((this.Datas.Login.Seller.Lastname == this.login) && (this.Datas.Login.Seller.Password == this.password))
                 {
-                    this.navigationService.NavigateTo("ClientCheckPage");
+                    this.navigationService.NavigateTo("SellerCheckPage");
                 }
 
             });
