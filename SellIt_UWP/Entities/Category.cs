@@ -85,6 +85,11 @@ namespace SellIt_UWP.Entities
             set { brandID = value; }
         }
 
+        internal void CopyFrom(Brand category)
+        {
+            throw new NotImplementedException();
+        }
+
         public Category Copy()
         {
             Category category = new Category();

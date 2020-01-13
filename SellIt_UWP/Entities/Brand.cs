@@ -60,8 +60,9 @@ namespace SellIt_UWP.Entities
 
         public void CopyFrom(Brand brand)
         {
-            //this.brandId = bran.Lastname;
-
+            this.brandId = brand.BrandId;
+            this.name = brand.Name;
+            this.Description = brand.Description;
 
             #endregion
         }
