@@ -1,6 +1,7 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,8 +9,18 @@ using System.Threading.Tasks;
 namespace SellIt_UWP.Entities
 {
     [Table("Car")]
-    public class Car
+    public class Car : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
         #region Attributs
         private long carId;
         private string name;
@@ -28,14 +39,18 @@ namespace SellIt_UWP.Entities
         public long CarId
         {
             get { return carId; }
-            set { carId = value; }
+            set { carId = value;
+                OnPropertyChanged("CarId");
+            }
         }
 
         [NotNull, Column("name")]
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set { name = value;
+                OnPropertyChanged("Name");
+            }
         }
 
         //public virtual Category Category
@@ -48,35 +63,45 @@ namespace SellIt_UWP.Entities
         public int Year
         {
             get { return year; }
-            set { year = value; }
+            set { year = value;
+                OnPropertyChanged("Year");
+            }
         }
 
         [NotNull, Column("color")]
         public string Color
         {
             get { return color; }
-            set { color = value; }
+            set { color = value;
+                OnPropertyChanged("Color");
+            }
         }
 
         [NotNull, Column("avalaible")]
         public bool Avalaible
         {
             get { return avalaible; }
-            set { avalaible = value; }
+            set { avalaible = value;
+                OnPropertyChanged("Avalaible");
+            }
         }
 
         [Column("timeAssurancy")]
         public int TimeAssurancy
         {
             get { return timeAssurancy; }
-            set { timeAssurancy = value; }
+            set { timeAssurancy = value;
+                OnPropertyChanged("TimeAssurancy");
+            }
         }
 
         [Column("delayExchange")]
         public int DelayExchange
         {
             get { return delayExchange; }
-            set { delayExchange = value; }
+            set { delayExchange = value;
+                OnPropertyChanged("DelayExchange");
+            }
         }
 
         #endregion
