@@ -10,5 +10,6 @@
 
     <Grid>
         <TextBlock FontSize="50" Text="Coucou"/>
+        <Image Source="C:\\Users\\IB\\AppData\\Local\\Packages\\45cd16bc-daa3-4968-ab49-672ce5f656cc_kv8c6yeekvkh8\\LocalState\\PNG_transparency_demonstration_1.png" Height="120" Width="120"></Image>
     </Grid>
 </Page>

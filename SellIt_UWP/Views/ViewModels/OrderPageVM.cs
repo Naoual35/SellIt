@@ -44,8 +44,6 @@ namespace SellIt_UWP.Views.ViewModels
 
         private void SetupOrderShow()
         {
-            Datas.OrderDelete.Button.Content = "Valider";
-            Datas.OrderDelete.Button.Action = new RelayCommand(OrderEditCommand);
             Datas.OrderShow.Order = new Order();
         }
 
@@ -55,9 +53,11 @@ namespace SellIt_UWP.Views.ViewModels
             if(order!=null)
             {
                 try
-                {            
+                {                      
                     databaseService.SqliteConnection.Delete(order);
                     Datas.OrderList.Orders.Remove(order);
+                    Datas.OrderDelete.Order.CopyFrom(new Order());
+                    Datas.OrderShow.Order.CopyFrom(new Order());
                 }
                 catch (Exception e)
                 {
@@ -88,6 +88,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (order != null)
             {
                 Datas.OrderShow.Order.CopyFrom(order);
+                Datas.OrderDelete.Order.CopyFrom(order);
             }
         }
 
