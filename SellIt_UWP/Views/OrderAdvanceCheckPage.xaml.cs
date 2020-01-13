@@ -20,16 +20,11 @@ namespace SellIt_UWP.Views
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MainMenu : Page
+    public sealed partial class OrderAdvanceCheckPage : Page
     {
-        public MainMenu()
+        public OrderAdvanceCheckPage()
         {
             this.InitializeComponent();
-        }
-
-        private void contentUC_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

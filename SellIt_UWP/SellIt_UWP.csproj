@@ -197,8 +197,14 @@
       <DependentUpon>MainMenuUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MVVMLight\ViewModelLocator.cs" />
+    <Compile Include="Views\OrderAdvanceCheckPage.xaml.cs">
+      <DependentUpon>OrderAdvanceCheckPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderCheckPage.xaml.cs">
       <DependentUpon>OrderCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\DeleteOrderUC.xaml.cs">
+      <DependentUpon>DeleteOrderUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Orders\EditOrderUC.xaml.cs">
       <DependentUpon>EditOrderUC.xaml</DependentUpon>
@@ -226,6 +232,7 @@
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Views\ViewModels\OrderAdvancePageVM.cs" />
     <Compile Include="Views\ViewModels\OrderPageVM.cs" />
     <Compile Include="Views\ViewModels\SellerPageVM.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CarPageAccessor.cs" />
@@ -244,7 +251,9 @@
     <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\SelectClientOrderListsAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\OrderAdvancePageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\OrderPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderShowAccessor.cs" />
@@ -260,7 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\image-accueil.jfif" />
-    <Content Include="Assets\image-accueil.png" />
+    <Content Include="Assets\image-accueil.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\logo-logisna.png" />
     <Content Include="Assets\logo-sellIt.PNG" />
     <Content Include="Properties\Default.rd.xml" />
@@ -353,7 +364,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\OrderAdvanceCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\OrderCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\DeleteOrderUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

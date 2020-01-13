@@ -5,10 +5,26 @@
     xmlns:local="using:SellIt_UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:orderUc="using:SellIt_UWP.Views.Orders"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding OrderCheckPageInstance, Source={StaticResource Locator}}"
+    >
 
-    <Grid>
-
-    </Grid>
+    <ScrollViewer>
+        <Grid x:Name="mainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <orderUc:ListOrderUC DataContext="{Binding Datas.OrderList, Mode=TwoWay}" x:Name="roleList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+            <orderUc:EditOrderUC DataContext="{Binding Datas.OrderEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
+            <orderUc:ShowOrderUC DataContext="{Binding Datas.OrderShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
+            <orderUc:DeleteOrderUC DataContext="{Binding Datas.OrderDelete, Mode=TwoWay}" x:Name="roleDelete" Grid.Row="1" Grid.Column="0"/>
+        </Grid>
+    </ScrollViewer>
 </Page>
