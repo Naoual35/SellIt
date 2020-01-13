@@ -147,6 +147,9 @@
     <Compile Include="Views\CarCheckPage.xaml.cs">
       <DependentUpon>CarCheckPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cars\DeleteCarUC.xaml.cs">
+      <DependentUpon>DeleteCarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cars\EditCarUC.xaml.cs">
       <DependentUpon>EditCarUC.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,7 @@
     <Compile Include="Views\ViewModels\SellerPageVM.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CarPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CarPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Cars\CarDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarShowAccessor.cs" />
@@ -305,6 +309,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CarCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Cars\DeleteCarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

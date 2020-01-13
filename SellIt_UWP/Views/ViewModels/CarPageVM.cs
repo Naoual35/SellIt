@@ -29,9 +29,41 @@ namespace SellIt_UWP.Views.ViewModels
         private void SetupDatas()
         {
             Datas = new CarPageAccessor();
-            SetUpCarEdit();
+            SetupCarEdit();
             SetupCarList();
             SetupCarShow();
+            SetupCarDelete();
+        }
+
+        private void SetupCarDelete()
+        {
+            Datas.CarDelete.Button.Content = "Supprimer";
+            Datas.CarDelete.Button.Action = new RelayCommand(CarDeleteCommand);
+            Datas.CarDelete.Car = new Car();
+        }
+
+        private void CarDeleteCommand()
+        {
+            Car car = Datas.CarList.ListView.SelectedItem;
+            if (car != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(car);
+                    Datas.CarList.Cars.Remove(car);
+                    Datas.CarDelete.Car.CopyFrom(new Car());
+                    Datas.CarShow.Car.CopyFrom(new Car());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupCarShow()
@@ -56,10 +88,11 @@ namespace SellIt_UWP.Views.ViewModels
             if (car != null)
             {
                 Datas.CarShow.Car.CopyFrom(car);
+                Datas.CarDelete.Car.CopyFrom(car);
             }
         }
 
-        private void SetUpCarEdit()
+        private void SetupCarEdit()
         {
             Datas.CarEdit.Button.Content = "Valider";
             Datas.CarEdit.Button.Action = new RelayCommand(CarEditCommand);
