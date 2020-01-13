@@ -15,7 +15,7 @@ namespace SellIt_UWP.Entities
 
         #region Attributs
         private long sellerId;
-        private DateTime dateOfBirth;
+        private DateTimeOffset dateOfBirth;
         private string dateOfBirthString;
         private List<Order> orders;
         private string password;
@@ -35,7 +35,7 @@ namespace SellIt_UWP.Entities
 
         [Column("dateOfBirth")]
         [NotNull]
-        public DateTime DateOfBirth
+        public DateTimeOffset DateOfBirth
         {
             get { return dateOfBirth; }
             set 
@@ -51,7 +51,10 @@ namespace SellIt_UWP.Entities
         public string DateOfBirthString
         {
             get { return dateOfBirthString; }
-            set { dateOfBirthString =  value;}
+            set { 
+                    dateOfBirthString =  value;
+                    OnPropertyChanged("DateOfBirthString");
+            }
         }
 
         [OneToMany]

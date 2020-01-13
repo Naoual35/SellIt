@@ -15,7 +15,7 @@ namespace SellIt_UWP.Entities
 
         #region attributs
         private long orderId;
-        private DateTime dateOrder;
+        private DateTimeOffSet dateOrder;
         private DateTime dateDelivery;
         private Seller seller;
         private long sellerId;
