@@ -32,12 +32,39 @@ namespace SellIt_UWP.Views.ViewModels
             Datas = new CategoryPageAccessor();
             SetUpCategoryEdit();
             SetupCategoryList();
-            SetupShow();
+            SetupCategoryShow();
+            SetupCategoryDelete();
         }
 
-        private void SetupShow()
+        private void SetupCategoryDelete()
         {
-            throw new NotImplementedException();
+            Datas.CategoryDelete.Button.Content = "Supprimer";
+            Datas.CategoryDelete.Button.Action = new RelayCommand(CategoryDeleteCommand);
+            Datas.CategoryDelete.Category = new Category();
+        }
+
+        private void CategoryDeleteCommand()
+        {
+            Category category = Datas.CategoryList.ListView.SelectedItem;
+            if (category != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(category);
+                    Datas.CategoryList.Categories.Remove(category);
+                    Datas.CategoryDelete.Category.CopyFrom(new Category());
+                    Datas.CategoryShow.Category.CopyFrom(new Category());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupCategoryShow()

@@ -228,6 +228,7 @@
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewModels\BrandPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CategoryPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CategoryPageVM.cs" />
     <Compile Include="Views\ViewModels\ClientPageVM.cs" />

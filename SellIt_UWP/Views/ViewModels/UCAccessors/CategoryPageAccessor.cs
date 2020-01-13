@@ -12,12 +12,14 @@ namespace SellIt_UWP.Views.ViewModels
         public CategoryEditAccessor CategoryEdit { get; set; }
         public CategoryListAccessor CategoryList { get; set; }
         public CategoryShowAccessor CategoryShow { get; set; }
+        public CategoryDeleteAccessor CategoryDelete { get; set; }
 
         public CategoryPageAccessor()
         {
             this.CategoryEdit = new CategoryEditAccessor();
             this.CategoryList = new CategoryListAccessor();
             this.CategoryShow = new CategoryShowAccessor();
+            this.CategoryDelete = new CategoryDeleteAccessor();
         }
     }
 }
