@@ -12,7 +12,11 @@ namespace SellIt_UWP.Entities
         public long ClientId
         {
             get { return clientId; }
-            set { clientId = value; }
+            set 
+            { 
+                clientId = value;
+                OnPropertyChanged("ClientId");
+            }
         }
 
         #region Methods
