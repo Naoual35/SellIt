@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,17 +9,20 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("Seller")]
     public class Seller : Person
     {
 
         #region Attributs
         private long sellerId;
-        private DateTime dateOfBirth;
+        private DateTimeOffset dateOfBirth;
+        private string dateOfBirthString;
         private List<Order> orders;
         private string password;
         #endregion
 
         #region Properties
+        [PrimaryKey, AutoIncrement]
         public long SellerId
         {
             get { return sellerId; }
@@ -28,16 +33,31 @@ namespace SellIt_UWP.Entities
             }
         }
 
-        public DateTime DateOfBirth
+        [Column("dateOfBirth")]
+        [NotNull]
+        public DateTimeOffset DateOfBirth
         {
             get { return dateOfBirth; }
             set 
             {
                 dateOfBirth = value;
+                dateOfBirthString = value.ToString();
                 OnPropertyChanged("DateOfBirth");
+                OnPropertyChanged("DateOfBirthString");
             }
         }
 
+        [Ignore]
+        public string DateOfBirthString
+        {
+            get { return dateOfBirthString; }
+            set { 
+                    dateOfBirthString =  value;
+                    OnPropertyChanged("DateOfBirthString");
+            }
+        }
+
+        [OneToMany]
         public List<Order> Orders
         {
             get { return orders; }
@@ -48,6 +68,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("password")]
+        [NotNull]
         public string Password
         {
             get { return password; }
@@ -71,6 +93,7 @@ namespace SellIt_UWP.Entities
             seller.City = this.City;
             seller.SellerId = this.SellerId;
             seller.DateOfBirth = this.DateOfBirth;
+            seller.DateOfBirthString = this.DateOfBirthString;
             seller.Password = this.Password;
             return seller;
         }
@@ -85,8 +108,10 @@ namespace SellIt_UWP.Entities
             this.City = seller.City;
             this.SellerId = seller.SellerId;
             this.DateOfBirth = seller.DateOfBirth;
+            this.DateOfBirthString = seller.DateOfBirthString;
             this.Password = seller.Password;
         }
+
         #endregion
     }
 }

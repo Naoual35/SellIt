@@ -20,18 +20,9 @@ namespace SellIt_UWP.Views.Clients
 {
     public sealed partial class EditClientUC : UserControl
     {
-        private Client client;
-        public Client Client
-        {
-            get { return client; }
-            set { client = value; }
-        }
-
         public EditClientUC()
         {
             this.InitializeComponent();
-            Client client = new Client();
-            this.DataContext = Client;
         }
     }
 }

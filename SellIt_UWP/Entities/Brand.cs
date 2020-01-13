@@ -17,10 +17,12 @@ namespace SellIt_UWP.Entities
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
         #region attributs
-        private long brandID;
+        private long brandId;
         private string name;
         private string description;
+
         #endregion
 
         #region properties
@@ -28,15 +30,11 @@ namespace SellIt_UWP.Entities
         [PrimaryKey,AutoIncrement]
         public long BrandId
         {
-            get { return brandID; }
-            set { brandID = value; }
+            get { return brandId; }
+            set { brandId = value; }
         }
 
-        private long brandId;
-
-        //[Index(IsUnique = true)]
         [Column("name")]
-        [Unique]
         [NotNull]
         public string Name
         {
@@ -60,6 +58,11 @@ namespace SellIt_UWP.Entities
             return brand;
         }
 
-        #endregion
-    } 
+        public void CopyFrom(Brand brand)
+        {
+            //this.brandId = bran.Lastname;
+
+
+            #endregion
+        } 
 }

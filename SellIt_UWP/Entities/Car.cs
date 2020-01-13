@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("Car")]
     public class Car
     {
         #region Attributs
@@ -21,12 +23,15 @@ namespace SellIt_UWP.Entities
 
         #region Properties
 
+
+        [PrimaryKey, AutoIncrement, Column("carId")]
         public long CarId
         {
             get { return carId; }
             set { carId = value; }
         }
 
+        [NotNull, Column("name")]
         public string Name
         {
             get { return name; }
@@ -39,30 +44,35 @@ namespace SellIt_UWP.Entities
         //    set { category = value; }
         //}
 
+        [NotNull, Column("year")]
         public int Year
         {
             get { return year; }
             set { year = value; }
         }
 
+        [NotNull, Column("color")]
         public string Color
         {
             get { return color; }
             set { color = value; }
         }
 
+        [NotNull, Column("avalaible")]
         public bool Avalaible
         {
             get { return avalaible; }
             set { avalaible = value; }
         }
 
+        [Column("timeAssurancy")]
         public int TimeAssurancy
         {
             get { return timeAssurancy; }
             set { timeAssurancy = value; }
         }
 
+        [Column("delayExchange")]
         public int DelayExchange
         {
             get { return delayExchange; }

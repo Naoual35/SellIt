@@ -122,6 +122,9 @@
     <Compile Include="Connexion1.xaml.cs">
       <DependentUpon>Connexion1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\WebServiceManager.cs" />
     <Compile Include="Views\Brands\EditBrandUC.xaml.cs">
       <DependentUpon>EditBrandUC.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,9 @@
     <Compile Include="Views\Categories\ShowCategoriyUC.xaml.cs">
       <DependentUpon>ShowCategoriyUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClientCheckPage.xaml.cs">
+      <DependentUpon>ClientCheckPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Clients\EditClientUC.xaml.cs">
       <DependentUpon>EditClientUC.xaml</DependentUpon>
     </Compile>
@@ -158,6 +164,12 @@
     </Compile>
     <Compile Include="Views\Clients\ShowClientUC.xaml.cs">
       <DependentUpon>ShowClientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FollowingCommands.xaml.cs">
+      <DependentUpon>FollowingCommands.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FollowingCommandsUC.xaml.cs">
+      <DependentUpon>FollowingCommandsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>
@@ -173,6 +185,21 @@
       <DependentUpon>MainMenuUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MVVMLight\ViewModelLocator.cs" />
+    <Compile Include="Views\OrderCheckPage.xaml.cs">
+      <DependentUpon>OrderCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\EditOrderUC.xaml.cs">
+      <DependentUpon>EditOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\ListOrderUC.xaml.cs">
+      <DependentUpon>ListOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Orders\ShowOrderUC.xaml.cs">
+      <DependentUpon>ShowOrderUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SellerCheckPage.xaml.cs">
+      <DependentUpon>SellerCheckPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Sellers\EditSellerUC.xaml.cs">
       <DependentUpon>EditSellerUC.xaml</DependentUpon>
     </Compile>
@@ -182,9 +209,32 @@
     <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\ClientPageVM.cs" />
+    <Compile Include="Views\ViewModels\FollowingOrdersVM.cs" />
     <Compile Include="Views\ViewModels\LoginVM.cs" />
     <Compile Include="Views\ViewModels\MainPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenuVM.cs" />
+    <Compile Include="Views\ViewModels\OrderPageVM.cs" />
+    <Compile Include="Views\ViewModels\SellerPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\ClientPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientShowAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Commons\ButtonAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Commons\ListViewAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrdersPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\ClientShowAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\SelectClientOrderListsAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\OrderPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderShowAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\SellerPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerShowAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -238,6 +288,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ClientCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Clients\EditClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -250,11 +304,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FollowingCommands.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FollowingCommandsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenuUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\EditOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\ListOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Orders\ShowOrderUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SellerCheckPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -295,7 +377,13 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
+      <Version>2.0.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmLight">
+      <Version>5.4.1.1</Version>
+    </PackageReference>
+      <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
     <PackageReference Include="sqlite">
@@ -305,9 +393,7 @@
       <Version>2.1.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Orders\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
