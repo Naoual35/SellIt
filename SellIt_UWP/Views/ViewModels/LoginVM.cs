@@ -2,13 +2,16 @@
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using SellIt_UWP.Entities;
+using SellIt_UWP.Services;
 using SellIt_UWP.Views.ViewModels.UCAccessors;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
 {
@@ -16,14 +19,13 @@ namespace SellIt_UWP.Views.ViewModels
     {
         public LoginPageAccessor Datas { get; set; }
 
-        private string password = "password";
-        private string login = "Simonetto";
-
         private INavigationService navigationService;
+        private DatabaseService databaseService;
 
-        public LoginVM(INavigationService navigationService)
+        public LoginVM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
+            this.databaseService = databaseService;
             SetUpDatas();
         }
 
@@ -31,18 +33,48 @@ namespace SellIt_UWP.Views.ViewModels
         {
             Datas = new LoginPageAccessor();
             SetUpLogin();
+            SetupListSeller();
+        }
+
+        private void SetupListSeller()
+        {
+            Datas.Login.Sellers = new ObservableCollection<Seller>();
+            foreach (var item in this.databaseService.Sellers)
+            {
+                Datas.Login.Sellers.Add(item);
+            }
         }
 
         private void SetUpLogin()
         {
+            bool tag = false;
             Datas.Login.Seller = new Seller();
             Datas.Login.Button.Content = "Connexion";
             Datas.Login.Button.Action = new RelayCommand(() =>
             {
-                if ((this.Datas.Login.Seller.Lastname == this.login) && (this.Datas.Login.Seller.Password == this.password))
+                foreach (var item in this.databaseService.Sellers)
                 {
-                    this.navigationService.NavigateTo("SellerCheckPage");
+                    if((item.Lastname.Equals(this.Datas.Login.Seller.Lastname))&& (item.Password.Equals(this.Datas.Login.Seller.Password)))
+                    {
+                        tag = true;
+                        break;
+                    }
                 }
+
+                if(tag)
+                {
+                    this.navigationService.NavigateTo("MainMenu");
+                }
+                else
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = "Login ou mot de passe incorrect";
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+                
 
             });
         }

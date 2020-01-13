@@ -228,6 +228,7 @@
     <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\OrderPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderShowAccessor.cs" />
@@ -383,7 +384,7 @@
     <PackageReference Include="MvvmLight">
       <Version>5.4.1.1</Version>
     </PackageReference>
-      <PackageReference Include="MvvmLightLibs">
+    <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
     <PackageReference Include="sqlite">

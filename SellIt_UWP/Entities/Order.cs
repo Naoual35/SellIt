@@ -15,8 +15,8 @@ namespace SellIt_UWP.Entities
 
         #region attributs
         private long orderId;
-        private DateTimeOffSet dateOrder;
-        private DateTime dateDelivery;
+        private DateTimeOffset dateOrder;
+        private DateTimeOffset dateDelivery;
         private Seller seller;
         private long sellerId;
         private Client client;
@@ -99,7 +99,7 @@ namespace SellIt_UWP.Entities
 
         [Column("dateOrder")]
         [NotNull]
-        public DateTime DateOrder
+        public DateTimeOffset DateOrder
         {
             get { return dateOrder; }
             set 
@@ -111,7 +111,7 @@ namespace SellIt_UWP.Entities
 
         [Column("dateDelivery")]
         [NotNull]
-        public DateTime DateDelivery
+        public DateTimeOffset DateDelivery
         {
             get { return dateDelivery; }
             set 

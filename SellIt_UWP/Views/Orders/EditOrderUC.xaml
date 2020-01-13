@@ -28,23 +28,12 @@
             <RowDefinition Height="*" MaxHeight="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txtSeller" Text="Vendeur" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtLastname" Text="Nom" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputLastname" Text="{Binding Seller.Lastname, Mode=TwoWay}"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtFirstname" Text="Prénom" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputFirstname" Text="{Binding Seller.Firstname, Mode=TwoWay}"  Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtAddress" Text="Adresse" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputAddress" Text="{Binding Seller.Address, Mode=TwoWay}"  Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtPostcode" Text="Code postal" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputPostcode" Text="{Binding Seller.Postcode, Mode=TwoWay}"  Grid.Column="2" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtPhoneNumber" Text="Téléphone" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputPhoneNumber" Text="{Binding Seller.PhoneNumber, Mode=TwoWay}"  Grid.Column="2" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtCity" Text="Ville" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputCity" Text="{Binding Seller.City, Mode=TwoWay}"  Grid.Column="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtDateOfBirth" Text="Date de naissance" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <DatePicker x:Name="inputDateOfBirth" SelectedDate="{Binding Seller.DateOfBirth,Mode=TwoWay}" Grid.Column="2" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <TextBlock x:Name="txtPassword" Text="Mot de passe" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <TextBox x:Name="inputPassword" Text="{Binding Seller.Password, Mode=TwoWay}"  Grid.Column="2" Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtSeller" Text="Nouvelle commande" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtDateOrder" Text="Date de commande" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <DatePicker x:Name="inputDateOfBirth" SelectedDate="{Binding Order.DateOrder,Mode=TwoWay}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtDateDelivery" Text="Date de livraison" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <DatePicker x:Name="inputDateDelivery" SelectedDate="{Binding Order.DateDelivery,Mode=TwoWay}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    
     </Grid>
 </UserControl>
