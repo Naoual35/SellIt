@@ -19,6 +19,17 @@ namespace SellIt_UWP.Services
         {
             get { return sqliteConnection; }
         }
+
+        public TableQuery<Brand> Brands
+        {
+            get { return this.sqliteConnection.Table<Brand>(); }
+        }
+        
+         public TableQuery<Category> Categories
+        {
+            get { return this.sqliteConnection.Table<Category>(); }
+        }
+    
         public TableQuery<Client> Clients
         {
             get { return this.sqliteConnection.Table<Client>(); }
@@ -44,6 +55,15 @@ namespace SellIt_UWP.Services
             get { return this.sqliteConnection.GetAllWithChildren<Client>(); }
         }
 
+        public List<Brand> BrandsEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<Brand>(); }
+        }
+
+        public List<Category> CategoriesEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<Category>(); }
+        }
         public List<Seller> SellersEager
         {
             get { return this.sqliteConnection.GetAllWithChildren<Seller>(); }
@@ -77,6 +97,10 @@ namespace SellIt_UWP.Services
                 this.sqliteConnection.CreateTable<Seller>();
                 this.sqliteConnection.CreateTable<Client>();
                 this.sqliteConnection.CreateTable<Order>();
+
+                this.sqliteConnection.CreateTable<Brand>();
+                this.sqliteConnection.CreateTable<Category>();
+
                 this.sqliteConnection.CreateTable<Car>();
                 eRF.Set();
             });

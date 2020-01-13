@@ -230,6 +230,9 @@
     <Compile Include="Views\Sellers\ShowSellerUC.xaml.cs">
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ViewModels\BrandPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\CategoryPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\CategoryPageVM.cs" />
     <Compile Include="Views\ViewModels\ClientPageVM.cs" />
     <Compile Include="Views\ViewModels\FollowingOrdersVM.cs" />
     <Compile Include="Views\ViewModels\LoginVM.cs" />
@@ -238,6 +241,13 @@
     <Compile Include="Views\ViewModels\OrderAdvancePageVM.cs" />
     <Compile Include="Views\ViewModels\OrderPageVM.cs" />
     <Compile Include="Views\ViewModels\SellerPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\BrandPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Brands\BrandEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Brands\BrandListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Brands\BrandShowAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryEditAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryListAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryShowAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CarPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CarPageVM.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarDeleteAccessor.cs" />
