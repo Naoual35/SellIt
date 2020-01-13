@@ -80,5 +80,31 @@ namespace SellIt_UWP.Entities
         }
 
         #endregion
+
+        #region Methods
+        public Car Copy()
+        {
+            Car car = new Car();
+            car.CarId = this.CarId;
+            car.Name = this.Name;
+            car.Year = this.Year;
+            car.TimeAssurancy = this.TimeAssurancy;
+            car.Avalaible = this.Avalaible;
+            car.DelayExchange = this.DelayExchange;
+            car.Color = this.Color;
+            return car;
+    }
+
+        public void CopyFrom(Car car)
+        {
+            this.CarId = car.CarId;
+            this.Name = car.Name;
+            this.Year = car.Year;
+            this.TimeAssurancy = car.TimeAssurancy;
+            this.Avalaible = car.Avalaible;
+            this.DelayExchange = car.DelayExchange;
+            this.Color = car.Color;
+        }
+        #endregion
     }
 }

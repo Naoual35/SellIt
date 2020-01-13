@@ -30,6 +30,7 @@ namespace SellIt_UWP.Views.MVVMLight
                 navigationService.Configure("ClientCheckPage", typeof(ClientCheckPage));
                 navigationService.Configure("SellerCheckPage", typeof(SellerCheckPage));
                 navigationService.Configure("OrderCheckPage", typeof(OrderCheckPage));
+                navigationService.Configure("CarCheckPage", typeof(CarCheckPage));
                 return navigationService;
             });
             SimpleIoc.Default.Register<LoginVM>();
@@ -37,6 +38,7 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<ClientPageVM>();
             SimpleIoc.Default.Register<SellerPageVM>();
             SimpleIoc.Default.Register<OrderPageVM>();
+            SimpleIoc.Default.Register<CarPageVM>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -72,6 +74,11 @@ namespace SellIt_UWP.Views.MVVMLight
         public OrderPageVM OrderCheckPageInstance
         {
             get { return ServiceLocator.Current.GetInstance<OrderPageVM>(); }
+        }
+
+        public CarPageVM CarCheckPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<CarPageVM>(); }
         }
 
     }

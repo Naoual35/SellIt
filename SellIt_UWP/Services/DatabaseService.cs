@@ -33,6 +33,11 @@ namespace SellIt_UWP.Services
             get { return this.sqliteConnection.Table<Order>(); }
         }
 
+        public TableQuery<Car> Cars
+        {
+            get { return this.sqliteConnection.Table<Car>(); }
+        }
+
         public List<Client> ClientsEager
         {
             get { return this.sqliteConnection.GetAllWithChildren<Client>(); }
@@ -48,6 +53,11 @@ namespace SellIt_UWP.Services
             get { return this.sqliteConnection.GetAllWithChildren<Order>(); }
         }
 
+        public List<Car> CarsEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<Car>(); }
+        }
+
         public DatabaseService()
         {
             Task.Factory.StartNew(async () =>
@@ -59,6 +69,7 @@ namespace SellIt_UWP.Services
                 this.sqliteConnection.CreateTable<Seller>();
                 this.sqliteConnection.CreateTable<Client>();
                 this.sqliteConnection.CreateTable<Order>();
+                this.sqliteConnection.CreateTable<Car>();
             });
         }
     }
