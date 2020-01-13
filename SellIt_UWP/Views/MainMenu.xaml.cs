@@ -26,5 +26,10 @@ namespace SellIt_UWP.Views
         {
             this.InitializeComponent();
         }
+
+        private void contentUC_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

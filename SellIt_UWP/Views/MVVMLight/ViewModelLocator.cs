@@ -28,16 +28,16 @@ namespace SellIt_UWP.Views.MVVMLight
                 return navigationService;
             });
             SimpleIoc.Default.Register<LoginVM>();
+            SimpleIoc.Default.Register<MainMenuVM>();
         }
-
         public LoginVM BasePageInstance
         {
             get { return ServiceLocator.Current.GetInstance<LoginVM>(); }
         }
 
-        public MainMenu MainMenuInstance
+        public MainMenuVM MainMenuInstance
         {
-            get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
+            get { return ServiceLocator.Current.GetInstance<MainMenuVM>(); }
         }
 
     }
