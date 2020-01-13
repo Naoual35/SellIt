@@ -410,5 +410,11 @@ namespace SellIt.Database
             }
             #endregion
         }
+
+        public System.Data.Entity.DbSet<SellIt.Entities.Client> Clients { get; set; }
+
+        public System.Data.Entity.DbSet<SellIt.Entities.Order> Orders { get; set; }
+
+        public System.Data.Entity.DbSet<SellIt.Entities.Seller> Sellers { get; set; }
     }
 }

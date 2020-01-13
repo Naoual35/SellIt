@@ -24,13 +24,14 @@ namespace SellIt_UWP.Entities
         #region Properties
 
 
-        [PrimaryKey]
+        [PrimaryKey, AutoIncrement]
         public long CarId
         {
             get { return carId; }
             set { carId = value; }
         }
 
+        [NotNull]
         public string Name
         {
             get { return name; }
@@ -43,18 +44,21 @@ namespace SellIt_UWP.Entities
         //    set { category = value; }
         //}
 
+        [NotNull]
         public int Year
         {
             get { return year; }
             set { year = value; }
         }
 
+        [NotNull]
         public string Color
         {
             get { return color; }
             set { color = value; }
         }
 
+        [NotNull]
         public bool Avalaible
         {
             get { return avalaible; }
