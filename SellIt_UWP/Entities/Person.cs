@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    
     public abstract class Person : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -29,6 +31,8 @@ namespace SellIt_UWP.Entities
         #endregion
 
         #region Properties
+        [Column("lastname")]
+        [NotNull]
         public string Lastname
         {
             get { return lastname; }
@@ -39,6 +43,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("firstname")]
+        [NotNull]
         public string Firstname
         {
             get { return firstname; }
@@ -49,6 +55,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("address")]
+        [NotNull]
         public string Address
         {
             get { return address; }
@@ -59,6 +67,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("postcode")]
+        [NotNull]
         public int Postcode
         {
             get { return postcode; }
@@ -69,6 +79,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("city")]
+        [NotNull]
         public string City
         {
             get { return city; }
@@ -79,6 +91,8 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        [Column("phoneNumber")]
+        [NotNull]
         public string PhoneNumber
         {
             get { return phoneNumber; }

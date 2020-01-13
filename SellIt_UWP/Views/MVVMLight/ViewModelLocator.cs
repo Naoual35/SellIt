@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SellIt_UWP.Services;
 
 namespace SellIt_UWP.Views.MVVMLight
 {
@@ -25,9 +26,22 @@ namespace SellIt_UWP.Views.MVVMLight
                 var navigationService = new NavigationService();
                 navigationService.Configure("BasePage", typeof(BasePage));
                 navigationService.Configure("MainMenu", typeof(MainMenu));
+                navigationService.Configure("FollowingCommands", typeof(FollowingCommands));
+                navigationService.Configure("ClientCheckPage", typeof(ClientCheckPage));
+                navigationService.Configure("SellerCheckPage", typeof(SellerCheckPage));
+                navigationService.Configure("OrderCheckPage", typeof(OrderCheckPage));
                 return navigationService;
             });
             SimpleIoc.Default.Register<LoginVM>();
+            SimpleIoc.Default.Register<FollowingOrdersVM>();
+            SimpleIoc.Default.Register<ClientPageVM>();
+            SimpleIoc.Default.Register<SellerPageVM>();
+            SimpleIoc.Default.Register<OrderPageVM>();
+
+            SimpleIoc.Default.Register<DatabaseService>(() =>
+            {
+                return new DatabaseService();
+            }, true);
         }
 
         public LoginVM BasePageInstance
@@ -38,6 +52,26 @@ namespace SellIt_UWP.Views.MVVMLight
         public MainMenu MainMenuInstance
         {
             get { return ServiceLocator.Current.GetInstance<MainMenu>(); }
+        }
+
+        public FollowingOrdersVM FollowingCommandsInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<FollowingOrdersVM>(); }
+        }
+
+        public ClientPageVM ClientCheckPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<ClientPageVM>(); }
+        }
+
+        public SellerPageVM SellerCheckPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<SellerPageVM>(); }
+        }
+
+        public OrderPageVM OrderCheckPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<OrderPageVM>(); }
         }
 
     }

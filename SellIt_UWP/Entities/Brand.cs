@@ -14,6 +14,7 @@ namespace SellIt_UWP.Entities
                 handler(this, new PropertyChangedEventArgs(name));
             }
         }
+
         #region attributs
         private long brandId;
         private string name;
@@ -28,7 +29,6 @@ namespace SellIt_UWP.Entities
             set { brandId = value; }
         }
 
-        //[Index(IsUnique = true)]
         public string Name
         {
             get { return name; }
