@@ -1,5 +1,4 @@
-﻿using SellIt_UWP.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,12 +17,11 @@ using Windows.UI.Xaml.Navigation;
 
 namespace SellIt_UWP.Views.Sellers
 {
-    public sealed partial class EditSellerUC : UserControl
+    public sealed partial class DeleteSellerUC : UserControl
     {
-        public EditSellerUC()
+        public DeleteSellerUC()
         {
             this.InitializeComponent();
-
         }
     }
 }

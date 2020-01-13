@@ -118,9 +118,11 @@ namespace SellIt_UWP.Entities
         public Category Copy()
         {
             Category category = new Category();
-            category.categoryId = this.CategoryId;
+            category.CategoryId = this.CategoryId;
             category.Name = this.Name;
             category.Description = this.Description;
+            category.Price = this.Price;
+            category.Tva = this.Tva;
             if (this.Brand != null)
             {
                 category.Brand = this.Brand.Copy();
@@ -131,9 +133,11 @@ namespace SellIt_UWP.Entities
         public void CopyFrom(Category category)
         {
  
-            this.categoryId = category.CategoryId;
+            this.CategoryId = category.CategoryId;
             this.Name = category.Name;
             this.Description = category.Description;
+            this.Price = category.Price;
+            this.Tva = category.Tva;
             if (category.Brand != null)
             {
                 this.Brand = category.Brand;

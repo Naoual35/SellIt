@@ -35,16 +35,16 @@ namespace SellIt_UWP.Views.ViewModels
             SetupOrderDelete();
         }
 
+        private void SetupOrderShow()
+        {
+            Datas.OrderShow.Order = new Order();
+        }
+
         private void SetupOrderDelete()
         {
             Datas.OrderDelete.Button.Content = "Supprimer";
             Datas.OrderDelete.Button.Action = new RelayCommand(OrderDeleteCommand);
             Datas.OrderDelete.Order = new Order();
-        }
-
-        private void SetupOrderShow()
-        {
-            Datas.OrderShow.Order = new Order();
         }
 
         private void OrderDeleteCommand()

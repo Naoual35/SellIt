@@ -16,8 +16,6 @@ namespace SellIt_UWP.Views.ViewModels
     {
         private INavigationService navigationService;
         private DatabaseService databaseService;
-        private object category;
-
         public CategoryPageAccessor Datas { get; set; }
 
         public CategoryPageVM(INavigationService navigationService, DatabaseService databaseService)
@@ -90,6 +88,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (category != null)
             {
                 Datas.CategoryShow.Category.CopyFrom(category);
+                Datas.CategoryDelete.Category.CopyFrom(category);
             }
         }
 

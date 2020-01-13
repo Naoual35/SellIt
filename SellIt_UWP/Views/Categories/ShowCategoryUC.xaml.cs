@@ -1,5 +1,4 @@
-﻿using SellIt_UWP.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,14 +15,13 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace SellIt_UWP.Views.Sellers
+namespace SellIt_UWP.Views.Categories
 {
-    public sealed partial class EditSellerUC : UserControl
+    public sealed partial class ShowCategoryUC : UserControl
     {
-        public EditSellerUC()
+        public ShowCategoryUC()
         {
             this.InitializeComponent();
-
         }
     }
 }

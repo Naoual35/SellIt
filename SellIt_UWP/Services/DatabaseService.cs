@@ -97,10 +97,8 @@ namespace SellIt_UWP.Services
                 this.sqliteConnection.CreateTable<Seller>();
                 this.sqliteConnection.CreateTable<Client>();
                 this.sqliteConnection.CreateTable<Order>();
-
                 this.sqliteConnection.CreateTable<Brand>();
                 this.sqliteConnection.CreateTable<Category>();
-
                 this.sqliteConnection.CreateTable<Car>();
                 eRF.Set();
             });

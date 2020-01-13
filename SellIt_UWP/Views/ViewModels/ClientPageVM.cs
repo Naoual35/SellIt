@@ -32,6 +32,38 @@ namespace SellIt_UWP.Views.ViewModels
             SetUpClientEdit();
             SetupClientList();
             SetupClientShow();
+            SetupClientDelete();
+        }
+
+        private void SetupClientDelete()
+        {
+            Datas.ClientDelete.Button.Content = "Supprimer";
+            Datas.ClientDelete.Button.Action = new RelayCommand(ClientDeleteCommand);
+            Datas.ClientDelete.Client = new Client();
+        }
+
+        private void ClientDeleteCommand()
+        {
+            Client client = Datas.ClientList.ListView.SelectedItem;
+            if (client != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(client);
+                    Datas.ClientList.Clients.Remove(client);
+                    Datas.ClientDelete.Client.CopyFrom(new Client());
+                    Datas.ClientShow.Client.CopyFrom(new Client());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupClientShow()
@@ -56,6 +88,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (client != null)
             {
                 Datas.ClientShow.Client.CopyFrom(client);
+                Datas.ClientDelete.Client.CopyFrom(client);
             }
         }
 

@@ -33,6 +33,38 @@ namespace SellIt_UWP.Views.ViewModels
             SetUpSellerEdit();
             SetupSellerList();
             SetupSellerShow();
+            SetupSellerDelete();
+        }
+
+        private void SetupSellerDelete()
+        {
+            Datas.SellerDelete.Button.Content = "Supprimer";
+            Datas.SellerDelete.Button.Action = new RelayCommand(SellerDeleteCommand);
+            Datas.SellerDelete.Seller = new Seller();
+        }
+
+        private void SellerDeleteCommand()
+        {
+            Seller seller = Datas.SellerList.ListView.SelectedItem;
+            if (seller != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(seller);
+                    Datas.SellerList.Sellers.Remove(seller);
+                    Datas.SellerDelete.Seller.CopyFrom(new Seller());
+                    Datas.SellerShow.Seller.CopyFrom(new Seller());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupSellerShow()
@@ -57,6 +89,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (seller != null)
             {
                 Datas.SellerShow.Seller.CopyFrom(seller);
+                Datas.SellerDelete.Seller.CopyFrom(seller);
             }
         }
 

@@ -21,9 +21,10 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <sellerUc:ListSellerUC DataContext="{Binding Datas.SellerList, Mode=TwoWay}" x:Name="roleList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-            <sellerUc:EditSellerUC DataContext="{Binding Datas.SellerEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
-            <sellerUc:ShowSellerUC DataContext="{Binding Datas.SellerShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
+            <sellerUc:ListSellerUC DataContext="{Binding Datas.SellerList, Mode=TwoWay}" x:Name="SellerList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+            <sellerUc:EditSellerUC DataContext="{Binding Datas.SellerEdit, Mode=TwoWay}" x:Name="SellerEdit" Grid.Row="0" Grid.Column="1"/>
+            <sellerUc:ShowSellerUC DataContext="{Binding Datas.SellerShow, Mode=TwoWay}" x:Name="SellerShow" Grid.Row="1" Grid.Column="1"/>
+            <sellerUc:DeleteSellerUC DataContext="{Binding Datas.SellerDelete, Mode=TwoWay}" x:Name="SellerDelete" Grid.Row="1" Grid.Column="0"/>
         </Grid>
     </ScrollViewer>
 </Page>

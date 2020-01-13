@@ -1,0 +1,48 @@
+﻿<UserControl
+    x:Class="SellIt_UWP.Views.MainMenu2UC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellIt_UWP.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Styles/LoginUCStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer>
+        <Grid x:Name="MainMenu">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="7*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btnCategory" Content="{Binding CategoryButton.Content}" x:FieldModifier="public" Command="{Binding CategoryButton.Action}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnCar" Content="{Binding CarButton.Content}" x:FieldModifier="public" Command="{Binding CarButton.Action}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnSeller" Content="{Binding SellerButton.Content}" x:FieldModifier="public" Command="{Binding SellerButton.Action}" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnClient" Content="{Binding ClientButton.Content}" x:FieldModifier="public" Command="{Binding ClientButton.Action}" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnOrder" Content="{Binding OrderButton.Content}" x:FieldModifier="public" Command="{Binding OrderButton.Action}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnGoBack" Content="{Binding GoBackButton.Content}" x:FieldModifier="public" Command="{Binding GoBackButton.Action}" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

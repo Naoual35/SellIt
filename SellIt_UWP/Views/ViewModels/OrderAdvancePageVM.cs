@@ -30,18 +30,11 @@ namespace SellIt_UWP.Views.ViewModels
         private void SetupDatas()
         {
             Datas = new OrderAdvancePageAccessor();
-            SetupOrderList();
             SetupOrderEdit();
-            SellerOrderShow();
-            SetupOrderDelete();
             SetupClientList();
             SetupSellerList();
         }
 
-        private void SellerOrderShow()
-        {
-            Datas.OrderShow.Order = new Order();
-        }
 
         private void SetupOrderEdit()
         {
@@ -52,12 +45,13 @@ namespace SellIt_UWP.Views.ViewModels
         private void OrderEditCommand()
         {
             Order order = new Order();
+            
             order.CopyFrom(Datas.OrderEdit.Order);
-            //Datas.SellerList.Sellers.Add(seller);
             try
             {
+
                 databaseService.SqliteConnection.Insert(order);
-                Datas.OrderList.Orders.Add(order);
+                //Datas.OrderList.Orders.Add(order);
             }
             catch (Exception e)
             {
@@ -68,68 +62,6 @@ namespace SellIt_UWP.Views.ViewModels
                 contentDialog.PrimaryButtonText = "ok";
                 contentDialog.ShowAsync();
             }
-        }
-
-        private void SetupOrderList()
-        {
-            Datas.OrderList.Orders = new ObservableCollection<Order>();
-            foreach (var item in databaseService.Orders)
-            {
-                Datas.OrderList.Orders.Add(item);
-            }
-            Datas.OrderList.ListView.SelectedItem = new Order();
-            Datas.OrderList.ListView.SelectionChanged = new RelayCommand(OrderListSelectionChanged);
-        }
-
-        private void OrderListSelectionChanged()
-        {
-            Order order = Datas.OrderList.ListView.SelectedItem;
-            if (order != null)
-            {
-                Datas.OrderShow.Order.CopyFrom(order);
-            }
-        }
-
-        private void SetupOrderDelete()
-        {
-            Datas.OrderDelete.Button.Content = "Supprimer";
-            Datas.OrderDelete.Button.Action = new RelayCommand(OrderDeleteCommand);
-            Datas.OrderDelete.Order = new Order();
-        }
-
-        private void OrderDeleteCommand()
-        {
-            Order order = Datas.OrderList.ListView.SelectedItem;
-            if (order != null)
-            {
-                try
-                {
-                    databaseService.SqliteConnection.Delete(order);
-                    Datas.OrderList.Orders.Remove(order);
-                    Datas.OrderDelete.Order.CopyFrom(new Order());
-                    Datas.OrderShow.Order.CopyFrom(new Order());
-                }
-                catch (Exception e)
-                {
-                    ContentDialog contentDialog = new ContentDialog();
-                    contentDialog.Title = "Error";
-                    contentDialog.Content = e.Message;
-                    contentDialog.IsSecondaryButtonEnabled = false;
-                    contentDialog.PrimaryButtonText = "ok";
-                    contentDialog.ShowAsync();
-                }
-            }
-        }
-
-        private void SetupSellerList()
-        {
-            Datas.SellerList.Sellers = new ObservableCollection<Seller>();
-            foreach (var item in databaseService.Sellers)
-            {
-                Datas.SellerList.Sellers.Add(item);
-            }
-            Datas.SellerList.ListView.SelectedItem = new Seller();
-            Datas.SellerList.ListView.SelectionChanged = new RelayCommand(SellerListSelectionChanged);
         }
 
         private void SellerListSelectionChanged()
@@ -160,5 +92,69 @@ namespace SellIt_UWP.Views.ViewModels
                 //Datas.ClientShow.Client.CopyFrom(client);
             }
         }
+
+        //private void SetupOrderList()
+        //{
+        //    Datas.OrderList.Orders = new ObservableCollection<Order>();
+        //    foreach (var item in databaseService.Orders)
+        //    {
+        //        Datas.OrderList.Orders.Add(item);
+        //    }
+        //    Datas.OrderList.ListView.SelectedItem = new Order();
+        //    Datas.OrderList.ListView.SelectionChanged = new RelayCommand(OrderListSelectionChanged);
+        //}
+
+        //private void OrderListSelectionChanged()
+        //{
+        //    Order order = Datas.OrderList.ListView.SelectedItem;
+        //    if (order != null)
+        //    {
+        //        Datas.OrderShow.Order.CopyFrom(order);
+        //    }
+        //}
+
+        //private void SetupOrderDelete()
+        //{
+        //    Datas.OrderDelete.Button.Content = "Supprimer";
+        //    Datas.OrderDelete.Button.Action = new RelayCommand(OrderDeleteCommand);
+        //    Datas.OrderDelete.Order = new Order();
+        //}
+
+        //private void OrderDeleteCommand()
+        //{
+        //    Order order = Datas.OrderList.ListView.SelectedItem;
+        //    if (order != null)
+        //    {
+        //        try
+        //        {
+        //            databaseService.SqliteConnection.Delete(order);
+        //            Datas.OrderList.Orders.Remove(order);
+        //            Datas.OrderDelete.Order.CopyFrom(new Order());
+        //            Datas.OrderShow.Order.CopyFrom(new Order());
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            ContentDialog contentDialog = new ContentDialog();
+        //            contentDialog.Title = "Error";
+        //            contentDialog.Content = e.Message;
+        //            contentDialog.IsSecondaryButtonEnabled = false;
+        //            contentDialog.PrimaryButtonText = "ok";
+        //            contentDialog.ShowAsync();
+        //        }
+        //    }
+        //}
+
+        private void SetupSellerList()
+        {
+            Datas.SellerList.Sellers = new ObservableCollection<Seller>();
+            foreach (var item in databaseService.Sellers)
+            {
+                Datas.SellerList.Sellers.Add(item);
+            }
+            Datas.SellerList.ListView.SelectedItem = new Seller();
+            Datas.SellerList.ListView.SelectionChanged = new RelayCommand(SellerListSelectionChanged);
+        }
+
+        
     }
 }
