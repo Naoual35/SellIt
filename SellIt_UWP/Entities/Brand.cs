@@ -27,7 +27,7 @@ namespace SellIt_UWP.Entities
 
         #region properties
 
-        [PrimaryKey,AutoIncrement]
+        [PrimaryKey, AutoIncrement]
         public long BrandId
         {
             get { return brandId; }
@@ -48,13 +48,13 @@ namespace SellIt_UWP.Entities
             get { return description; }
             set { description = value; }
         }
-      
+
         public Brand Copy()
         {
             Brand brand = new Brand();
             brand.brandId = this.BrandId;
             brand.Name = this.Name;
-            brand.Description = this.Description;          
+            brand.Description = this.Description;
             return brand;
         }
 
@@ -64,5 +64,6 @@ namespace SellIt_UWP.Entities
 
 
             #endregion
-        } 
+        }
+    }
 }
