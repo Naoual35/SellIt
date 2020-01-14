@@ -6,10 +6,17 @@ using System.Web.Mvc;
 
 namespace SellIt_ASP.Controllers
 {
-    [Authorize]
+    
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult IndexSellers()
         {
             return View();
         }

@@ -49,6 +49,9 @@ namespace SellIt_ASP.Models.Security
             get { return civility; }
             set { civility = value; }
         }
+
+        public long SellerId { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType
