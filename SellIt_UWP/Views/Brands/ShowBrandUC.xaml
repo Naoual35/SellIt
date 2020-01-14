@@ -31,7 +31,7 @@
             <ColumnDefinition MaxWidth="200"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBTitle" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">Création de la Marque</TextBlock>
+        <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBTitle" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"> Marque</TextBlock>
         <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBLogin" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Nom</TextBlock>
         <TextBox x:Name="inputNom"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBox>
         <TextBlock Style="{StaticResource LoginUCTextblock}" x:Name="txtBPassword" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">Description</TextBlock>
