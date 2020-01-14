@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -25,7 +26,16 @@ namespace SellIt_UWP.Views.ViewModels
             this.databaseService = databaseService;
             SetupDatas();
         }
-
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
         private void SetupDatas()
         {
             Datas = new CarPageAccessor();
