@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SellIt_ASP.Models;
 using SellIt_ASP.Models.Security;
+using SellIt_ASP.Utils.IdentityUtils;
+using SellIt_ASP.Utils.DatabaseUtils;
 
 namespace SellIt_ASP.Controllers
 {
@@ -94,8 +97,7 @@ namespace SellIt_ASP.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
             return View();
@@ -104,17 +106,18 @@ namespace SellIt_ASP.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email+"@website.com" };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    IdentityRole defaultRole = RoleUtils.CreateOrGetRole(model.RoleId);
+                    RoleUtils.AssignRoleToUser(defaultRole, user);
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // Pour plus d'informations sur l'activation de la confirmation de compte et de la réinitialisation de mot de passe, visitez https://go.microsoft.com/fwlink/?LinkID=320771
@@ -134,8 +137,7 @@ namespace SellIt_ASP.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -144,8 +146,7 @@ namespace SellIt_ASP.Controllers
         //
         // POST: /Account/ResetPassword
         [HttpPost]
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -170,8 +171,7 @@ namespace SellIt_ASP.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -185,6 +185,22 @@ namespace SellIt_ASP.Controllers
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
+        }
+
+        [ChildActionOnly]
+        [Authorize(Roles = "Admin")]
+        public ActionResult RoleList()
+        {
+            IdentityRoleListViewModel vm = new IdentityRoleListViewModel();
+            vm.Roles = RoleUtils.GetRoles();
+            return PartialView("~/Views/Shared/Account/_RoleList.cshtml", vm);
+        }
+
+        public ActionResult SellerList()
+        {
+            SellerListViewModel vm = new SellerListViewModel();
+            vm.Sellers = SellerUtils.GetSellers();
+            return PartialView("~/Views/Shared/Account/_SellerList.cshtml", vm);
         }
 
         protected override void Dispose(bool disposing)

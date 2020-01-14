@@ -1,0 +1,11 @@
+﻿@model SellIt_ASP.Models.SellerListViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Sellers, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(x => x.Sellers,
+            new SelectList(Model.Sellers, "SellerId", "Lastname"),
+            "Selectionner un role",
+            new { @class = "form-control", Name = "SellerId" })
+    </div>
+</div>

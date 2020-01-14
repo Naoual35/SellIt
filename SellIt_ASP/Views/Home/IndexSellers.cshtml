@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "IndexSellers";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.ActionLink("Retour", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class="Retour" })
+        </div>
+        <div class="col-md-4">
+            @Html.ActionLink("Créer un nouvel utilisateur", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })<br /><br />
+            @Html.ActionLink("Afficher les utilisateurs", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })<br /><br />
+            @Html.ActionLink("Créer un vendeur", "Create", "Sellers", routeValues: null, htmlAttributes: new { id = "registerLink" })<br /><br />
+            @Html.ActionLink("Supprimer un vendeur", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+
