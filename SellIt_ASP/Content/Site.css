@@ -57,6 +57,8 @@ textarea {
 .bouton {
     background-color: #280593;
     color: #fff;
+    font-size:20px;
+ 
 }
 
 .tailleC{
@@ -64,9 +66,9 @@ textarea {
 }
 
 .buttonMenu{
-    margin-top: 20px;
+    margin-top: 100px;
     text-align: center;
-   
+    
 }
 
 .horizontalAlign{
