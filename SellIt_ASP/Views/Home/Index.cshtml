@@ -6,9 +6,19 @@
 
         <div class="horizontalAlign">
 
-            <div class="row buttonMenu" >
+            <div class="row buttonMenu">
 
                 @Html.ActionLink("Voiture", "Index", "Cars", routeValues: null, htmlAttributes: new { id = "carLink", @class = "btn bouton" })
+
+            </div>
+            <div class="row buttonMenu">
+
+                @Html.ActionLink("Marque", "Index", "Brands", routeValues: null, htmlAttributes: new { id = "carLink", @class = "btn bouton" })
+
+            </div>
+            <div class="row buttonMenu">
+
+                @Html.ActionLink("Catégorie", "Index", "Categories", routeValues: null, htmlAttributes: new { id = "carLink", @class = "btn bouton" })
 
             </div>
             <div class="row buttonMenu">
