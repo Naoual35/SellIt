@@ -1,0 +1,34 @@
+﻿<UserControl
+    x:Class="SellIt_UWP.Views.Brands.DeleteBrandUC"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SellIt_UWP.Views.Brands"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MaxHeight="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="txtBrand" Text="Marque" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="48"/>
+        <TextBlock x:Name="txtName" Text="Nom" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="19" Width="31"/>
+        <TextBlock x:Name="inputName" Text="{Binding Brand.Name, Mode=TwoWay}"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="txtDescription" Text="Description" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="70"/>
+        <TextBlock x:Name="inputDescription" Text="{Binding Brand.Description, Mode=TwoWay}"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Row="6" HorizontalAlignment="Center" Height="14" Width="21"/>
+    </Grid>
+</UserControl>

@@ -125,6 +125,15 @@
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\WebServiceManager.cs" />
+    <Compile Include="Views\BrandCheckPage.xaml.cs">
+      <DependentUpon>BrandCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Brands\DeleteBrandUC.xaml.cs">
+      <DependentUpon>DeleteBrandUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Brands\EditBrandUC.xaml.cs">
+      <DependentUpon>EditBrandUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Brands\ListBrandUC.xaml.cs">
       <DependentUpon>ListBrandUC.xaml</DependentUpon>
     </Compile>
@@ -247,6 +256,7 @@
     </Compile>
     <Compile Include="Views\ViewModels\BrandPageVM.cs" />
     <Compile Include="Views\ViewModels\MainMenu2VM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Brands\BrandDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CategoryPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CategoryPageVM.cs" />
@@ -326,6 +336,14 @@
     <Page Include="Connexion1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BrandCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Brands\DeleteBrandUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Brands\EditBrandUC.xaml">
       <SubType>Designer</SubType>

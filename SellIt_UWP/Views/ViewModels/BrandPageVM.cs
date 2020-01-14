@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -19,11 +20,23 @@ namespace SellIt_UWP.Views.ViewModels
         private DatabaseService databaseService;
         public BrandPageAccessor Datas { get; set; }
 
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
+
         public BrandPageVM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
             this.databaseService = databaseService;
             SetupDatas();
+
         }
 
         private void SetupDatas()
@@ -31,12 +44,39 @@ namespace SellIt_UWP.Views.ViewModels
             Datas = new BrandPageAccessor();
             SetUpBrandEdit();
             SetupBrandList();
-            SetupShow();
+            SetupBrandShow();
+            SetupBrandDelete();
         }
 
-        private void SetupShow()
+        private void SetupBrandDelete()
         {
-            throw new NotImplementedException();
+            Datas.BrandDelete.Button.Content = "Supprimer";
+            Datas.BrandDelete.Button.Action = new RelayCommand(BrandDeleteCommand);
+            Datas.BrandDelete.Brand = new Brand();
+        }
+
+        private void BrandDeleteCommand()
+        {
+            Brand brand = Datas.BrandList.ListView.SelectedItem;
+            if (brand != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(brand);
+                    Datas.BrandList.Brands.Remove(brand);
+                    Datas.BrandDelete.Brand.CopyFrom(new Brand());
+                    Datas.BrandShow.Brand.CopyFrom(new Brand());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupBrandShow()
@@ -46,7 +86,7 @@ namespace SellIt_UWP.Views.ViewModels
 
         private void SetupBrandList()
         {
-            Datas.BrandList.Brands  = new ObservableCollection<Brand>();
+            Datas.BrandList.Brands = new ObservableCollection<Brand>();
             foreach (var item in databaseService.Brands)
             {
                 Datas.BrandList.Brands.Add(item);
@@ -62,6 +102,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (brand != null)
             {
                 Datas.BrandShow.Brand.CopyFrom(brand);
+                Datas.BrandDelete.Brand.CopyFrom(brand);
             }
         }
 
@@ -76,7 +117,7 @@ namespace SellIt_UWP.Views.ViewModels
         {
             Brand brand = new Brand();
             brand.CopyFrom(Datas.BrandEdit.Brand);
-            //Datas.BrandList.Brands.Add(brand);
+            //Datas.CategoryList.Categories.Add(Category);
             try
             {
                 databaseService.SqliteConnection.Insert(brand);
