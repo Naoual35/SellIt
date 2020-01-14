@@ -6,26 +6,37 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:orderUc="using:SellIt_UWP.Views.Orders"
+    xmlns:SellerUc="using:SellIt_UWP.Views.Sellers"
+    xmlns:ClientUc="using:SellIt_UWP.Views.Clients"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding OrderAdvanceCheckPageInstance, Source={StaticResource Locator}}"
     >
-
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Styles/LoginUCStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
-        <orderUc:ListOrderUC DataContext="{Binding Datas.OrderList, Mode=TwoWay}" x:Name="roleList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-        <orderUc:EditOrderUC DataContext="{Binding Datas.OrderEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
-        <orderUc:ShowOrderUC DataContext="{Binding Datas.OrderShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
-        <orderUc:DeleteOrderUC DataContext="{Binding Datas.OrderDelete, Mode=TwoWay}" x:Name="roleDelete" Grid.Row="2" Grid.Column="1"/>
-        
+        <orderUc:EditOrderUC DataContext="{Binding Datas.OrderEdit, Mode=TwoWay}" x:Name="orderEdit" Grid.Row="0" Grid.Column="0"/>
+        <SellerUc:ListSellerUC DataContext="{Binding Datas.SellerEdit, Mode=TwoWay}" x:Name="sellerlist" Grid.Row="2" Grid.Column="0"/>
+        <ClientUc:ListClientUC DataContext="{Binding Datas.ClientEdit, Mode=TwoWay}" x:Name="clientlist" Grid.Row="4" Grid.Column="0"/>
+        <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="4" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35" Margin="99,0,1,0"/>
+    
     </Grid>
 </Page>

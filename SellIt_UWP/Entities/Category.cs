@@ -24,7 +24,8 @@ namespace SellIt_UWP.Entities
         #region Attributs
         private long categoryId;
         private string name;
-       private Brand brand;
+        private Brand brand;
+        private long brandId;
         private string description;
         private float tva;
         private float price;
@@ -32,17 +33,27 @@ namespace SellIt_UWP.Entities
 
         #region Properties
 
+        [PrimaryKey, AutoIncrement]
         public long CategoryId
         {
             get { return categoryId; }
-            set { categoryId = value; }
+            set 
+            { 
+                categoryId = value;
+                OnPropertyChanged("CategoryId");
+            }
         }
+
         [Column("name")]
         [NotNull]
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set
+            { 
+                name = value;
+                OnPropertyChanged("Name");
+            }
         }
 
         [Column("description")]
@@ -50,14 +61,33 @@ namespace SellIt_UWP.Entities
         public string Description
         {
             get { return description; }
-            set { description = value; }
+            set
+            { 
+                description = value;
+                OnPropertyChanged("Description");
+            }
         }
 
-        [OneToOne("brandID")]
+        [OneToOne("brandId")]
         public virtual Brand Brand
         {
             get { return brand; }
-            set { brand = value; }
+            set
+            { 
+                brand = value;
+                OnPropertyChanged("Brand");
+            }
+        }
+
+        [ForeignKey(typeof(Brand))]
+        public long BrandId
+        {
+            get { return brandId; }
+            set
+            { 
+                brandId = value;
+                OnPropertyChanged("BrandId");
+            }
         }
 
         [Column("price")]
@@ -65,7 +95,11 @@ namespace SellIt_UWP.Entities
         public float Price
         {
             get { return price; }
-            set { price = value; }
+            set
+            { 
+                price = value;
+                OnPropertyChanged("Price");
+            }
         }
 
         [Column("tva")]
@@ -73,29 +107,22 @@ namespace SellIt_UWP.Entities
         public float Tva
         {
             get { return tva; }
-            set { tva = value; }
+            set
+            { 
+                tva = value;
+                OnPropertyChanged("Tva");
+            }
         }
-        
-
-
-        [ForeignKey(typeof(Brand))]
-        public long brandID
-        {
-            get { return brandID; }
-            set { brandID = value; }
-        }
-
-        internal void CopyFrom(Brand category)
-        {
-            throw new NotImplementedException();
-        }
+     
 
         public Category Copy()
         {
             Category category = new Category();
-            category.categoryId = this.CategoryId;
+            category.CategoryId = this.CategoryId;
             category.Name = this.Name;
             category.Description = this.Description;
+            category.Price = this.Price;
+            category.Tva = this.Tva;
             if (this.Brand != null)
             {
                 category.Brand = this.Brand.Copy();
@@ -106,9 +133,11 @@ namespace SellIt_UWP.Entities
         public void CopyFrom(Category category)
         {
  
-            this.categoryId = category.CategoryId;
+            this.CategoryId = category.CategoryId;
             this.Name = category.Name;
             this.Description = category.Description;
+            this.Price = category.Price;
+            this.Tva = category.Tva;
             if (category.Brand != null)
             {
                 this.Brand = category.Brand;

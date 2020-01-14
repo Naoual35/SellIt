@@ -68,7 +68,7 @@ namespace SellIt_UWP
                     // puis configurez la nouvelle page en transmettant les informations requises en tant que
                     // paramètre
 
-                    rootFrame.Navigate(typeof(CarCheckPage), e.Arguments);
+                    rootFrame.Navigate(typeof(BasePage), e.Arguments);
 
                 }
                 // Vérifiez que la fenêtre actuelle est active

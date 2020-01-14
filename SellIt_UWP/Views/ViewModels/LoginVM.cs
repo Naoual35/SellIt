@@ -52,30 +52,30 @@ namespace SellIt_UWP.Views.ViewModels
             Datas.Login.Button.Content = "Connexion";
             Datas.Login.Button.Action = new RelayCommand(() =>
             {
-                foreach (var item in this.databaseService.Sellers)
-                {
-                    if((item.Lastname.Equals(this.Datas.Login.Seller.Lastname))&& (item.Password.Equals(this.Datas.Login.Seller.Password)))
-                    {
-                        tag = true;
-                        break;
-                    }
-                }
+                //foreach (var item in this.databaseService.Sellers)
+                //{
+                //    if((item.Lastname.Equals(this.Datas.Login.Seller.Lastname))&& (item.Password.Equals(this.Datas.Login.Seller.Password)))
+                //    {
+                //        tag = true;
+                //        break;
+                //    }
+                //}
 
-                if(tag)
-                {
-                    this.navigationService.NavigateTo("MainMenu");
-                }
-                else
-                {
-                    ContentDialog contentDialog = new ContentDialog();
-                    contentDialog.Title = "Error";
-                    contentDialog.Content = "Login ou mot de passe incorrect";
-                    contentDialog.IsSecondaryButtonEnabled = false;
-                    contentDialog.PrimaryButtonText = "ok";
-                    contentDialog.ShowAsync();
-                }
-                
+                //if(tag)
+                //{
+                //    this.navigationService.NavigateTo("MainMenu2");
+                //}
+                //else
+                //{
+                //    ContentDialog contentDialog = new ContentDialog();
+                //    contentDialog.Title = "Error";
+                //    contentDialog.Content = "Login ou mot de passe incorrect";
+                //    contentDialog.IsSecondaryButtonEnabled = false;
+                //    contentDialog.PrimaryButtonText = "ok";
+                //    contentDialog.ShowAsync();
+                //}
 
+                this.navigationService.NavigateTo("MainMenu2");
             });
         }
     }

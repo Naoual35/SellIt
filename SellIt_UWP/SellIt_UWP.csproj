@@ -125,9 +125,6 @@
     <Compile Include="Entities\EntityBase.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\WebServiceManager.cs" />
-    <Compile Include="Views\Brands\EditBrandUC.xaml.cs">
-      <DependentUpon>EditBrandUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Brands\ListBrandUC.xaml.cs">
       <DependentUpon>ListBrandUC.xaml</DependentUpon>
     </Compile>
@@ -147,6 +144,9 @@
     <Compile Include="Views\CarCheckPage.xaml.cs">
       <DependentUpon>CarCheckPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Cars\DeleteCarUC.xaml.cs">
+      <DependentUpon>DeleteCarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Cars\EditCarUC.xaml.cs">
       <DependentUpon>EditCarUC.xaml</DependentUpon>
     </Compile>
@@ -156,17 +156,26 @@
     <Compile Include="Views\Cars\ShowCarUC.xaml.cs">
       <DependentUpon>ShowCarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Categories\DeleteCategoryUC.xaml.cs">
+      <DependentUpon>DeleteCategoryUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Categories\EditCategoryUC.xaml.cs">
       <DependentUpon>EditCategoryUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Categories\ListCategoryUC.xaml.cs">
       <DependentUpon>ListCategoryUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Categories\ShowCategoriyUC.xaml.cs">
-      <DependentUpon>ShowCategoriyUC.xaml</DependentUpon>
+    <Compile Include="Views\Categories\ShowCategoryUC.xaml.cs">
+      <DependentUpon>ShowCategoryUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CategoryCheckPage.xaml.cs">
+      <DependentUpon>CategoryCheckPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientCheckPage.xaml.cs">
       <DependentUpon>ClientCheckPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Clients\DeleteClientUC.xaml.cs">
+      <DependentUpon>DeleteClientUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Clients\EditClientUC.xaml.cs">
       <DependentUpon>EditClientUC.xaml</DependentUpon>
@@ -193,6 +202,12 @@
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MainMenu2.xaml.cs">
+      <DependentUpon>MainMenu2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenu2UC.xaml.cs">
+      <DependentUpon>MainMenu2UC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainMenuUC.xaml.cs">
       <DependentUpon>MainMenuUC.xaml</DependentUpon>
     </Compile>
@@ -218,6 +233,9 @@
     <Compile Include="Views\SellerCheckPage.xaml.cs">
       <DependentUpon>SellerCheckPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Sellers\DeleteSellerUC.xaml.cs">
+      <DependentUpon>DeleteSellerUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Sellers\EditSellerUC.xaml.cs">
       <DependentUpon>EditSellerUC.xaml</DependentUpon>
     </Compile>
@@ -228,6 +246,8 @@
       <DependentUpon>ShowSellerUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewModels\BrandPageVM.cs" />
+    <Compile Include="Views\ViewModels\MainMenu2VM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CategoryPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CategoryPageVM.cs" />
     <Compile Include="Views\ViewModels\ClientPageVM.cs" />
@@ -247,10 +267,12 @@
     <Compile Include="Views\ViewModels\UCAccessors\Categories\CategoryShowAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\CarPageAccessor.cs" />
     <Compile Include="Views\ViewModels\CarPageVM.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Cars\CarDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Cars\CarShowAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\ClientPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Clients\ClientShowAccessor.cs" />
@@ -261,6 +283,8 @@
     <Compile Include="Views\ViewModels\UCAccessors\FollowingOrders\SelectClientOrderListsAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\LoginPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Login\LoginAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\MainMenu2Accessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\MainMenu2\myButtonsAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\OrderAdvancePageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\OrderPageAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderDeleteAccessor.cs" />
@@ -268,6 +292,7 @@
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Orders\OrderShowAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\SellerPageAccessor.cs" />
+    <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerDeleteAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerEditAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerListAccessor.cs" />
     <Compile Include="Views\ViewModels\UCAccessors\Sellers\SellerShowAccessor.cs" />
@@ -318,6 +343,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Cars\DeleteCarUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Cars\EditCarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -330,6 +359,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Categories\DeleteCategoryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Categories\EditCategoryUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -338,11 +371,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Categories\ShowCategoriyUC.xaml">
+    <Page Include="Views\Categories\ShowCategoryUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CategoryCheckPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ClientCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Clients\DeleteClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,6 +408,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenu2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenu2UC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,6 +448,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SellerCheckPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Sellers\DeleteSellerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

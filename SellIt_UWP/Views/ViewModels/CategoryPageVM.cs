@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -16,15 +17,25 @@ namespace SellIt_UWP.Views.ViewModels
     {
         private INavigationService navigationService;
         private DatabaseService databaseService;
-        private object category;
-
         public CategoryPageAccessor Datas { get; set; }
+
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
 
         public CategoryPageVM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
             this.databaseService = databaseService;
             SetupDatas();
+            
         }
 
         private void SetupDatas()
@@ -32,12 +43,39 @@ namespace SellIt_UWP.Views.ViewModels
             Datas = new CategoryPageAccessor();
             SetUpCategoryEdit();
             SetupCategoryList();
-            SetupShow();
+            SetupCategoryShow();
+            SetupCategoryDelete();
         }
 
-        private void SetupShow()
+        private void SetupCategoryDelete()
         {
-            throw new NotImplementedException();
+            Datas.CategoryDelete.Button.Content = "Supprimer";
+            Datas.CategoryDelete.Button.Action = new RelayCommand(CategoryDeleteCommand);
+            Datas.CategoryDelete.Category = new Category();
+        }
+
+        private void CategoryDeleteCommand()
+        {
+            Category category = Datas.CategoryList.ListView.SelectedItem;
+            if (category != null)
+            {
+                try
+                {
+                    databaseService.SqliteConnection.Delete(category);
+                    Datas.CategoryList.Categories.Remove(category);
+                    Datas.CategoryDelete.Category.CopyFrom(new Category());
+                    Datas.CategoryShow.Category.CopyFrom(new Category());
+                }
+                catch (Exception e)
+                {
+                    ContentDialog contentDialog = new ContentDialog();
+                    contentDialog.Title = "Error";
+                    contentDialog.Content = e.Message;
+                    contentDialog.IsSecondaryButtonEnabled = false;
+                    contentDialog.PrimaryButtonText = "ok";
+                    contentDialog.ShowAsync();
+                }
+            }
         }
 
         private void SetupCategoryShow()
@@ -63,6 +101,7 @@ namespace SellIt_UWP.Views.ViewModels
             if (category != null)
             {
                 Datas.CategoryShow.Category.CopyFrom(category);
+                Datas.CategoryDelete.Category.CopyFrom(category);
             }
         }
 

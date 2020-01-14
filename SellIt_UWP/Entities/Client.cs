@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace SellIt_UWP.Entities
 {
+    [Table("Client")]
     public class Client : Person
     {
         private long clientId;
+
+        [PrimaryKey,AutoIncrement]
         public long ClientId
         {
             get { return clientId; }

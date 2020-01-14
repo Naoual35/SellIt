@@ -12,12 +12,14 @@ namespace SellIt_UWP.Views.ViewModels.UCAccessors
         public CarEditAccessor CarEdit { get; set; }
         public CarListAccessor CarList { get; set; }
         public CarShowAccessor CarShow { get; set; }
+        public CarDeleteAccessor CarDelete { get; set; }
 
         public CarPageAccessor()
         {
             this.CarEdit = new CarEditAccessor();
             this.CarList = new CarListAccessor();
             this.CarShow = new CarShowAccessor();
+            this.CarDelete = new CarDeleteAccessor();
         }
     }
 }

@@ -12,12 +12,14 @@ namespace SellIt_UWP.Views.ViewModels.UCAccessors
         public SellerEditAccessor SellerEdit { get; set; }
         public SellerListAccessor SellerList { get; set; }
         public SellerShowAccessor SellerShow { get; set; }
+        public SellerDeleteAccessor SellerDelete { get; set; }
 
         public SellerPageAccessor()
         {
             this.SellerEdit = new SellerEditAccessor();
             this.SellerList = new SellerListAccessor();
             this.SellerShow = new SellerShowAccessor();
+            this.SellerDelete = new SellerDeleteAccessor();
         }
     }
 }

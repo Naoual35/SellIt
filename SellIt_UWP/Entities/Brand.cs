@@ -31,7 +31,11 @@ namespace SellIt_UWP.Entities
         public long BrandId
         {
             get { return brandId; }
-            set { brandId = value; }
+            set
+            { 
+                brandId = value;
+                OnPropertyChanged("BrandId");
+            }
         }
 
         [Column("name")]
@@ -39,14 +43,23 @@ namespace SellIt_UWP.Entities
         public string Name
         {
             get { return name; }
-            set { name = value; }
+            set
+            { 
+                name = value;
+                OnPropertyChanged("Name");
+            }
         }
+
         [Column("description")]
         [NotNull]
         public string Description
         {
             get { return description; }
-            set { description = value; }
+            set          
+            { 
+                description = value;
+                OnPropertyChanged("Description");
+            }
         }
 
         public Brand Copy()

@@ -11,6 +11,14 @@
     DataContext="{Binding ClientCheckPageInstance, Source={StaticResource Locator}}"
     >
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Styles/LoginUCStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <ScrollViewer>
         <Grid x:Name="mainGrid">
             <Grid.ColumnDefinitions>
@@ -18,12 +26,15 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <clientUc:ListClientUC DataContext="{Binding Datas.ClientList, Mode=TwoWay}" x:Name="roleList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
-            <clientUc:EditClientUC DataContext="{Binding Datas.ClientEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
-            <clientUc:ShowClientUC DataContext="{Binding Datas.ClientShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
+            <clientUc:ListClientUC DataContext="{Binding Datas.ClientList, Mode=TwoWay}" x:Name="clientList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
+            <clientUc:EditClientUC DataContext="{Binding Datas.ClientEdit, Mode=TwoWay}" x:Name="clientEdit" Grid.Row="0" Grid.Column="1"/>
+            <clientUc:ShowClientUC DataContext="{Binding Datas.ClientShow, Mode=TwoWay}" x:Name="clientShow" Grid.Row="1" Grid.Column="1"/>
+            <clientUc:DeleteClientUC DataContext="{Binding Datas.ClientDelete, Mode=TwoWay}" x:Name="clientDelete" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="2" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35" Margin="99,0,1,0"/>
         </Grid>
     </ScrollViewer>
 </Page>

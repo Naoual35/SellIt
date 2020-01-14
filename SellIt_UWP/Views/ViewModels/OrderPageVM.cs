@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -18,6 +19,17 @@ namespace SellIt_UWP.Views.ViewModels
         private INavigationService navigationService;
         private DatabaseService databaseService;
         public OrderPageAccessor Datas { get; set; }
+
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
 
         public OrderPageVM(INavigationService navigationService, DatabaseService databaseService)
         {
@@ -35,16 +47,16 @@ namespace SellIt_UWP.Views.ViewModels
             SetupOrderDelete();
         }
 
+        private void SetupOrderShow()
+        {
+            Datas.OrderShow.Order = new Order();
+        }
+
         private void SetupOrderDelete()
         {
             Datas.OrderDelete.Button.Content = "Supprimer";
             Datas.OrderDelete.Button.Action = new RelayCommand(OrderDeleteCommand);
             Datas.OrderDelete.Order = new Order();
-        }
-
-        private void SetupOrderShow()
-        {
-            Datas.OrderShow.Order = new Order();
         }
 
         private void OrderDeleteCommand()

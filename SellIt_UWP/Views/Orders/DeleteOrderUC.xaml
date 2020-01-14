@@ -9,7 +9,7 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="20"/>
@@ -28,12 +28,11 @@
             <RowDefinition Height="*" MaxHeight="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txtOrder" Text="Nouvelle commande" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock x:Name="txtOrder" Text="commande" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <TextBlock x:Name="txtDateOrder" Text="Date de commande" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock x:Name="inputDateOfBirth" Text="{Binding Order.DateOrder,Mode=TwoWay}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
         <TextBlock x:Name="txtDateDelivery" Text="Date de livraison" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <TextBlock x:Name="inputDateDelivery" Text="{Binding Order.DateDelivery,Mode=TwoWay}" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
         <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
     </Grid>
 </UserControl>

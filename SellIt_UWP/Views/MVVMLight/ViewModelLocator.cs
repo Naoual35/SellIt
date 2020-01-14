@@ -30,10 +30,10 @@ namespace SellIt_UWP.Views.MVVMLight
                 navigationService.Configure("ClientCheckPage", typeof(ClientCheckPage));
                 navigationService.Configure("SellerCheckPage", typeof(SellerCheckPage));
                 navigationService.Configure("OrderCheckPage", typeof(OrderCheckPage));
-
                 navigationService.Configure("CarCheckPage", typeof(CarCheckPage));
-
                 navigationService.Configure("OrderAdvanceCheckPage", typeof(OrderAdvanceCheckPage));
+                navigationService.Configure("CategoryCheckPage", typeof(CategoryCheckPage));
+                navigationService.Configure("MainMenu2", typeof(MainMenu2));
 
                 return navigationService;
             });
@@ -43,11 +43,10 @@ namespace SellIt_UWP.Views.MVVMLight
             SimpleIoc.Default.Register<ClientPageVM>();
             SimpleIoc.Default.Register<SellerPageVM>();
             SimpleIoc.Default.Register<OrderPageVM>();
-
             SimpleIoc.Default.Register<CarPageVM>();
-
             SimpleIoc.Default.Register<OrderAdvancePageVM>();
-
+            SimpleIoc.Default.Register<CategoryPageVM>();
+            SimpleIoc.Default.Register<MainMenu2VM>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -84,12 +83,19 @@ namespace SellIt_UWP.Views.MVVMLight
             get { return ServiceLocator.Current.GetInstance<OrderPageVM>(); }
         }
 
-
         public CarPageVM CarCheckPageInstance
         {
             get { return ServiceLocator.Current.GetInstance<CarPageVM>(); }
+        }
 
+        public CategoryPageVM CategoryCheckPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<CategoryPageVM>(); }
+        }
 
+        public MainMenu2VM MainMenu2Instance
+        {
+            get { return ServiceLocator.Current.GetInstance<MainMenu2VM>(); }
         }
 
     }

@@ -17,7 +17,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid x:Name="MainMenu">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -39,4 +39,7 @@
         <Button  Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White" x:Name="btnRechercher_Voiture" Grid.Row="1" Grid.ColumnSpan="4" MaxWidth="265" HorizontalAlignment="Stretch" Margin="26,0,-4,0" Content="Rechercher une voiture" Height="41"></Button>
         <Button  Style="{StaticResource LoginUCButton}" Command="{Binding BtnRetourCommand}" Background="{StaticResource purple}" Foreground="White" x:Name="btnRetour" Grid.Row="4" MaxWidth="200" HorizontalAlignment="Stretch" Margin="-2,6,267,0" Content="Retour" Grid.ColumnSpan="3" VerticalAlignment="Top"/>
     </Grid>
+
 </UserControl>
+
+  
