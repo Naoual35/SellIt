@@ -58,3 +58,27 @@ textarea {
     background-color: #280593;
     color: #fff;
 }
+
+.tailleC{
+    height: 500px;
+}
+
+.buttonMenu{
+    margin-top: 20px;
+    text-align: center;
+   
+}
+
+.horizontalAlign{
+    text-align:center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #558c2f;
+    height: 100px;
+    text-align: center;
+}
