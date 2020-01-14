@@ -22,13 +22,13 @@ select,
 textarea {
     max-width: 280px;
 }
-<<<<<<< HEAD
 
-.Retour{
-    text-align:left;
-    padding-bottom:200px;
-=======
-.green {
+
+.Retour {
+    text-align: left;
+    padding-bottom: 200px;
+}
+.green{
     background-color: #558c2f
 }
 
@@ -63,5 +63,4 @@ textarea {
 .bouton {
     background-color: #280593;
     color: #fff;
->>>>>>> 889334f1935efadc1413049ae2d9cc45bf949ec2
 }
