@@ -29,11 +29,18 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
+
+    @Html.Action("RoleList", "Account", new { });
+    @Html.Action("SellerList", "Account", new { });
+
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="S'inscrire" />
         </div>
     </div>
+
+    @Html.ActionLink("Retour", "IndexSellers", "Home", routeValues: null, htmlAttributes: new { id = "registerLink" })
 }
 
 @section Scripts {
