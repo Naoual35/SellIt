@@ -22,3 +22,65 @@ select,
 textarea {
     max-width: 280px;
 }
+.green {
+    background-color: #558c2f
+}
+
+.green-light {
+    background-color: #85bc5c
+}
+
+.green-dark {
+    background-color: #255e00
+}
+
+.purple {
+    background-color: #280593
+}
+
+.purple-light {
+    background-color: #5f5fc4
+}
+
+.purple-dark {
+    background-color: #001064
+}
+
+.black {
+    color: #000;
+}
+
+.blanc {
+    color: #fff;
+}
+
+.bouton {
+    background-color: #280593;
+    color: #fff;
+    font-size:20px;
+ 
+}
+
+.tailleC{
+    height: 500px;
+}
+
+.buttonMenu{
+    margin-top: 100px;
+    text-align: center;
+    
+}
+
+.horizontalAlign{
+    text-align:center;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #558c2f;
+    height: 100px;
+    text-align: center;
+}
