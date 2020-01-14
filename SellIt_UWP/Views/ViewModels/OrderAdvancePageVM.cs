@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -19,6 +20,17 @@ namespace SellIt_UWP.Views.ViewModels
         private DatabaseService databaseService;
 
         public OrderAdvancePageAccessor Datas { get; set; }
+
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
 
         public OrderAdvancePageVM(INavigationService navigationService, DatabaseService databaseService)
         {

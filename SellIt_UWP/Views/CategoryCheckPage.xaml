@@ -34,7 +34,7 @@
             <categoryUc:EditCategoryUC DataContext="{Binding Datas.CategoryEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
             <categoryUc:ShowCategoryUC DataContext="{Binding Datas.CategoryShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
             <categoryUc:DeleteCategoryUC DataContext="{Binding Datas.CategoryDelete, Mode=TwoWay}" x:Name="roleDelete" Grid.Row="1" Grid.Column="0"/>
-            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35" Margin="99,0,1,0"/>
+            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35"/>
         </Grid>
     </ScrollViewer>
 </Page>

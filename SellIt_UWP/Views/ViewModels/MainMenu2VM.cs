@@ -68,6 +68,19 @@ namespace SellIt_UWP.Views.ViewModels
                 this.navigationService.NavigateTo("OrderCheckPage");
             });
 
+            Datas.myButtons.OrderAdvanceButton.Content = "Commandes Avancés";
+
+            Datas.myButtons.OrderAdvanceButton.Action = new RelayCommand(() =>
+            {
+                this.navigationService.NavigateTo("OrderAdvanceCheckPage");
+            });
+
+            Datas.myButtons.BrandButton.Content = "Marques";
+
+            Datas.myButtons.BrandButton.Action = new RelayCommand(() =>
+            {
+                this.navigationService.NavigateTo("BrandCheckPage");
+            });
 
         }
     }

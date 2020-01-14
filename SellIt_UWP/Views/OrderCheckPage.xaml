@@ -10,7 +10,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding OrderCheckPageInstance, Source={StaticResource Locator}}"
     >
-
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Views/Styles/LoginUCStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>   
+    
     <ScrollViewer>
         <Grid x:Name="mainGrid">
             <Grid.ColumnDefinitions>
@@ -18,13 +25,15 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <orderUc:ListOrderUC DataContext="{Binding Datas.OrderList, Mode=TwoWay}" x:Name="roleList" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"/>
             <orderUc:EditOrderUC DataContext="{Binding Datas.OrderEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
             <orderUc:ShowOrderUC DataContext="{Binding Datas.OrderShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
             <orderUc:DeleteOrderUC DataContext="{Binding Datas.OrderDelete, Mode=TwoWay}" x:Name="roleDelete" Grid.Row="1" Grid.Column="0"/>
+            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35"/>
         </Grid>
     </ScrollViewer>
 </Page>
