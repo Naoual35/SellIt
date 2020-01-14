@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using SellIt_UWP.Services;
 using SellIt_UWP.Views.ViewModels.UCAccessors;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,13 @@ namespace SellIt_UWP.Views.ViewModels
     public class MainMenu2VM
     {
         private INavigationService navigationService;
+        public DatabaseService databaseService { get; set; }
         public MainMenu2Accessor Datas { get; set; }
 
-        public MainMenu2VM(INavigationService navigationService)
+        public MainMenu2VM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
+            this.databaseService = databaseService;
             SetupButtons();
         }
 

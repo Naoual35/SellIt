@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace SellIt_UWP.Views.ViewModels
@@ -18,11 +19,23 @@ namespace SellIt_UWP.Views.ViewModels
         private DatabaseService databaseService;
         public CategoryPageAccessor Datas { get; set; }
 
+        public ICommand BtnRetourCommand
+        {
+            get
+            {
+                return new RelayCommand(() =>
+                {
+                    this.navigationService.GoBack();
+                });
+            }
+        }
+
         public CategoryPageVM(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
             this.databaseService = databaseService;
             SetupDatas();
+            
         }
 
         private void SetupDatas()

@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="500">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -20,24 +20,23 @@
     <ScrollViewer>
         <Grid x:Name="MainMenu">
             <Grid.RowDefinitions>
-                <RowDefinition Height="7*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
+                <RowDefinition Height="5"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="7*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="5"/>
+
             </Grid.RowDefinitions>
-            <Button x:Name="btnCategory" Content="{Binding CategoryButton.Content}" x:FieldModifier="public" Command="{Binding CategoryButton.Action}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button x:Name="btnCategory" Content="{Binding CategoryButton.Content}" x:FieldModifier="public" Command="{Binding CategoryButton.Action}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="btnCar" Content="{Binding CarButton.Content}" x:FieldModifier="public" Command="{Binding CarButton.Action}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="btnSeller" Content="{Binding SellerButton.Content}" x:FieldModifier="public" Command="{Binding SellerButton.Action}" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="btnClient" Content="{Binding ClientButton.Content}" x:FieldModifier="public" Command="{Binding ClientButton.Action}" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
