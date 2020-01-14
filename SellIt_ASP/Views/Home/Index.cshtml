@@ -2,24 +2,25 @@
     ViewBag.Title = "Home Page";
 }
 
-    <div class="row">
+<div class="row">
 
-        <div class="horizontalAlign">
+    <div class="horizontalAlign">
 
-            <div class="row buttonMenu" >
+        <div class="row buttonMenu">
 
-                @Html.ActionLink("Voiture", "Index", "Cars", routeValues: null, htmlAttributes: new { id = "carLink", @class = "btn bouton" })
+            @Html.ActionLink("Voiture", "Index", "Cars", routeValues: null, htmlAttributes: new { id = "carLink", @class = "btn bouton" })
 
-            </div>
-            <div class="row buttonMenu">
-                @Html.ActionLink("Commande", "Index", "Orders", routeValues: null, htmlAttributes: new { id = "orderLink", @class = "btn bouton" })
+        </div>
+        <div class="row buttonMenu">
+            @Html.ActionLink("Commande", "Index", "Orders", routeValues: null, htmlAttributes: new { id = "orderLink", @class = "btn bouton" })
 
-            </div>
-            <div class="row buttonMenu">
-                @Html.ActionLink("Vendeur", "Index", "Sellers", routeValues: null, htmlAttributes: new { id = "sellerLink", @class = "btn bouton" })
+        </div>
+        <div class="row buttonMenu">
+            @Html.ActionLink("Vendeur", "Index", "Sellers", routeValues: null, htmlAttributes: new { id = "sellerLink", @class = "btn bouton" })
 
-            </div>
         </div>
     </div>
 
+
+</div>
 
