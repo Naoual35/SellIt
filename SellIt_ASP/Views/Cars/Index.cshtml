@@ -62,10 +62,10 @@
         @Html.DisplayFor(modelItem => item.DelayExchange)
     </td>
     <td>
-    
+        @Html.DisplayFor(modelItem => item.Category.Brand.Name)
     </td>
     <td>
-        
+        @Html.DisplayFor(modelItem => item.Category.Name)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.CarId }) |
