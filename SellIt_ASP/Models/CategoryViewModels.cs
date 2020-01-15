@@ -1,10 +1,7 @@
 ﻿using SellIt.Entities;
 using System;
 using System.Collections.Generic;
-<<<<<<< HEAD
 using System.Collections.ObjectModel;
-=======
->>>>>>> 99be1004ecbd9f2d06777486038f28dcf8ea2355
 using System.ComponentModel;
 using System.Linq;
 using System.Web;
