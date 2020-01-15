@@ -42,6 +42,7 @@
 
     @foreach (var item in Model)
     {
+
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -71,6 +72,39 @@
                 @Html.ActionLink("Delete", "Delete", new { id = item.CarId })
             </td>
         </tr>
+
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Year)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Color)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Avalaible)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TimeAssurancy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.DelayExchange)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.Brand.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CarId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CarId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CarId })
+    </td>
+</tr>
+
     }
 
 </table>

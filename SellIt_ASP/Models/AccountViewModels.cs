@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using SellIt.Entities;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace SellIt_ASP.Models
@@ -73,6 +74,7 @@ namespace SellIt_ASP.Models
 
     public class SellerListViewModel
     {
+        [DisplayName("Vendeurs")]
         public List<Seller> Sellers { get; set; }
     }
 

@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using SellIt.Database;
 using SellIt.Entities;
+using SellIt_ASP.Models;
+using SellIt_ASP.Utils.DatabaseUtils;
 
 namespace SellIt_ASP.Controllers
 {
@@ -48,10 +50,11 @@ namespace SellIt_ASP.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CarId,Name,Year,Color,Avalaible,TimeAssurancy,DelayExchange")] Car car)
+        public async Task<ActionResult> Create([Bind(Include = "CarId,Name,Year,Color,Avalaible,TimeAssurancy,DelayExchange")] Car car, long categoryId)
         {
             if (ModelState.IsValid)
             {
+                car.Category = db.DbCategory.Find(categoryId);
                 db.DbCar.Add(car);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -115,6 +118,14 @@ namespace SellIt_ASP.Controllers
             db.DbCar.Remove(car);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        [ChildActionOnly]
+        public ActionResult CategoryList()
+        {
+            CategoryListViewModel vm = new CategoryListViewModel();
+            vm.Categories = db.DbCategory.Include(x => x.Brand).ToList();//CategoryUtils.GetCategories();
+            return PartialView("~/Views/Shared/Account/_CategoryList.cshtml", vm);
         }
 
         protected override void Dispose(bool disposing)

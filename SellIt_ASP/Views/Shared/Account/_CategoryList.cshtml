@@ -1,0 +1,12 @@
+﻿@model SellIt_ASP.Models.CategoryListViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Categories, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(x => x.Categories,
+            new SelectList(Model.Categories, "CategoryId", "LongDescription"),
+            "Selectionner une catégorie",
+            new { @class = "form-control", Name = "categoryId" })
+    </div>
+</div>
+

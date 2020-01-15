@@ -69,7 +69,7 @@ namespace SellIt_ASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = await db.DbCategory.FindAsync(id);
+            Category category = await db.DbCategory.Include(x => x.Brand).FirstOrDefaultAsync(x => x.CategoryId == id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -86,7 +86,12 @@ namespace SellIt_ASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.Brand = db.DbBrand.Find(brandId);
+                category = db.DbCategory.Find(category.CategoryId);
+                category.Brand = category.Brand = db.DbBrand.Find(brandId);
+
+                //category.Brand = db.DbBrand.Find(brandId);
+                //db.DbBrand.Attach(category.Brand);
+                //db.DbCategory.Attach(category);
                 db.Entry(category).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -120,6 +125,7 @@ namespace SellIt_ASP.Controllers
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
         public ActionResult BrandList()
         {
             BrandListViewModel vm = new BrandListViewModel();

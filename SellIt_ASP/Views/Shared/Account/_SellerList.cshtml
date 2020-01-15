@@ -5,7 +5,7 @@
     <div class="col-md-10">
         @Html.DropDownListFor(x => x.Sellers,
             new SelectList(Model.Sellers, "SellerId", "Lastname"),
-            "Selectionner un role",
+            "Selectionner un vendeur",
             new { @class = "form-control", Name = "SellerId" })
     </div>
 </div>
