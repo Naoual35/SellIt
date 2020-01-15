@@ -12,12 +12,13 @@ namespace SellIt_UWP.Views.ViewModels.UCAccessors
         public BrandEditAccessor BrandEdit { get; set; }
         public BrandListAccessor BrandList { get; set; }
         public BrandShowAccessor BrandShow { get; set; }
-
+        public BrandDeleteAccessor BrandDelete { get; set; }
         public BrandPageAccessor()
         {
             this.BrandEdit = new BrandEditAccessor();
             this.BrandList = new BrandListAccessor();
             this.BrandShow = new BrandShowAccessor();
+            this.BrandDelete = new BrandDeleteAccessor();
         }
     }
 }
