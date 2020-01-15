@@ -35,7 +35,7 @@
             <RowDefinition Height="5"/>
 
         </Grid.RowDefinitions>
-        <Button x:Name="btnBrand" Content="{Binding CategoryButton.Content}" x:FieldModifier="public"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="White" Background="{StaticResource purple}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btnBrand" Content="{Binding BrandButton.Content}" x:FieldModifier="public" Command="{Binding BrandButton.Action}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Foreground="White" Background="{StaticResource purple}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btnCategory" Content="{Binding CategoryButton.Content}" x:FieldModifier="public" Command="{Binding CategoryButton.Action}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3" Foreground="White" Background="{StaticResource purple}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btnCar" Content="{Binding CarButton.Content}" x:FieldModifier="public" Command="{Binding CarButton.Action}" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Foreground="White" Background="{StaticResource purple}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button x:Name="btnSeller" Content="{Binding SellerButton.Content}" x:FieldModifier="public" Command="{Binding SellerButton.Action}" Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Foreground="White" Background="{StaticResource purple}" HorizontalAlignment="Center" VerticalAlignment="Center"/>

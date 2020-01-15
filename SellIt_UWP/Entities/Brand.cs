@@ -62,10 +62,16 @@ namespace SellIt_UWP.Entities
             }
         }
 
+        public Brand()
+        {
+            this.Description = "";
+            this.Name = "";
+        }
+
         public Brand Copy()
         {
             Brand brand = new Brand();
-            brand.brandId = this.BrandId;
+            brand.BrandId = this.BrandId;
             brand.Name = this.Name;
             brand.Description = this.Description;
             return brand;
@@ -73,8 +79,8 @@ namespace SellIt_UWP.Entities
 
         public void CopyFrom(Brand brand)
         {
-            this.brandId = brand.BrandId;
-            this.name = brand.Name;
+            this.BrandId = brand.BrandId;
+            this.Name = brand.Name;
             this.Description = brand.Description;
 
             #endregion
