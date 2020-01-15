@@ -23,29 +23,35 @@
         <th>
             @Html.DisplayNameFor(model => model.Tva)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand.Name)
+        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tva)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CategoryId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryId })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Price)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Tva)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Brand.Name)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.CategoryId }) |
+        @Html.ActionLink("Details", "Details", new { id = item.CategoryId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.CategoryId })
+    </td>
+</tr>
 }
 
 </table>

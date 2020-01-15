@@ -69,7 +69,7 @@ namespace SellIt_ASP.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = await db.DbCategory.FindAsync(id);
+            Category category = await db.DbCategory.Include(x => x.Brand).FirstOrDefaultAsync(x => x.CategoryId == id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -120,6 +120,7 @@ namespace SellIt_ASP.Controllers
             return RedirectToAction("Index");
         }
 
+        [ChildActionOnly]
         public ActionResult BrandList()
         {
             BrandListViewModel vm = new BrandListViewModel();
