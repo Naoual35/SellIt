@@ -50,22 +50,24 @@
                 <carUc:EditCarUC DataContext="{Binding Datas.CarEdit, Mode=TwoWay}" x:Name="roleEdit" Grid.Row="0" Grid.Column="1"/>
                 <carUc:ShowCarUC DataContext="{Binding Datas.CarShow, Mode=TwoWay}" x:Name="roleShow" Grid.Row="1" Grid.Column="1"/>
                 <carUc:DeleteCarUC DataContext="{Binding Datas.CarDelete, Mode=TwoWay}" x:Name="roleDelete" Grid.Row="1" Grid.Column="0"/>
-                
+
             </Grid>
         </ScrollViewer>
 
         <Grid x:Name="footerGrid" Grid.Column="0" Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="177*"/>
+                <ColumnDefinition Width="14*"/>
+                <ColumnDefinition Width="109*"/>
+                <ColumnDefinition Width="100*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-             <Rectangle Fill="{StaticResource green}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
-            <Image x:Name="footer" Grid.Column="2" Grid.Row="0"  Stretch="Uniform" Source="ms-appx:///Assets/logo-logisna.png"/>
-            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnRetour" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35"/>
+            <Rectangle Fill="{StaticResource green}" Grid.Column="0" Grid.ColumnSpan="5" Margin="0,0,0,19"/>
+            <Image x:Name="footer" Grid.Column="4" Grid.Row="0"  Stretch="Uniform" Source="ms-appx:///Assets/logo-logisna.png" Margin="0,0,0,19"/>
+            
         </Grid>
 
 

@@ -103,6 +103,8 @@ namespace SellIt_UWP.Services
                 eRF.Set();
             });
             eRF.WaitOne();
+
+
         }
     }
 }

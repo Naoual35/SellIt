@@ -75,7 +75,7 @@ namespace SellIt_UWP.Views.ViewModels
                     contentDialog.ShowAsync();
                 }
 
-                this.navigationService.NavigateTo("MainMenu2");
+                //this.navigationService.NavigateTo("MainMenu2");
             });
         }
     }
