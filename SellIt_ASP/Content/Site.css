@@ -22,7 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
-.green {
+
+.green{
+
     background-color: #558c2f
 }
 
@@ -66,7 +68,7 @@ textarea {
 }
 
 .buttonMenu{
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     
 }
@@ -84,3 +86,4 @@ textarea {
     height: 100px;
     text-align: center;
 }
+
