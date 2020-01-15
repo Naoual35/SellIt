@@ -1,4 +1,5 @@
-﻿using SellIt.Entities.ValidationEntities;
+﻿using NUnit.Framework;
+using SellIt.Entities.ValidationEntities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,11 +54,27 @@ namespace SellIt.Entities
 
         [Column("brand")]
         [DisplayName("Marque")]
-        [Required(ErrorMessage = "une marque est obligatoire")]
+        //[Required(ErrorMessage = "une marque est obligatoire")]
         public virtual Brand Brand
         {
             get { return brand; }
             set { brand = value; }
+        }
+
+        [NotMapped]
+        public string LongDescription
+        {
+            get
+            {
+                if (Brand != null)
+                {
+                    return Name + " " + Brand.Name;
+                }
+                else
+                {
+                    return Name + " noBrand";
+                }
+            }
         }
 
         [Column("price")]

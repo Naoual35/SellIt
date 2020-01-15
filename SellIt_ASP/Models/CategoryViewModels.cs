@@ -1,6 +1,7 @@
 ﻿using SellIt.Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -9,5 +10,11 @@ namespace SellIt_ASP.Models
     public class BrandListViewModel
     {
         public List<Brand> Brands { get; set; }
+    }
+
+    public class CategoryListViewModel
+    {
+        [DisplayName("Catégorie")]
+        public List<Category> Categories { get; set; }
     }
 }
