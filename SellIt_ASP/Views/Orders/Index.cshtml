@@ -20,20 +20,24 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateOrder)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateDelivery)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.OrderID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.OrderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.OrderID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOrder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateDelivery)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+            </td>
+        </tr>
+    }
+    
 </table>
+<div class="col-md-4">
+    @Html.ActionLink("Retour", "Index", "Home", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn bouton" })
+</div>
