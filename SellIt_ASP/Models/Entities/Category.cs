@@ -53,7 +53,7 @@ namespace SellIt.Entities
 
         [Column("brand")]
         [DisplayName("Marque")]
-        [Required(ErrorMessage = "une marque est obligatoire")]
+        //[Required(ErrorMessage = "une marque est obligatoire")]
         public virtual Brand Brand
         {
             get { return brand; }

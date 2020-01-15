@@ -86,7 +86,12 @@ namespace SellIt_ASP.Controllers
         {
             if (ModelState.IsValid)
             {
-                category.Brand = db.DbBrand.Find(brandId);
+                category = db.DbCategory.Find(category.CategoryId);
+                category.Brand = category.Brand = db.DbBrand.Find(brandId);
+
+                //category.Brand = db.DbBrand.Find(brandId);
+                //db.DbBrand.Attach(category.Brand);
+                //db.DbCategory.Attach(category);
                 db.Entry(category).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
