@@ -65,7 +65,7 @@
             </Grid.RowDefinitions>
              <Rectangle Fill="{StaticResource green}" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/>
             <Image x:Name="footer" Grid.Column="2" Grid.Row="0"  Stretch="Uniform" Source="ms-appx:///Assets/logo-logisna.png"/>
-            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnConnexion" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35"/>
+            <Button Content="Retour" Style="{StaticResource LoginUCButton}" Background="{StaticResource purple}" Foreground="White"  Command="{Binding BtnRetourCommand}" x:Name="btnRetour" Grid.Row="3" Grid.ColumnSpan="4" MaxWidth="200" HorizontalAlignment="Stretch" Height="35"/>
         </Grid>
 
 

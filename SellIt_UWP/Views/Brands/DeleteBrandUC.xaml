@@ -24,11 +24,11 @@
             <RowDefinition Height="*" MaxHeight="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="txtBrand" Text="Marque" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="48"/>
-        <TextBlock x:Name="txtName" Text="Nom" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Height="19" Width="31"/>
+        <TextBlock x:Name="txtBrand" Text="Marque" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock x:Name="txtName" Text="Nom" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
         <TextBlock x:Name="inputName" Text="{Binding Brand.Name, Mode=TwoWay}"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-        <TextBlock x:Name="txtDescription" Text="Description" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Height="19" Width="70"/>
+        <TextBlock x:Name="txtDescription" Text="Description" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <TextBlock x:Name="inputDescription" Text="{Binding Brand.Description, Mode=TwoWay}"  Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-        <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Row="6" HorizontalAlignment="Center" Height="14" Width="21"/>
+        <Button x:Name="btnValider" Content="{Binding Button.Content}" x:FieldModifier="public" Command="{Binding Button.Action}" Grid.Row="6" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>
