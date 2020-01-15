@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using SellIt.Database;
 using SellIt.Entities;
+using SellIt_ASP.Models;
+using SellIt_ASP.Utils.DatabaseUtils;
 
 namespace SellIt_ASP.Controllers
 {
@@ -80,10 +82,11 @@ namespace SellIt_ASP.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "CategoryId,Name,Description,Price,Tva")] Category category)
+        public async Task<ActionResult> Edit([Bind(Include = "CategoryId,Name,Description,Price,Tva")] Category category,long brandId)
         {
             if (ModelState.IsValid)
             {
+                category.Brand = db.DbBrand.Find(brandId);
                 db.Entry(category).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -115,6 +118,13 @@ namespace SellIt_ASP.Controllers
             db.DbCategory.Remove(category);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult BrandList()
+        {
+            BrandListViewModel vm = new BrandListViewModel();
+            vm.Brands = BrandUtils.GetBrands();
+            return PartialView("~/Views/Shared/Brand/_BrandList.cshtml", vm);
         }
 
         protected override void Dispose(bool disposing)

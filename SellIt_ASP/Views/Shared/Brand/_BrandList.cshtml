@@ -1,0 +1,11 @@
+﻿@model SellIt_ASP.Models.BrandListViewModel
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Brands, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(x => x.Brands,
+            new SelectList(Model.Brands, "BrandId", "Name"),
+            "Selectionner un role",
+            new { @class = "form-control", Name = "brandId" })
+    </div>
+</div>

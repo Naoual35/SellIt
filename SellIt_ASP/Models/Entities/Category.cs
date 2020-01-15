@@ -73,7 +73,7 @@ namespace SellIt.Entities
         [Column("tva")]
         [DisplayName("TVA")]
         [Required(ErrorMessage = "une tva est obligatoire")]
-        [TvaValid]
+        //[TvaValid]
         public float Tva
         {
             get { return tva; }

@@ -184,6 +184,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CategoryViewModels.cs" />
     <Compile Include="Models\Database\SellItContext.cs" />
     <Compile Include="Models\Security\ApplicationDbContext.cs" />
     <Compile Include="Models\Security\ApplicationUser.cs" />
@@ -205,6 +206,7 @@
     <Compile Include="Models\Entities\ValidationEntities\YearCarValid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utils\DatabaseUtils\BrandUtils.cs" />
     <Compile Include="Utils\DatabaseUtils\SellerUtils.cs" />
     <Compile Include="Utils\IdentityUtils\RoleUtils.cs" />
   </ItemGroup>
@@ -292,6 +294,7 @@
     <Content Include="Views\Shared\Account\_RoleList.cshtml" />
     <Content Include="Views\Home\IndexSellers.cshtml" />
     <Content Include="Views\Shared\Account\_SellerList.cshtml" />
+    <Content Include="Views\Shared\Brand\_BrandList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -76,6 +76,7 @@ namespace SellIt.Database
                 citPeugeot.Price = 2000F;
                 citPeugeot.Brand = this.dbBrand.Find(peugeot.BrandId);
                 this.dbCategory.Add(citPeugeot);
+                
                 this.SaveChanges();
 
                 Category citRenault = new Category();
