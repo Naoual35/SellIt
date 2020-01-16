@@ -31,7 +31,7 @@ namespace SellIt_UWP.Views.ViewModels
             }
         }
         public SellerPageVM(INavigationService navigationService, DatabaseService databaseService)
-        {
+        {           
             this.navigationService = navigationService;
             this.databaseService = databaseService;
             SetupDatas();

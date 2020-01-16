@@ -24,6 +24,21 @@ namespace SellIt_UWP.Views.ViewModels
 
         public LoginVM(INavigationService navigationService, DatabaseService databaseService)
         {
+            if (databaseService.Sellers.Count() == 0)
+            {
+                Seller seller = new Seller();
+                seller.Lastname = "admin";
+                seller.Password = "admin";
+                seller.Address = "-";
+                seller.Firstname = "admin";
+                seller.DateOfBirth = new DateTimeOffset(new DateTime(1986, 1, 1));
+                seller.Lastname = "-";
+                seller.PhoneNumber = "-";
+                seller.Postcode = 0;
+                seller.SellerId = 1;
+                seller.City = "-";
+                databaseService.SqliteConnection.Insert(seller);
+            }
             this.navigationService = navigationService;
             this.databaseService = databaseService;
             SetUpDatas();
@@ -52,30 +67,30 @@ namespace SellIt_UWP.Views.ViewModels
             Datas.Login.Button.Content = "Connexion";
             Datas.Login.Button.Action = new RelayCommand(() =>
             {
-                foreach (var item in this.databaseService.Sellers)
-                {
-                    if ((item.Lastname.Equals(this.Datas.Login.Seller.Lastname)) && (item.Password.Equals(this.Datas.Login.Seller.Password)))
-                    {
-                        tag = true;
-                        break;
-                    }
-                }
+                //foreach (var item in this.databaseService.Sellers)
+                //{
+                //    if ((item.Lastname.Equals(this.Datas.Login.Seller.Lastname)) && (item.Password.Equals(this.Datas.Login.Seller.Password)))
+                //    {
+                //        tag = true;
+                //        break;
+                //    }
+                //}
 
-                if (tag)
-                {
-                    this.navigationService.NavigateTo("MainMenu2");
-                }
-                else
-                {
-                    ContentDialog contentDialog = new ContentDialog();
-                    contentDialog.Title = "Error";
-                    contentDialog.Content = "Login ou mot de passe incorrect";
-                    contentDialog.IsSecondaryButtonEnabled = false;
-                    contentDialog.PrimaryButtonText = "ok";
-                    contentDialog.ShowAsync();
-                }
+                //if (tag)
+                //{
+                //    this.navigationService.NavigateTo("MainMenu2");
+                //}
+                //else
+                //{
+                //    ContentDialog contentDialog = new ContentDialog();
+                //    contentDialog.Title = "Error";
+                //    contentDialog.Content = "Login ou mot de passe incorrect";
+                //    contentDialog.IsSecondaryButtonEnabled = false;
+                //    contentDialog.PrimaryButtonText = "ok";
+                //    contentDialog.ShowAsync();
+                //}
 
-                //this.navigationService.NavigateTo("MainMenu2");
+                this.navigationService.NavigateTo("MainMenu2");
             });
         }
     }
